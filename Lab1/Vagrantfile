@@ -1,0 +1,39 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+home = ENV['HOME']
+
+Vagrant.configure("2") do |config|
+
+  config.vm.define "box-lab1" do |node|
+    node.vm.box = "centos/7"
+    node.vm.box_check_update = false
+    node.vm.hostname = "box-lab1.mylabs.local"
+    node.vm.synced_folder ".", "/vagrant"
+    node.vm.provider "virtualbox" do |vb|
+     vb.gui = false
+     vb.memory = "1024"
+     vb.cpus = 4
+     vb.name = "box-lab1"
+     box_disk = File.join(home,"VirtualMachine/box-lab1/lab1disk1.vdi")
+     unless File.exist?(box_disk)
+       vb.customize ["storagectl", :id, "--name", "SATA Controller", "--add", "sata"]
+       vb.customize ["createhd", "--filename", box_disk, "--variant", "Fixed", "--size", 10 * 1024]
+     end
+     vb.customize ["storageattach", :id, "--storagectl", "SATA Controller", "--port", 2, "--device", 0, "--type", "hdd", "--medium", box_disk]
+    end
+
+    node.vm.provision "shell", inline: <<-SHELL
+      sudo timedatectl set-timezone Europe/Moscow
+      sudo yum -y groupinstall 'Development Tools'
+      sudo yum -y install bc
+      curl -O https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.16.59.tar.xz
+      tar xJf linux-3.16.59.tar.xz
+      cd linux-3.16.59
+      cp /boot/config-$(uname -r) .config
+      yes "" | make oldconfig && make && sudo make install && make modules_install && cp .config /vagrant/config-3.16.59 && sudo cp /var/log/yum.log /vagrant/yum.log
+    SHELL
+
+  end
+
+end
