@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
       tar xJf linux-3.16.59.tar.xz
       cd linux-3.16.59
       cp /boot/config-$(uname -r) .config
-      yes "" | make oldconfig && make && sudo make install && make modules_install && cp .config /vagrant/config-3.16.59 && sudo cp /var/log/yum.log /vagrant/yum.log
+      yes "" | make oldconfig && make && sudo make install && sudo make modules_install && cp .config /vagrant/config-3.16.59 && sudo cp /var/log/yum.log /vagrant/yum.log
     SHELL
 
   end

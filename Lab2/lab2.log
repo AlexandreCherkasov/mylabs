@@ -1,0 +1,53 @@
+*** Create, Configure and Test RAID
+*** Number of Disk for Creating RAID: 5
+--= RAID6 =--
+*** Clean Superblock on RAID disks
+*** Create RAID6
+Personalities : [raid6] [raid5] [raid4] 
+md100 : active raid6 sdf[4] sde[3] sdd[2] sdc[1] sdb[0]
+      1529856 blocks super 1.2 level 6, 512k chunk, algorithm 2 [5/5] [UUUUU]
+      
+unused devices: <none>
+*** Create RAID conf file
+DEVICE partitions
+ARRAY /dev/md100 level=raid6 num-devices=5 metadata=1.2 name=boxlab2:100 UUID=e03b8368:525fe7f3:e69cb887:baa30a71
+*** Create Partition Table on RAID
+Model: Linux Software RAID Array (md)
+Disk /dev/md100: 1567MB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End     Size   File system  Name     Flags
+ 1      17.4kB  313MB   313MB               primary
+ 2      313MB   627MB   313MB               primary
+ 3      627MB   940MB   313MB               primary
+ 4      940MB   1253MB  313MB               primary
+ 5      1253MB  1567MB  313MB               primary
+
+*** Create Filesystem on Partitions and mount it
+*** Mounted RAID partitions
+/dev/md100p1 on /raid/part1 type xfs (rw,relatime,seclabel,attr2,inode64,sunit=1024,swidth=3072,noquota)
+/dev/md100p2 on /raid/part2 type xfs (rw,relatime,seclabel,attr2,inode64,sunit=1024,swidth=3072,noquota)
+/dev/md100p3 on /raid/part3 type xfs (rw,relatime,seclabel,attr2,inode64,sunit=1024,swidth=3072,noquota)
+/dev/md100p4 on /raid/part4 type xfs (rw,relatime,seclabel,attr2,inode64,sunit=1024,swidth=3072,noquota)
+/dev/md100p5 on /raid/part5 type xfs (rw,relatime,seclabel,attr2,inode64,sunit=1024,swidth=3072,noquota)
+*** Failed one disk in RAID
+Personalities : [raid6] [raid5] [raid4] 
+md100 : active raid6 sdf[4] sde[3] sdd[2](F) sdc[1] sdb[0]
+      1529856 blocks super 1.2 level 6, 512k chunk, algorithm 2 [5/4] [UU_UU]
+      
+unused devices: <none>
+*** Remove failed drive from RAID
+Personalities : [raid6] [raid5] [raid4] 
+md100 : active raid6 sdf[4] sde[3] sdc[1] sdb[0]
+      1529856 blocks super 1.2 level 6, 512k chunk, algorithm 2 [5/4] [UU_UU]
+      
+unused devices: <none>
+*** Add new drive to RAID
+Personalities : [raid6] [raid5] [raid4] 
+md100 : active raid6 sdd[5] sdf[4] sde[3] sdc[1] sdb[0]
+      1529856 blocks super 1.2 level 6, 512k chunk, algorithm 2 [5/5] [UUUUU]
+      
+unused devices: <none>
+*** RAID6 Created and Tested

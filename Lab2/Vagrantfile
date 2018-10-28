@@ -1,0 +1,111 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+home = ENV['HOME']
+ENV["LC_ALL"] = "en_US.UTF-8"
+
+MACHINES = {
+  :boxlab2 => {
+    :box_name => "centos/7",
+    :disks => {
+      :sata1 => {
+        :dfile => File.join(home, 'VirtualMachine/box-lab2/lab2disk1.vdi'),
+        :size => 500,
+        :port => 1
+      },
+      :sata2 => {
+        :dfile => File.join(home, 'VirtualMachine/box-lab2/lab2disk2.vdi'),
+        :size => 500,
+        :port => 2
+      },
+      :sata3 => {
+        :dfile => File.join(home, 'VirtualMachine/box-lab2/lab2disk3.vdi'),
+        :size => 500,
+        :port => 3
+      },
+      :sata4 => {
+        :dfile => File.join(home, 'VirtualMachine/box-lab2/lab2disk4.vdi'),
+        :size => 500,
+        :port => 4
+      },
+      :sata5 => {
+        :dfile => File.join(home, 'VirtualMachine/box-lab2/lab2disk5.vdi'),
+        :size => 500,
+        :port => 5
+      }
+	}
+  }
+}
+
+Vagrant.configure("2") do |config|
+
+  MACHINES.each do |boxname, boxconfig|
+
+    config.vm.define boxname do |box|
+      box.vm.box = boxconfig[:box_name]
+      box.vm.host_name = boxname.to_s
+
+      box.vm.provider :virtualbox do |vb|
+        vb.customize ["modifyvm", :id, "--memory", "1024"]
+        needsController = false
+        boxconfig[:disks].each do |dname, dconf|
+          unless File.exist?(dconf[:dfile])
+            vb.customize ['createhd', '--filename', dconf[:dfile], '--variant', 'Fixed', '--size', dconf[:size]]
+            needsController =  true
+          end
+        end
+        if needsController == true
+          vb.customize ["storagectl", :id, "--name", "SATA", "--add", "sata" ]
+          boxconfig[:disks].each do |dname, dconf|
+            vb.customize ['storageattach', :id,  '--storagectl', 'SATA', '--port', dconf[:port], '--device', 0, '--type', 'hdd', '--medium', dconf[:dfile]]
+          end
+        end
+      end
+
+      box.vm.provision "shell", inline: <<-SHELL
+        yum install -y mdadm 
+        LABLOG=/vagrant/lab2.log
+        echo "*** Create, Configure and Test RAID" >> $LABLOG
+        numdisk=$(ls -1 /dev/sd* | grep -v sda | wc -l)
+        echo "*** Number of Disk for Creating RAID: $numdisk" >> $LABLOG
+        if [ $numdisk -ge 4 ]; then 
+           echo "--= RAID6 =--" >> $LABLOG
+           lstdev=""
+           echo "*** Clean Superblock on RAID disks" >> $LABLOG
+           for dd in $(ls -1 /dev/sd* | grep -v sda); do lstdev="$lstdev $dd"; sudo mdadm --zero-superblock --force $dd; done
+           echo "*** Create RAID6" >> $LABLOG
+           sudo mdadm -C --verbose /dev/md100 -l 6 -n 5 $lstdev >> $LABLOG
+           sleep 10
+           cat /proc/mdstat >> $LABLOG
+           echo "*** Create RAID conf file" >> $LABLOG
+           sudo sh -c 'echo "DEVICE partitions" > /etc/mdadm.conf'
+           sudo sh -c 'mdadm -D --scan --verbose | grep ARRAY >> /etc/mdadm.conf'
+           cat /etc/mdadm.conf >> $LABLOG
+           echo "*** Create Partition Table on RAID" >> $LABLOG
+           sudo parted /dev/md100 mklabel gpt
+           for i in {20,40,60,80,100}; do sudo parted -a cylinder /dev/md100 mkpart primary xfs $((i-20))% $i%; done
+           sudo parted /dev/md100 print >> $LABLOG
+           echo "*** Create Filesystem on Partitions and mount it" >> $LABLOG
+           for i in {1..5}; do sudo mkfs.xfs -f /dev/md100p$i && sudo mkdir -p /raid/part$i && sudo mount /dev/md100p$i /raid/part$i/; done
+           echo "*** Mounted RAID partitions" >> $LABLOG
+           mount | grep raid >> $LABLOG
+           echo "*** Failed one disk in RAID" >> $LABLOG
+           sudo mdadm /dev/md100 --fail /dev/sdd
+           cat /proc/mdstat >> $LABLOG
+           echo "*** Remove failed drive from RAID" >> $LABLOG
+           sudo mdadm /dev/md100 --remove /dev/sdd
+           cat /proc/mdstat >> $LABLOG
+           echo "*** Add new drive to RAID" >> $LABLOG
+           sudo mdadm --zero-superblock --force /dev/sdd
+           sudo mdadm /dev/md100 --add /dev/sdd
+           sleep 10
+           cat /proc/mdstat >> $LABLOG
+           echo "*** RAID6 Created and Tested" >> $LABLOG
+        else
+           echo "*** Too Small disks for creating RAID6"
+        fi
+  	  SHELL
+
+    end
+  end
+end
