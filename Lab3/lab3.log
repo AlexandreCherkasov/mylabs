@@ -1,0 +1,651 @@
+Script started on Fri 02 Nov 2018 12:35:33 PM MSK
+]0;vagrant@boxlab3:~[?1034h[vagrant@boxlab3 ~]$ sudo su
+]0;root@boxlab3:/home/vagrant[?1034h[root@boxlab3 vagrant]# lsblk
+NAME                    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                       8:0    0   40G  0 disk 
+├─sda1                    8:1    0    1M  0 part 
+├─sda2                    8:2    0    1G  0 part /boot
+└─sda3                    8:3    0   39G  0 part 
+  ├─VolGroup00-LogVol00 253:0    0 37.5G  0 lvm  /
+  └─VolGroup00-LogVol01 253:1    0  1.5G  0 lvm  [SWAP]
+sdb                       8:16   0    2G  0 disk 
+sdc                       8:32   0    2G  0 disk 
+sdd                       8:48   0    2G  0 disk 
+sde                       8:64   0    2G  0 disk 
+sdf                       8:80   0    2G  0 disk 
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# pvcreate /dev/sdb /dev/sdc
+  Physical volume "/dev/sdb" successfully created.
+  Physical volume "/dev/sdc" successfully created.
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# vgcreate vg_tmp /dev/sdb /dev/sdc
+  Volume group "vg_tmp" successfully created
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# lvcreate -n lv0_root -l +100%FREE vg_tmp
+  Logical volume "lv0_root" created.
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# mkfs.xfs /dev/vg_tmp/lv0_root
+meta-data=/dev/vg_tmp/lv0_root   isize=512    agcount=4, agsize=255488 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=1021952, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# mount /dev/vg_tmp/lv0_root /mnt/
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# xfsdump -J - /dev/VolGroup00/LogVol00 | xfsrestore -J - /mnt
+xfsdump: using file dump (drive_simple) strategy
+xfsdump: version 3.1.7 (dump format 3.0)
+xfsdump: level 0 dump of boxlab3:/
+xfsdump: dump date: Fri Nov  2 12:36:17 2018
+xfsdump: session id: 46d7adef-8a39-4451-9507-5a870b01cc18
+xfsdump: session label: ""
+xfsrestore: using file dump (drive_simple) strategy
+xfsrestore: version 3.1.7 (dump format 3.0)
+xfsrestore: searching media for dump
+xfsdump: ino map phase 1: constructing initial dump list
+xfsdump: ino map phase 2: skipping (no pruning necessary)
+xfsdump: ino map phase 3: skipping (only one dump stream)
+xfsdump: ino map construction complete
+xfsdump: estimated dump size: 1093675200 bytes
+xfsdump: creating dump session media file 0 (media 0, file 0)
+xfsdump: dumping ino map
+xfsdump: dumping directories
+xfsrestore: examining media file 0
+xfsrestore: dump description: 
+xfsrestore: hostname: boxlab3
+xfsrestore: mount point: /
+xfsrestore: volume: /dev/mapper/VolGroup00-LogVol00
+xfsrestore: session time: Fri Nov  2 12:36:17 2018
+xfsrestore: level: 0
+xfsrestore: session label: ""
+xfsrestore: media label: ""
+xfsrestore: file system id: b60e9498-0baa-4d9f-90aa-069048217fee
+xfsrestore: session id: 46d7adef-8a39-4451-9507-5a870b01cc18
+xfsrestore: media id: 8836b3e5-0dcb-40ff-b8e9-7caa0cfca91c
+xfsrestore: searching media for directory dump
+xfsrestore: reading directories
+xfsdump: dumping non-directory files
+xfsrestore: 11076 directories and 61360 entries processed
+xfsrestore: directory post-processing
+xfsrestore: restoring non-directory files
+xfsdump: ending media file
+xfsdump: media file size 1033742552 bytes
+xfsdump: dump size (non-dir files) : 996377936 bytes
+xfsdump: dump complete: 35 seconds elapsed
+xfsdump: Dump Status: SUCCESS
+xfsrestore: restore complete: 36 seconds elapsed
+xfsrestore: Restore Status: SUCCESS
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# ls -l /mnt/
+total 16
+lrwxrwxrwx.  1 root    root       7 Nov  2 12:36 [0m[38;5;51mbin[0m -> [38;5;27musr/bin[0m
+drwxr-xr-x.  2 root    root       6 May 12 21:50 [38;5;27mboot[0m
+drwxr-xr-x.  2 root    root       6 May 12 21:50 [38;5;27mdev[0m
+drwxr-xr-x. 78 root    root    8192 Nov  2 12:35 [38;5;27metc[0m
+drwxr-xr-x.  3 root    root      21 May 12 21:54 [38;5;27mhome[0m
+lrwxrwxrwx.  1 root    root       7 Nov  2 12:36 [38;5;51mlib[0m -> [38;5;27musr/lib[0m
+lrwxrwxrwx.  1 root    root       9 Nov  2 12:36 [38;5;51mlib64[0m -> [38;5;27musr/lib64[0m
+drwxr-xr-x.  2 root    root       6 Apr 11  2018 [38;5;27mmedia[0m
+drwxr-xr-x.  2 root    root       6 Apr 11  2018 [38;5;27mmnt[0m
+drwxr-xr-x.  3 root    root      39 Nov  2 12:33 [38;5;27mopt[0m
+drwxr-xr-x.  2 root    root       6 May 12 21:50 [38;5;27mproc[0m
+dr-xr-x---.  2 root    root     137 May 12 21:55 [38;5;27mroot[0m
+drwxr-xr-x.  2 root    root       6 May 12 21:50 [38;5;27mrun[0m
+lrwxrwxrwx.  1 root    root       8 Nov  2 12:36 [38;5;51msbin[0m -> [38;5;27musr/sbin[0m
+drwxr-xr-x.  2 root    root       6 Apr 11  2018 [38;5;27msrv[0m
+drwxr-xr-x.  2 root    root       6 May 12 21:50 [38;5;27msys[0m
+drwxrwxrwt.  8 root    root    4096 Nov  2 12:35 [48;5;10;38;5;16mtmp[0m
+drwxr-xr-x. 13 root    root     155 May 12 21:50 [38;5;27musr[0m
+drwxrwxr-x.  2 vagrant vagrant   76 Nov  2 12:35 [38;5;27mvagrant[0m
+drwxr-xr-x. 18 root    root     254 Nov  2 12:31 [38;5;27mvar[0m
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# for d in /proc/ /dev/ /sys/ /run/ /boot/; do mount -o bind $d /mnt/$d; done
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# chroot /mnt/
+]0;root@boxlab3:/[?1034h[root@boxlab3 /]# vim /etc/default/grub
+[?1049h[?1h=[2;1H▽[6n[1;1H  [1;1H[1;69r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[69;1H"/etc/default/grub" 7L, 388C[>c[1;1HGRUB_TIMEOUT=1
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_CMDLINE_LINUX="no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop crashkernel=auto rd.lvm.lv=VolGroup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"
+GRUB_DISABLE_RECOVERY="true"
+[94m~                                                                                                                                                                                                             [9;1H~                                                                                                                                                                                                             [10;1H~                                                                                                                                                                                                             [11;1H~                                                                                                                                                                                                             [12;1H~                                                                                                                                                                                                             [13;1H~                                                                                                                                                                                                             [14;1H~                                                                                                                                                                                                             [15;1H~                                                                                                                                                                                                             [16;1H~                                                                                                                                                                                                             [17;1H~                                                                                                                                                                                                             [18;1H~                                                                                                                                                                                                             [19;1H~                                                                                                                                                                                                             [20;1H~                                                                                                                                                                                                             [21;1H~                                                                                                                                                                                                             [22;1H~                                                                                                                                                                                                             [23;1H~                                                                                                                                                                                                             [24;1H~                                                                                                                                                                                                             [25;1H~                                                                                                                                                                                                             [26;1H~                                                                                                                                                                                                             [27;1H~                                                                                                                                                                                                             [28;1H~                                                                                                                                                                                                             [29;1H~                                                                                                                                                                                                             [30;1H~                                                                                                                                                                                                             [31;1H~                                                                                                                                                                                                             [32;1H~                                                                                                                                                                                                             [33;1H~                                                                                                                                                                                                             [34;1H~                                                                                                                                                                                                             [35;1H~                                                                                                                                                                                                             [36;1H~                                                                                                                                                                                                             [37;1H~                                                                                                                                                                                                             [38;1H~                                                                                                                                                                                                             [39;1H~                                                                                                                                                                                                             [40;1H~                                                                                                                                                                                                             [41;1H~                                                                                                                                                                                                             [42;1H~                                                                                                                                                                                                             [43;1H~                                                                                                                                                                                                             [44;1H~                                                                                                                                                                                                             [45;1H~                                                                                                                                                                                                             [46;1H~                                                                                                                                                                                                             [47;1H~                                                                                                                                                                                                             [48;1H~                                                                                                                                                                                                             [49;1H~                                                                                                                                                                                                             [50;1H~                                                                                                                                                                                                             [51;1H~                                                                                                                                                                                                             [52;1H~                                                                                                                                                                                                             [53;1H~                                                                                                                                                                                                             [54;1H~                                                                                                                                                                                                             [55;1H~                                                                                                                                                                                                             [56;1H~                                                                                                                                                                                                             [57;1H~                                                                                                                                                                                                             [58;1H~                                                                                                                                                                                                             [59;1H~                                                                                                                                                                                                             [60;1H~                                                                                                                                                                                                             [61;1H~                                                                                                                                                                                                             [62;1H~                                                                                                                                                                                                             [63;1H~                                                                                                                                                                                                             [64;1H~                                                                                                                                                                                                             [65;1H~                                                                                                                                                                                                             [66;1H~                                                                                                                                                                                                             [67;1H~                                                                                                                                                                                                             [68;1H~                                                                                                                                                                                                             [m[69;189H1,1[11CAll[1;1H[?12l[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[69;189H2[2;1H[?12l[?25h[?25l[69;189H3[3;1H[?12l[?25h[?25l[69;189H4[4;1H[?12l[?25h[?25l[69;189H5[5;1H[?12l[?25h[?25l[69;189H6[6;1H[?12l[?25h[?25l[69;191H2[6;2H[?12l[?25h[?25l[69;191H3[6;3H[?12l[?25h[?25l[69;191H4[6;4H[?12l[?25h[?25l[69;191H5[6;5H[?12l[?25h[?25l[69;191H6[6;6H[?12l[?25h[?25l[69;191H7[6;7H[?12l[?25h[?25l[69;191H8[6;8H[?12l[?25h[?25l[69;191H9[6;9H[?12l[?25h[?25l[69;191H10[6;10H[?12l[?25h[?25l[69;192H1[6;11H[?12l[?25h[?25l[69;192H2[6;12H[?12l[?25h[?25l[69;192H3[6;13H[?12l[?25h[?25l[69;192H4[6;14H[?12l[?25h[?25l[69;192H5[6;15H[?12l[?25h[?25l[69;192H6[6;16H[?12l[?25h[?25l[69;192H7[6;17H[?12l[?25h[?25l[69;192H8[6;18H[?12l[?25h[?25l[69;192H9[6;19H[?12l[?25h[?25l[69;191H20[6;20H[?12l[?25h[?25l[69;192H1[6;21H[?12l[?25h[?25l[69;192H2[6;22H[?12l[?25h[?25l[69;192H3[6;23H[?12l[?25h[?25l[69;192H4[6;24H[?12l[?25h[?25l[69;192H5[6;25H[?12l[?25h[?25l[69;192H6[6;26H[?12l[?25h[?25l[69;192H7[6;27H[?12l[?25h[?25l[69;192H8[6;28H[?12l[?25h[?25l[69;192H9[6;29H[?12l[?25h[?25l[69;191H30[6;30H[?12l[?25h[?25l[69;192H1[6;31H[?12l[?25h[?25l[69;192H2[6;32H[?12l[?25h[?25l[69;192H3[6;33H[?12l[?25h[?25l[69;192H4[6;34H[?12l[?25h[?25l[69;192H5[6;35H[?12l[?25h[?25l[69;192H6[6;36H[?12l[?25h[?25l[69;192H7[6;37H[?12l[?25h[?25l[69;192H8[6;38H[?12l[?25h[?25l[69;192H9[6;39H[?12l[?25h[?25l[69;191H40[6;40H[?12l[?25h[?25l[69;192H1[6;41H[?12l[?25h[?25l[69;192H2[6;42H[?12l[?25h[?25l[69;192H3[6;43H[?12l[?25h[?25l[69;192H4[6;44H[?12l[?25h[?25l[69;192H5[6;45H[?12l[?25h[?25l[69;192H6[6;46H[?12l[?25h[?25l[69;192H7[6;47H[?12l[?25h[?25l[69;192H8[6;48H[?12l[?25h[?25l[69;192H9[6;49H[?12l[?25h[?25l[69;191H50[6;50H[?12l[?25h[?25l[69;192H1[6;51H[?12l[?25h[?25l[69;192H2[6;52H[?12l[?25h[?25l[69;192H3[6;53H[?12l[?25h[?25l[69;192H4[6;54H[?12l[?25h[?25l[69;192H5[6;55H[?12l[?25h[?25l[69;192H6[6;56H[?12l[?25h[?25l[69;192H7[6;57H[?12l[?25h[?25l[69;192H8[6;58H[?12l[?25h[?25l[69;192H9[6;59H[?12l[?25h[?25l[69;191H60[6;60H[?12l[?25h[?25l[69;192H1[6;61H[?12l[?25h[?25l[69;192H2[6;62H[?12l[?25h[?25l[69;192H3[6;63H[?12l[?25h[?25l[69;192H4[6;64H[?12l[?25h[?25l[69;192H5[6;65H[?12l[?25h[?25l[69;192H6[6;66H[?12l[?25h[?25l[69;192H7[6;67H[?12l[?25h[?25l[69;192H8[6;68H[?12l[?25h[?25l[69;192H9[6;69H[?12l[?25h[?25l[69;191H70[6;70H[?12l[?25h[?25l[69;192H1[6;71H[?12l[?25h[?25l[69;192H2[6;72H[?12l[?25h[?25l[69;192H3[6;73H[?12l[?25h[?25l[69;192H4[6;74H[?12l[?25h[?25l[69;192H5[6;75H[?12l[?25h[?25l[69;192H6[6;76H[?12l[?25h[?25l[69;192H7[6;77H[?12l[?25h[?25l[69;192H8[6;78H[?12l[?25h[?25l[69;192H9[6;79H[?12l[?25h[?25l[69;191H80[6;80H[?12l[?25h[?25l[69;192H1[6;81H[?12l[?25h[?25l[69;192H2[6;82H[?12l[?25h[?25l[69;192H3[6;83H[?12l[?25h[?25l[69;192H4[6;84H[?12l[?25h[?25l[69;192H5[6;85H[?12l[?25h[?25l[69;192H6[6;86H[?12l[?25h[?25l[69;192H7[6;87H[?12l[?25h[?25l[69;192H8[6;88H[?12l[?25h[?25l[69;192H9[6;89H[?12l[?25h[?25l[69;191H90[6;90H[?12l[?25h[?25l[69;192H1[6;91H[?12l[?25h[?25l[69;192H2[6;92H[?12l[?25h[?25l[69;192H3[6;93H[?12l[?25h[?25l[69;192H4[6;94H[?12l[?25h[?25l[69;192H5[6;95H[?12l[?25h[?25l[69;192H6[6;96H[?12l[?25h[?25l[69;192H7[6;97H[?12l[?25h[?25l[69;192H8[6;98H[?12l[?25h[?25l[69;192H9[6;99H[?12l[?25h[?25l[69;191H100[6;100H[?12l[?25h[?25l[69;193H1[6;101H[?12l[?25h[?25l[69;193H2[6;102H[?12l[?25h[?25l[69;193H3[6;103H[?12l[?25h[?25l[69;193H4[6;104H[?12l[?25h[?25l[69;193H5[6;105H[?12l[?25h[?25l[69;193H6[6;106H[?12l[?25h[?25l[69;193H7[6;107H[?12l[?25h[?25l[69;193H8[6;108H[?12l[?25h[?25l[69;193H9[6;109H[?12l[?25h[?25l[69;192H10[6;110H[?12l[?25h[?25l[69;193H1[6;111H[?12l[?25h[?25l[69;193H2[6;112H[?12l[?25h[?25l[69;193H3[6;113H[?12l[?25h[?25l[69;193H4[6;114H[?12l[?25h[?25l[69;193H5[6;115H[?12l[?25h[?25l[69;193H6[6;116H[?12l[?25h[?25l[69;193H7[6;117H[?12l[?25h[?25l[69;193H8[6;118H[?12l[?25h[?25l[69;193H9[6;119H[?12l[?25h[?25l[69;192H20[6;120H[?12l[?25h[?25l[69;193H1[6;121H[?12l[?25h[?25l[69;193H2[6;122H[?12l[?25h[?25l[69;193H3[6;123H[?12l[?25h[?25l[69;193H4[6;124H[?12l[?25h[?25l[69;193H5[6;125H[?12l[?25h[?25l[69;193H6[6;126H[?12l[?25h[?25l[69;193H7[6;127H[?12l[?25h[?25l[69;193H8[6;128H[?12l[?25h[?25l[69;193H9[6;129H[?12l[?25h[?25l[69;192H30[6;130H[?12l[?25h[?25l[69;193H1[6;131H[?12l[?25h[?25l[69;193H2[6;132H[?12l[?25h[?25l[69;193H3[6;133H[?12l[?25h[?25l[69;193H4[6;134H[?12l[?25h[?25l[69;193H5[6;135H[?12l[?25h[?25l[69;193H6[6;136H[?12l[?25h[?25l[69;193H7[6;137H[?12l[?25h[?25l[69;193H8[6;138H[?12l[?25h[?25l[69;193H9[6;139H[?12l[?25h[?25l[69;192H40[6;140H[?12l[?25h[?25l[69;193H1[6;141H[?12l[?25h[?25l[69;193H2[6;142H[?12l[?25h[?25l[69;193H1[6;141H[?12l[?25h[?25lolGroup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;201H[K[6;141H[?12l[?25h[?25llGroup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;200H[K[6;141H[?12l[?25h[?25lGroup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;199H[K[6;141H[?12l[?25h[?25lroup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;198H[K[6;141H[?12l[?25h[?25loup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;197H[K[6;141H[?12l[?25h[?25lup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;196H[K[6;141H[?12l[?25h[?25lp00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;195H[K[6;141H[?12l[?25h[?25l00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;194H[K[6;141H[?12l[?25h[?25l0/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;193H[K[6;141H[?12l[?25h[?25l/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;192H[K[6;141H[?12l[?25h[?25l[69;1H[1m-- INSERT --[m[69;13H[K[69;189H6,141[9CAll[6;141H[?12l[?25h[?25lv/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H2[6;142H[?12l[?25h[?25lg/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H3[6;143H[?12l[?25h[?25l_/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H4[6;144H[?12l[?25h[?25lt/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H5[6;145H[?12l[?25h[?25lm/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H6[6;146H[?12l[?25h[?25lp/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H7[6;147H[?12l[?25h[?25l[69;193H8[6;148H[?12l[?25h[?25l[69;193H9[6;149H[?12l[?25h[?25l[69;193H8[6;148H[?12l[?25h[?25logVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;197H[K[6;148H[?12l[?25h[?25lgVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;196H[K[6;148H[?12l[?25h[?25lVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;195H[K[6;148H[?12l[?25h[?25lol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;194H[K[6;148H[?12l[?25h[?25ll00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;193H[K[6;148H[?12l[?25h[?25l00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;192H[K[6;148H[?12l[?25h[?25l0 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;191H[K[6;148H[?12l[?25h[?25ll0 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H9[6;149H[?12l[?25h[?25lv0 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;192H50[6;150H[?12l[?25h[?25l[69;193H1[6;151H[?12l[?25h[?25l_ rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H2[6;152H[?12l[?25h[?25lr rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H3[6;153H[?12l[?25h[?25lo rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H4[6;154H[?12l[?25h[?25lo rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H5[6;155H[?12l[?25h[?25lt rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H6[6;156H[?12l[?25h[69;1H[K[6;155H[?25l[69;189H6,155[9CAll[6;155H[?12l[?25h[?25l[69;189H[K[69;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l"/etc/default/grub" 7L, 384C written
+[?1l>[?12l[?25h[?1049l]0;root@boxlab3:/[root@boxlab3 /]# grub2-mkconfig -o /boot/grub2/grub.cfg
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-3.10.0-862.2.3.el7.x86_64
+Found initrd image: /boot/initramfs-3.10.0-862.2.3.el7.x86_64.img
+done
+]0;root@boxlab3:/[root@boxlab3 /]# grep vg_tmp /boot/grub2/grub.cfg
+	linux16 /vmlinuz-3.10.0-862.2.3.el7.x86_64 root=/dev/mapper/[01;31m[Kvg_tmp[m[K-lv0_root ro no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop crashkernel=auto rd.lvm.lv=[01;31m[Kvg_tmp[m[K/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet 
+]0;root@boxlab3:/[root@boxlab3 /]# cd /boot/
+]0;root@boxlab3:/boot[root@boxlab3 boot]# for f in $(ls -1 initramfs-*img); do dracut -v $i $(echo $i | sed 's/initramfs-//g; s/.img//g') --force; done
+Executing: /sbin/dracut -v --force
+dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+*** Including module: bash ***
+*** Including module: nss-softokn ***
+*** Including module: i18n ***
+*** Including module: drm ***
+*** Including module: plymouth ***
+*** Including module: dm ***
+Skipping udev rule: 64-device-mapper.rules
+Skipping udev rule: 60-persistent-storage-dm.rules
+Skipping udev rule: 55-dm.rules
+*** Including module: kernel-modules ***
+Omitting driver floppy
+*** Including module: lvm ***
+Skipping udev rule: 64-device-mapper.rules
+Skipping udev rule: 56-lvm.rules
+Skipping udev rule: 60-persistent-storage-lvm.rules
+*** Including module: qemu ***
+*** Including module: resume ***
+*** Including module: rootfs-block ***
+*** Including module: terminfo ***
+*** Including module: udev-rules ***
+Skipping udev rule: 40-redhat-cpu-hotplug.rules
+Skipping udev rule: 91-permissions.rules
+*** Including module: biosdevname ***
+*** Including module: systemd ***
+*** Including module: usrmount ***
+*** Including module: base ***
+*** Including module: fs-lib ***
+*** Including module: shutdown ***
+*** Including modules done ***
+*** Installing kernel module dependencies and firmware ***
+*** Installing kernel module dependencies and firmware done ***
+*** Resolving executable dependencies ***
+*** Resolving executable dependencies done***
+*** Hardlinking files ***
+*** Hardlinking files done ***
+*** Stripping files ***
+*** Stripping files done ***
+*** Generating early-microcode cpio image contents ***
+*** No early-microcode cpio image needed ***
+*** Store current command line parameters ***
+*** Creating image file ***
+*** Creating image file done ***
+*** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done ***
+]0;root@boxlab3:/boot[root@boxlab3 boot]# exit
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# exit
+]0;vagrant@boxlab3:~[vagrant@boxlab3 ~]$ exit
+
+Script done on Fri 02 Nov 2018 12:39:14 PM MSK
+Script started on Fri 02 Nov 2018 12:45:29 PM MSK
+]0;vagrant@boxlab3:~[?1034h[vagrant@boxlab3 ~]$ sudo su
+]0;root@boxlab3:/home/vagrant[?1034h[root@boxlab3 vagrant]# lsblk
+NAME                    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                       8:0    0   40G  0 disk 
+├─sda1                    8:1    0    1M  0 part 
+├─sda2                    8:2    0    1G  0 part /boot
+└─sda3                    8:3    0   39G  0 part 
+  ├─VolGroup00-LogVol01 253:1    0  1.5G  0 lvm  [SWAP]
+  └─VolGroup00-LogVol00 253:2    0 37.5G  0 lvm  
+sdb                       8:16   0    2G  0 disk 
+└─vg_tmp-lv0_root       253:0    0  3.9G  0 lvm  /
+sdc                       8:32   0    2G  0 disk 
+└─vg_tmp-lv0_root       253:0    0  3.9G  0 lvm  /
+sdd                       8:48   0    2G  0 disk 
+sde                       8:64   0    2G  0 disk 
+sdf                       8:80   0    2G  0 disk 
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# lvremove /dev/VolGroup00/LogVol00
+Do you really want to remove active logical volume VolGroup00/LogVol00? [y/n]: y
+  Logical volume "LogVol00" successfully removed
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# lvcreate -n VolGroup00/LogVol00 -L 8G /dev/VolGroup00
+WARNING: xfs signature detected on /dev/VolGroup00/LogVol00 at offset 0. Wipe it? [y/n]: y
+  Wiping xfs signature on /dev/VolGroup00/LogVol00.
+  Logical volume "LogVol00" created.
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# mkfs.xfs /dev/VolGroup00/LogVol00
+meta-data=/dev/VolGroup00/LogVol00 isize=512    agcount=4, agsize=524288 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=2097152, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# mount /dev/VolGroup00/LogVol00 /mnt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# xfsdump -J - /dev/vg_tmp/lv0_root | xfsrestore -J - /mnt/
+xfsrestore: using file dump (drive_simple) strategy
+xfsrestore: version 3.1.7 (dump format 3.0)
+xfsdump: using file dump (drive_simple) strategy
+xfsdump: version 3.1.7 (dump format 3.0)
+xfsdump: level 0 dump of boxlab3:/
+xfsdump: dump date: Fri Nov  2 12:46:32 2018
+xfsdump: session id: 3bda210b-83ce-4a89-93d9-c03afd668431
+xfsdump: session label: ""
+xfsrestore: searching media for dump
+xfsdump: ino map phase 1: constructing initial dump list
+xfsdump: ino map phase 2: skipping (no pruning necessary)
+xfsdump: ino map phase 3: skipping (only one dump stream)
+xfsdump: ino map construction complete
+xfsdump: estimated dump size: 1092514176 bytes
+xfsdump: creating dump session media file 0 (media 0, file 0)
+xfsdump: dumping ino map
+xfsdump: dumping directories
+xfsrestore: examining media file 0
+xfsrestore: dump description: 
+xfsrestore: hostname: boxlab3
+xfsrestore: mount point: /
+xfsrestore: volume: /dev/mapper/vg_tmp-lv0_root
+xfsrestore: session time: Fri Nov  2 12:46:32 2018
+xfsrestore: level: 0
+xfsrestore: session label: ""
+xfsrestore: media label: ""
+xfsrestore: file system id: e94e7269-8256-4aa8-87fd-93d85060f786
+xfsrestore: session id: 3bda210b-83ce-4a89-93d9-c03afd668431
+xfsrestore: media id: 10199b2f-36e3-4f82-bea5-761cf9722c61
+xfsrestore: searching media for directory dump
+xfsrestore: reading directories
+xfsdump: dumping non-directory files
+xfsrestore: 11080 directories and 61367 entries processed
+xfsrestore: directory post-processing
+xfsrestore: restoring non-directory files
+xfsdump: ending media file
+xfsdump: media file size 1032355856 bytes
+xfsdump: dump size (non-dir files) : 994986248 bytes
+xfsdump: dump complete: 55 seconds elapsed
+xfsdump: Dump Status: SUCCESS
+xfsrestore: restore complete: 56 seconds elapsed
+xfsrestore: Restore Status: SUCCESS
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# ls -l /mnt/
+total 16
+lrwxrwxrwx.  1 root    root       7 Nov  2 12:46 [0m[38;5;51mbin[0m -> [38;5;27musr/bin[0m
+drwxr-xr-x.  2 root    root       6 May 12 21:50 [38;5;27mboot[0m
+drwxr-xr-x.  2 root    root       6 May 12 21:50 [38;5;27mdev[0m
+drwxr-xr-x. 78 root    root    8192 Nov  2 12:43 [38;5;27metc[0m
+drwxr-xr-x.  3 root    root      21 May 12 21:54 [38;5;27mhome[0m
+lrwxrwxrwx.  1 root    root       7 Nov  2 12:46 [38;5;51mlib[0m -> [38;5;27musr/lib[0m
+lrwxrwxrwx.  1 root    root       9 Nov  2 12:46 [38;5;51mlib64[0m -> [38;5;27musr/lib64[0m
+drwxr-xr-x.  2 root    root       6 Apr 11  2018 [38;5;27mmedia[0m
+drwxr-xr-x.  2 root    root       6 Apr 11  2018 [38;5;27mmnt[0m
+drwxr-xr-x.  3 root    root      39 Nov  2 12:33 [38;5;27mopt[0m
+drwxr-xr-x.  2 root    root       6 May 12 21:50 [38;5;27mproc[0m
+dr-xr-x---.  2 root    root     174 Nov  2 12:39 [38;5;27mroot[0m
+drwxr-xr-x.  2 root    root       6 May 12 21:50 [38;5;27mrun[0m
+lrwxrwxrwx.  1 root    root       8 Nov  2 12:46 [38;5;51msbin[0m -> [38;5;27musr/sbin[0m
+drwxr-xr-x.  2 root    root       6 Apr 11  2018 [38;5;27msrv[0m
+drwxr-xr-x.  2 root    root       6 May 12 21:50 [38;5;27msys[0m
+drwxrwxrwt.  9 root    root    4096 Nov  2 12:44 [48;5;10;38;5;16mtmp[0m
+drwxr-xr-x. 13 root    root     155 May 12 21:50 [38;5;27musr[0m
+drwxrwxr-x.  2 vagrant vagrant   76 Nov  2 12:35 [38;5;27mvagrant[0m
+drwxr-xr-x. 18 root    root     254 Nov  2 12:31 [38;5;27mvar[0m
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# for d in /proc/ /dev/ /sys/ /run/ /boot/; do mount -o bind $d /mnt/$d; done
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# chroot /mnt/
+]0;root@boxlab3:/[?1034h[root@boxlab3 /]# vim /etc/default/grub
+[?1049h[?1h=[2;1H▽[6n[1;1H  [1;1H[1;69r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[69;1H"/etc/default/grub" 7L, 384C[>c[1;1HGRUB_TIMEOUT=1
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_CMDLINE_LINUX="no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop crashkernel=auto rd.lvm.lv=vg_tmp/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"
+GRUB_DISABLE_RECOVERY="true"
+[94m~                                                                                                                                                                                                             [9;1H~                                                                                                                                                                                                             [10;1H~                                                                                                                                                                                                             [11;1H~                                                                                                                                                                                                             [12;1H~                                                                                                                                                                                                             [13;1H~                                                                                                                                                                                                             [14;1H~                                                                                                                                                                                                             [15;1H~                                                                                                                                                                                                             [16;1H~                                                                                                                                                                                                             [17;1H~                                                                                                                                                                                                             [18;1H~                                                                                                                                                                                                             [19;1H~                                                                                                                                                                                                             [20;1H~                                                                                                                                                                                                             [21;1H~                                                                                                                                                                                                             [22;1H~                                                                                                                                                                                                             [23;1H~                                                                                                                                                                                                             [24;1H~                                                                                                                                                                                                             [25;1H~                                                                                                                                                                                                             [26;1H~                                                                                                                                                                                                             [27;1H~                                                                                                                                                                                                             [28;1H~                                                                                                                                                                                                             [29;1H~                                                                                                                                                                                                             [30;1H~                                                                                                                                                                                                             [31;1H~                                                                                                                                                                                                             [32;1H~                                                                                                                                                                                                             [33;1H~                                                                                                                                                                                                             [34;1H~                                                                                                                                                                                                             [35;1H~                                                                                                                                                                                                             [36;1H~                                                                                                                                                                                                             [37;1H~                                                                                                                                                                                                             [38;1H~                                                                                                                                                                                                             [39;1H~                                                                                                                                                                                                             [40;1H~                                                                                                                                                                                                             [41;1H~                                                                                                                                                                                                             [42;1H~                                                                                                                                                                                                             [43;1H~                                                                                                                                                                                                             [44;1H~                                                                                                                                                                                                             [45;1H~                                                                                                                                                                                                             [46;1H~                                                                                                                                                                                                             [47;1H~                                                                                                                                                                                                             [48;1H~                                                                                                                                                                                                             [49;1H~                                                                                                                                                                                                             [50;1H~                                                                                                                                                                                                             [51;1H~                                                                                                                                                                                                             [52;1H~                                                                                                                                                                                                             [53;1H~                                                                                                                                                                                                             [54;1H~                                                                                                                                                                                                             [55;1H~                                                                                                                                                                                                             [56;1H~                                                                                                                                                                                                             [57;1H~                                                                                                                                                                                                             [58;1H~                                                                                                                                                                                                             [59;1H~                                                                                                                                                                                                             [60;1H~                                                                                                                                                                                                             [61;1H~                                                                                                                                                                                                             [62;1H~                                                                                                                                                                                                             [63;1H~                                                                                                                                                                                                             [64;1H~                                                                                                                                                                                                             [65;1H~                                                                                                                                                                                                             [66;1H~                                                                                                                                                                                                             [67;1H~                                                                                                                                                                                                             [68;1H~                                                                                                                                                                                                             [m[69;189H6,1[11CAll[6;1H[?12l[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[69;191H2[6;2H[?12l[?25h[?25l[69;191H3[6;3H[?12l[?25h[?25l[69;191H4[6;4H[?12l[?25h[?25l[69;191H5[6;5H[?12l[?25h[?25l[69;191H6[6;6H[?12l[?25h[?25l[69;191H7[6;7H[?12l[?25h[?25l[69;191H8[6;8H[?12l[?25h[?25l[69;191H9[6;9H[?12l[?25h[?25l[69;191H10[6;10H[?12l[?25h[?25l[69;192H1[6;11H[?12l[?25h[?25l[69;192H2[6;12H[?12l[?25h[?25l[69;192H3[6;13H[?12l[?25h[?25l[69;192H4[6;14H[?12l[?25h[?25l[69;192H5[6;15H[?12l[?25h[?25l[69;192H6[6;16H[?12l[?25h[?25l[69;192H7[6;17H[?12l[?25h[?25l[69;192H8[6;18H[?12l[?25h[?25l[69;192H9[6;19H[?12l[?25h[?25l[69;191H20[6;20H[?12l[?25h[?25l[69;192H1[6;21H[?12l[?25h[?25l[69;192H2[6;22H[?12l[?25h[?25l[69;192H3[6;23H[?12l[?25h[?25l[69;192H4[6;24H[?12l[?25h[?25l[69;192H5[6;25H[?12l[?25h[?25l[69;192H6[6;26H[?12l[?25h[?25l[69;192H7[6;27H[?12l[?25h[?25l[69;192H8[6;28H[?12l[?25h[?25l[69;192H9[6;29H[?12l[?25h[?25l[69;191H30[6;30H[?12l[?25h[?25l[69;192H1[6;31H[?12l[?25h[?25l[69;192H2[6;32H[?12l[?25h[?25l[69;192H3[6;33H[?12l[?25h[?25l[69;192H4[6;34H[?12l[?25h[?25l[69;192H5[6;35H[?12l[?25h[?25l[69;192H6[6;36H[?12l[?25h[?25l[69;192H7[6;37H[?12l[?25h[?25l[69;192H8[6;38H[?12l[?25h[?25l[69;192H9[6;39H[?12l[?25h[?25l[69;191H40[6;40H[?12l[?25h[?25l[69;192H1[6;41H[?12l[?25h[?25l[69;192H2[6;42H[?12l[?25h[?25l[69;192H3[6;43H[?12l[?25h[?25l[69;192H4[6;44H[?12l[?25h[?25l[69;192H5[6;45H[?12l[?25h[?25l[69;192H6[6;46H[?12l[?25h[?25l[69;192H7[6;47H[?12l[?25h[?25l[69;192H8[6;48H[?12l[?25h[?25l[69;192H9[6;49H[?12l[?25h[?25l[69;191H50[6;50H[?12l[?25h[?25l[69;192H1[6;51H[?12l[?25h[?25l[69;192H2[6;52H[?12l[?25h[?25l[69;192H3[6;53H[?12l[?25h[?25l[69;192H4[6;54H[?12l[?25h[?25l[69;192H5[6;55H[?12l[?25h[?25l[69;192H6[6;56H[?12l[?25h[?25l[69;192H7[6;57H[?12l[?25h[?25l[69;192H8[6;58H[?12l[?25h[?25l[69;192H9[6;59H[?12l[?25h[?25l[69;191H60[6;60H[?12l[?25h[?25l[69;192H1[6;61H[?12l[?25h[?25l[69;192H2[6;62H[?12l[?25h[?25l[69;192H3[6;63H[?12l[?25h[?25l[69;192H4[6;64H[?12l[?25h[?25l[69;192H5[6;65H[?12l[?25h[?25l[69;192H6[6;66H[?12l[?25h[?25l[69;192H7[6;67H[?12l[?25h[?25l[69;192H8[6;68H[?12l[?25h[?25l[69;192H9[6;69H[?12l[?25h[?25l[69;191H70[6;70H[?12l[?25h[?25l[69;192H1[6;71H[?12l[?25h[?25l[69;192H2[6;72H[?12l[?25h[?25l[69;192H3[6;73H[?12l[?25h[?25l[69;192H4[6;74H[?12l[?25h[?25l[69;192H5[6;75H[?12l[?25h[?25l[69;192H6[6;76H[?12l[?25h[?25l[69;192H7[6;77H[?12l[?25h[?25l[69;192H8[6;78H[?12l[?25h[?25l[69;192H9[6;79H[?12l[?25h[?25l[69;191H80[6;80H[?12l[?25h[?25l[69;192H1[6;81H[?12l[?25h[?25l[69;192H2[6;82H[?12l[?25h[?25l[69;192H3[6;83H[?12l[?25h[?25l[69;192H4[6;84H[?12l[?25h[?25l[69;192H5[6;85H[?12l[?25h[?25l[69;192H6[6;86H[?12l[?25h[?25l[69;192H7[6;87H[?12l[?25h[?25l[69;192H8[6;88H[?12l[?25h[?25l[69;192H9[6;89H[?12l[?25h[?25l[69;191H90[6;90H[?12l[?25h[?25l[69;192H1[6;91H[?12l[?25h[?25l[69;192H2[6;92H[?12l[?25h[?25l[69;192H3[6;93H[?12l[?25h[?25l[69;192H4[6;94H[?12l[?25h[?25l[69;192H5[6;95H[?12l[?25h[?25l[69;192H6[6;96H[?12l[?25h[?25l[69;192H7[6;97H[?12l[?25h[?25l[69;192H8[6;98H[?12l[?25h[?25l[69;192H9[6;99H[?12l[?25h[?25l[69;191H100[6;100H[?12l[?25h[?25l[69;193H1[6;101H[?12l[?25h[?25l[69;193H2[6;102H[?12l[?25h[?25l[69;193H3[6;103H[?12l[?25h[?25l[69;193H4[6;104H[?12l[?25h[?25l[69;193H5[6;105H[?12l[?25h[?25l[69;193H6[6;106H[?12l[?25h[?25l[69;193H7[6;107H[?12l[?25h[?25l[69;193H8[6;108H[?12l[?25h[?25l[69;193H9[6;109H[?12l[?25h[?25l[69;192H10[6;110H[?12l[?25h[?25l[69;193H1[6;111H[?12l[?25h[?25l[69;193H2[6;112H[?12l[?25h[?25l[69;193H3[6;113H[?12l[?25h[?25l[69;193H4[6;114H[?12l[?25h[?25l[69;193H5[6;115H[?12l[?25h[?25l[69;193H6[6;116H[?12l[?25h[?25l[69;193H7[6;117H[?12l[?25h[?25l[69;193H8[6;118H[?12l[?25h[?25l[69;193H9[6;119H[?12l[?25h[?25l[69;192H20[6;120H[?12l[?25h[?25l[69;193H1[6;121H[?12l[?25h[?25l[69;193H2[6;122H[?12l[?25h[?25l[69;193H3[6;123H[?12l[?25h[?25l[69;193H4[6;124H[?12l[?25h[?25l[69;193H5[6;125H[?12l[?25h[?25l[69;193H6[6;126H[?12l[?25h[?25l[69;193H7[6;127H[?12l[?25h[?25l[69;193H8[6;128H[?12l[?25h[?25l[69;193H9[6;129H[?12l[?25h[?25l[69;192H30[6;130H[?12l[?25h[?25l[69;193H1[6;131H[?12l[?25h[?25l[69;193H2[6;132H[?12l[?25h[?25l[69;193H3[6;133H[?12l[?25h[?25l[69;193H4[6;134H[?12l[?25h[?25l[69;193H5[6;135H[?12l[?25h[?25l[69;193H6[6;136H[?12l[?25h[?25l[69;193H7[6;137H[?12l[?25h[?25l[69;193H8[6;138H[?12l[?25h[?25l[69;193H9[6;139H[?12l[?25h[?25l[69;192H40[6;140H[?12l[?25h[?25l[69;193H1[6;141H[?12l[?25h[?25l[69;193H2[6;142H[?12l[?25h[?25l[69;193H3[6;143H[?12l[?25h[?25l[69;193H4[6;144H[?12l[?25h[?25l[69;193H3[6;143H[?12l[?25h[?25l[69;193H2[6;142H[?12l[?25h[?25l[69;193H1[6;141H[?12l[?25h[?25lg_tmp/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;197H[K[6;141H[?12l[?25h[?25l_tmp/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;196H[K[6;141H[?12l[?25h[?25ltmp/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;195H[K[6;141H[?12l[?25h[?25lmp/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;194H[K[6;141H[?12l[?25h[?25lp/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;193H[K[6;141H[?12l[?25h[?25l/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;192H[K[6;141H[?12l[?25h[?25l[47mGRUB_CMDLINE_LINUX="no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop crashkernel=auto rd.lvm.lv=[m/[47mlv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet" [m[69;1H[1m-- VISUAL LINE --[m[69;18H[K[69;189H6,141[9CAll[6;141H[?12l[?25h[?25l[?12l[?25h[?25l[47m/[ml[69;193H2[6;142H[?12l[?25h[?25lGRUB_CMDLINE_LINUX="no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop crashkernel=auto rd.lvm.lv=/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;192H[K[69;1H[K[69;189H6,142[9CAll[6;142H[?12l[?25h[?25l[69;193H1[6;141H[?12l[?25h[?25l[69;1H[1m-- INSERT --[m[69;189H[K[69;189H6,141[9CAll[6;141H[?12l[?25h[?25lV/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H2[6;142H[?12l[?25h[?25lo/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H3[6;143H[?12l[?25h[?25ll/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H4[6;144H[?12l[?25h[?25lG/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H5[6;145H[?12l[?25h[?25lr/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H6[6;146H[?12l[?25h[?25lo/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H7[6;147H[?12l[?25h[?25lu/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H8[6;148H[?12l[?25h[?25lp/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H9[6;149H[?12l[?25h[?25l0/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;192H50[6;150H[?12l[?25h[?25l0/lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H1[6;151H[?12l[?25h[?25l[69;193H2[6;152H[?12l[?25h[?25lv0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;201H[K[6;152H[?12l[?25h[?25l0_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;200H[K[6;152H[?12l[?25h[?25l_root rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;199H[K[6;152H[?12l[?25h[?25lroot rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;198H[K[6;152H[?12l[?25h[?25loot rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;197H[K[6;152H[?12l[?25h[?25lot rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;196H[K[6;152H[?12l[?25h[?25lt rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;195H[K[6;152H[?12l[?25h[?25l rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[6;194H[K[6;152H[?12l[?25h[?25lL rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H3[6;153H[?12l[?25h[?25lo rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H4[6;154H[?12l[?25h[?25lg rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H5[6;155H[?12l[?25h[?25lV rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H6[6;156H[?12l[?25h[?25lo rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H7[6;157H[?12l[?25h[?25ll rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H8[6;158H[?12l[?25h[?25l0 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;193H9[6;159H[?12l[?25h[?25l0 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet"[69;192H60[6;160H[?12l[?25h[69;1H[K[6;159H[?25l[69;189H6,159[9CAll[6;159H[?12l[?25h[?25l[69;189H[K[69;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l"/etc/default/grub" 7L, 388C written
+[?1l>[?12l[?25h[?1049l]0;root@boxlab3:/[root@boxlab3 /]# grub2-mkconfig -o /boot/grub2/grub.cfg
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-3.10.0-862.2.3.el7.x86_64
+Found initrd image: /boot/initramfs-3.10.0-862.2.3.el7.x86_64.img
+done
+]0;root@boxlab3:/[root@boxlab3 /]# grep LogVol00 /etc/[K[K[K[Kboot/grub2/grub.cfg
+	linux16 /vmlinuz-3.10.0-862.2.3.el7.x86_64 root=/dev/mapper/VolGroup00-[01;31m[KLogVol00[m[K ro no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop crashkernel=auto rd.lvm.lv=VolGroup00/[01;31m[KLogVol00[m[K rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet 
+]0;root@boxlab3:/[root@boxlab3 /]# cd /boot/
+]0;root@boxlab3:/boot[root@boxlab3 boot]# for f in $(ls -1 initramfs-*img); do dracut -v $i $(echo $i | sed 's/initramfs-//g; s/.img//g') --force; done
+Executing: /sbin/dracut -v --force
+dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+*** Including module: bash ***
+*** Including module: nss-softokn ***
+*** Including module: i18n ***
+*** Including module: drm ***
+*** Including module: plymouth ***
+*** Including module: dm ***
+Skipping udev rule: 64-device-mapper.rules
+Skipping udev rule: 60-persistent-storage-dm.rules
+Skipping udev rule: 55-dm.rules
+*** Including module: kernel-modules ***
+Omitting driver floppy
+*** Including module: lvm ***
+Skipping udev rule: 64-device-mapper.rules
+Skipping udev rule: 56-lvm.rules
+Skipping udev rule: 60-persistent-storage-lvm.rules
+*** Including module: qemu ***
+*** Including module: resume ***
+*** Including module: rootfs-block ***
+*** Including module: terminfo ***
+*** Including module: udev-rules ***
+Skipping udev rule: 40-redhat-cpu-hotplug.rules
+Skipping udev rule: 91-permissions.rules
+*** Including module: biosdevname ***
+*** Including module: systemd ***
+*** Including module: usrmount ***
+*** Including module: base ***
+*** Including module: fs-lib ***
+*** Including module: shutdown ***
+*** Including modules done ***
+*** Installing kernel module dependencies and firmware ***
+*** Installing kernel module dependencies and firmware done ***
+*** Resolving executable dependencies ***
+*** Resolving executable dependencies done***
+*** Hardlinking files ***
+*** Hardlinking files done ***
+*** Stripping files ***
+*** Stripping files done ***
+*** Generating early-microcode cpio image contents ***
+*** No early-microcode cpio image needed ***
+*** Store current command line parameters ***
+*** Creating image file ***
+*** Creating image file done ***
+*** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done ***
+]0;root@boxlab3:/boot[root@boxlab3 boot]# pvcreate /dev/sdd /dev/sde
+  Physical volume "/dev/sdd" successfully created.
+  Physical volume "/dev/sde" successfully created.
+]0;root@boxlab3:/boot[root@boxlab3 boot]# vgcreate vg1 /dev/sdd /dev/sde
+  Volume group "vg1" successfully created
+]0;root@boxlab3:/boot[root@boxlab3 boot]# lvcreate -L 1G -m1 -n lv1_var vg1
+  Logical volume "lv1_var" created.
+]0;root@boxlab3:/boot[root@boxlab3 boot]# mkfs.ext4 /dev/vg1/lv1_var
+mke2fs 1.42.9 (28-Dec-2013)
+Filesystem label=
+OS type: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+Stride=0 blocks, Stripe width=0 blocks
+65536 inodes, 262144 blocks
+13107 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=268435456
+8 block groups
+32768 blocks per group, 32768 fragments per group
+8192 inodes per group
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376
+
+Allocating group tables: 0/8   done                            
+Writing inode tables: 0/8   done                            
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: 0/8   done
+
+]0;root@boxlab3:/boot[root@boxlab3 boot]# mount /dev/vg1/lv1_var /mnt/
+]0;root@boxlab3:/boot[root@boxlab3 boot]# cp -a /var/* /mnt/
+]0;root@boxlab3:/boot[root@boxlab3 boot]# rm -rf /var/*[K[K[K[K[K[K[K[K[K[K[K[K[Kls -l /mnt/
+total 80
+drwxr-xr-x.  2 root root  4096 Apr 11  2018 [0m[38;5;27madm[0m
+drwxr-xr-x.  5 root root  4096 May 12 21:52 [38;5;27mcache[0m
+drwxr-xr-x.  3 root root  4096 May 12 21:52 [38;5;27mdb[0m
+drwxr-xr-x.  3 root root  4096 May 12 21:52 [38;5;27mempty[0m
+drwxr-xr-x.  2 root root  4096 Apr 11  2018 [38;5;27mgames[0m
+drwxr-xr-x.  2 root root  4096 Apr 11  2018 [38;5;27mgopher[0m
+drwxr-xr-x.  3 root root  4096 May 12 21:50 [38;5;27mkerberos[0m
+drwxr-xr-x. 29 root root  4096 Nov  2 12:46 [38;5;27mlib[0m
+drwxr-xr-x.  2 root root  4096 Apr 11  2018 [38;5;27mlocal[0m
+lrwxrwxrwx.  1 root root    11 Nov  2 12:47 [38;5;51mlock[0m -> [38;5;27m../run/lock[0m
+drwxr-xr-x.  8 root root  4096 Nov  2 12:43 [38;5;27mlog[0m
+drwx------.  2 root root 16384 Nov  2 12:51 [38;5;27mlost+found[0m
+lrwxrwxrwx.  1 root root    10 Nov  2 12:47 [38;5;51mmail[0m -> [38;5;27mspool/mail[0m
+drwxr-xr-x.  2 root root  4096 Apr 11  2018 [38;5;27mnis[0m
+drwxr-xr-x.  2 root root  4096 Apr 11  2018 [38;5;27mopt[0m
+drwxr-xr-x.  2 root root  4096 Apr 11  2018 [38;5;27mpreserve[0m
+lrwxrwxrwx.  1 root root     6 Nov  2 12:47 [38;5;51mrun[0m -> [38;5;27m../run[0m
+drwxr-xr-x.  8 root root  4096 May 12 21:52 [38;5;27mspool[0m
+drwxrwxrwt.  4 root root  4096 Nov  2 12:50 [48;5;10;38;5;16mtmp[0m
+drwxr-xr-x.  2 root root  4096 Apr 11  2018 [38;5;27myp[0m
+]0;root@boxlab3:/boot[root@boxlab3 boot]# rm -rf /var/*
+]0;root@boxlab3:/boot[root@boxlab3 boot]# umount /mnt
+]0;root@boxlab3:/boot[root@boxlab3 boot]# mount /dev/vg1/lv1_var /var
+]0;root@boxlab3:/boot[root@boxlab3 boot]# cat /etc/fstab
+
+#
+# /etc/fstab
+# Created by anaconda on Sat May 12 18:50:26 2018
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/VolGroup00-LogVol00 /                       xfs     defaults        0 0
+UUID=570897ca-e759-4c81-90cf-389da6eee4cc /boot                   xfs     defaults        0 0
+/dev/mapper/VolGroup00-LogVol01 swap                    swap    defaults        0 0
+]0;root@boxlab3:/boot[root@boxlab3 boot]# echo "`blkid | grep var: | awk '{print $2}'` /var ext4 defaults 0 0" >> /etc/fstab
+]0;root@boxlab3:/boot[root@boxlab3 boot]# echo "`blkid | grep var: | awk '{print $2}'` /var ext4 defaults 0 0" >> /etc/fstab[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat /etc/fstab[K
+
+#
+# /etc/fstab
+# Created by anaconda on Sat May 12 18:50:26 2018
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/VolGroup00-LogVol00 /                       xfs     defaults        0 0
+UUID=570897ca-e759-4c81-90cf-389da6eee4cc /boot                   xfs     defaults        0 0
+/dev/mapper/VolGroup00-LogVol01 swap                    swap    defaults        0 0
+UUID="0ce2a450-a7ab-4281-958a-dd5b2f2f6ede" /var ext4 defaults 0 0
+]0;root@boxlab3:/boot[root@boxlab3 boot]# exit
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# exit
+]0;vagrant@boxlab3:~[vagrant@boxlab3 ~]$ exit
+
+Script done on Fri 02 Nov 2018 12:53:33 PM MSK
+Script started on Fri 02 Nov 2018 12:57:19 PM MSK
+]0;vagrant@boxlab3:~[?1034h[vagrant@boxlab3 ~]$ sudo su
+]0;root@boxlab3:/home/vagrant[?1034h[root@boxlab3 vagrant]# lsblk
+NAME                    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                       8:0    0   40G  0 disk 
+├─sda1                    8:1    0    1M  0 part 
+├─sda2                    8:2    0    1G  0 part /boot
+└─sda3                    8:3    0   39G  0 part 
+  ├─VolGroup00-LogVol00 253:0    0    8G  0 lvm  /
+  └─VolGroup00-LogVol01 253:1    0  1.5G  0 lvm  [SWAP]
+sdb                       8:16   0    2G  0 disk 
+└─vg_tmp-lv0_root       253:7    0  3.9G  0 lvm  
+sdc                       8:32   0    2G  0 disk 
+└─vg_tmp-lv0_root       253:7    0  3.9G  0 lvm  
+sdd                       8:48   0    2G  0 disk 
+├─vg1-lv1_var_rmeta_0   253:2    0    4M  0 lvm  
+│ └─vg1-lv1_var         253:6    0    1G  0 lvm  /var
+└─vg1-lv1_var_rimage_0  253:3    0    1G  0 lvm  
+  └─vg1-lv1_var         253:6    0    1G  0 lvm  /var
+sde                       8:64   0    2G  0 disk 
+├─vg1-lv1_var_rmeta_1   253:4    0    4M  0 lvm  
+│ └─vg1-lv1_var         253:6    0    1G  0 lvm  /var
+└─vg1-lv1_var_rimage_1  253:5    0    1G  0 lvm  
+  └─vg1-lv1_var         253:6    0    1G  0 lvm  /var
+sdf                       8:80   0    2G  0 disk 
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# lvremove /dev/vg_tmp/lv0_root
+Do you really want to remove active logical volume vg_tmp/lv0_root? [y/n]: y
+  Logical volume "lv0_root" successfully removed
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# vgremove /dev/vg_tmp
+  Volume group "vg_tmp" successfully removed
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# pvremove /dev/sdb /dev/sdc
+  Labels on physical volume "/dev/sdb" successfully wiped.
+  Labels on physical volume "/dev/sdc" successfully wiped.
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# lvcreate -n LogVol_home -L 2G /dev/VolGroup00
+  Logical volume "LogVol_home" created.
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# mkfs.xfs /dev/VolGroup00/LogVol_home
+meta-data=/dev/VolGroup00/LogVol_home isize=512    agcount=4, agsize=131072 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=524288, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# mount /dev/VolGroup00/LogVol_home /mnt/
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# cp -a /home/* /mnt/
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# rm -rf /home/*
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# umount /mnt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# mount /dev/VolGroup00/LogVol_home /home/
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# df -Th
+Filesystem                         Type      Size  Used Avail Use% Mounted on
+/dev/mapper/VolGroup00-LogVol00    xfs       8.0G  928M  7.1G  12% /
+devtmpfs                           devtmpfs  488M     0  488M   0% /dev
+tmpfs                              tmpfs     496M     0  496M   0% /dev/shm
+tmpfs                              tmpfs     496M  6.7M  490M   2% /run
+tmpfs                              tmpfs     496M     0  496M   0% /sys/fs/cgroup
+/dev/sda2                          xfs      1014M   61M  953M   7% /boot
+/dev/mapper/vg1-lv1_var            ext4      976M  164M  745M  19% /var
+/dev/mapper/VolGroup00-LogVol_home xfs       2.0G   33M  2.0G   2% /home
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# echo "`blkid | grep home: | awk '{print $2}'` /home xfs defaults 0 0" >> /etc/fstab
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# cat /etc/fstab 
+
+#
+# /etc/fstab
+# Created by anaconda on Sat May 12 18:50:26 2018
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/VolGroup00-LogVol00 /                       xfs     defaults        0 0
+UUID=570897ca-e759-4c81-90cf-389da6eee4cc /boot                   xfs     defaults        0 0
+/dev/mapper/VolGroup00-LogVol01 swap                    swap    defaults        0 0
+UUID="0ce2a450-a7ab-4281-958a-dd5b2f2f6ede" /var ext4 defaults 0 0
+UUID="4d8e7ad6-afca-4646-b838-3b22eb320d58" /home xfs defaults 0 0
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# touch /home/test{1..20}.txt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# ls /home/
+test10.txt  test12.txt  test14.txt  test16.txt  test18.txt  test1.txt   test2.txt  test4.txt  test6.txt  test8.txt  [0m[38;5;27mvagrant[0m
+test11.txt  test13.txt  test15.txt  test17.txt  test19.txt  test20.txt  test3.txt  test5.txt  test7.txt  test9.txt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# lvcreate -L 200MB -s -n home_snap /dev/VolGroup00/LogVol_home
+  Rounding up size to full physical extent 224.00 MiB
+  Logical volume "home_snap" created.
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# rm -f /home/test{5..15}.txt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# ls /home/
+test16.txt  test17.txt  test18.txt  test19.txt  test1.txt  test20.txt  test2.txt  test3.txt  test4.txt  [0m[38;5;27mvagrant[0m
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# umount /home
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# lvconvert --merge /dev/VolGroup00/home_snap
+  Merging of volume VolGroup00/home_snap started.
+  VolGroup00/LogVol_home: Merged: 100.00%
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# mount /home
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# ls /home/
+test10.txt  test12.txt  test14.txt  test16.txt  test18.txt  test1.txt   test2.txt  test4.txt  test6.txt  test8.txt  [0m[38;5;27mvagrant[0m
+test11.txt  test13.txt  test15.txt  test17.txt  test19.txt  test20.txt  test3.txt  test5.txt  test7.txt  test9.txt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# exit
+]0;vagrant@boxlab3:~[vagrant@boxlab3 ~]$ exit
+
+Script done on Fri 02 Nov 2018 01:02:42 PM MSK
+Script started on Sat 03 Nov 2018 12:42:09 PM MSK
+]0;root@boxlab3:/home/vagrant[?1034h[root@boxlab3 vagrant]# mkfs.btrfs -m raid1 -d raid1 /dev/sdb /dev/sdc
+btrfs-progs v4.9.1
+See http://btrfs.wiki.kernel.org for more information.
+
+Label:              (null)
+UUID:               d7c2d2e8-7dbd-4012-9569-c913b4ad9d17
+Node size:          16384
+Sector size:        4096
+Filesystem size:    3.91GiB
+Block group profiles:
+  Data:             RAID1           200.00MiB
+  Metadata:         RAID1           200.00MiB
+  System:           RAID1             8.00MiB
+SSD detected:       no
+Incompat features:  extref, skinny-metadata
+Number of devices:  2
+Devices:
+   ID        SIZE  PATH
+    1     1.95GiB  /dev/sdb
+    2     1.95GiB  /dev/sdc
+
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# mount /dev/1 /mnt/[1P /mnt/s /mnt/d /mnt/b /mnt/
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs filesystem show
+Label: none  uuid: d7c2d2e8-7dbd-4012-9569-c913b4ad9d17
+	Total devices 2 FS bytes used 256.00KiB
+	devid    1 size 1.95GiB used 408.00MiB path /dev/sdb
+	devid    2 size 1.95GiB used 408.00MiB path /dev/sdc
+
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs filesystem df /mnt/
+Data, RAID1: total=200.00MiB, used=128.00KiB
+System, RAID1: total=8.00MiB, used=16.00KiB
+Metadata, RAID1: total=200.00MiB, used=112.00KiB
+GlobalReserve, single: total=16.00MiB, used=0.00B
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs  device add /dev/sdf /mnt/
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs  device add /dev/sdf /mnt/[7Pfilesystem [C[C[C[C[C[C[C[C[4Pshow
+Label: none  uuid: d7c2d2e8-7dbd-4012-9569-c913b4ad9d17
+	Total devices 3 FS bytes used 256.00KiB
+	devid    1 size 1.95GiB used 408.00MiB path /dev/sdb
+	devid    2 size 1.95GiB used 408.00MiB path /dev/sdc
+	devid    3 size 1.95GiB used 0.00B path /dev/sdf
+
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs balance start -dconvert=raid5 -mconvert=raid1 /mnt/
+Done, had to relocate 3 out of 3 chunks
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs balance start -dconvert=raid5 -mconvert=raid1 /mnt/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cfilesystem show[K
+Label: none  uuid: d7c2d2e8-7dbd-4012-9569-c913b4ad9d17
+	Total devices 3 FS bytes used 320.00KiB
+	devid    1 size 1.95GiB used 560.00MiB path /dev/sdb
+	devid    2 size 1.95GiB used 336.00MiB path /dev/sdc
+	devid    3 size 1.95GiB used 592.00MiB path /dev/sdf
+
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs filesystem df /mnt/
+Data, RAID5: total=608.00MiB, used=192.00KiB
+System, RAID1: total=32.00MiB, used=16.00KiB
+Metadata, RAID1: total=256.00MiB, used=112.00KiB
+GlobalReserve, single: total=16.00MiB, used=0.00B
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# ls -l /mnt/
+total 0
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs subvolume list /mnt/
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs subvolume create /mnt/subvol1
+Create subvolume '/mnt/subvol1'
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs subvolume list /mnt/
+ID 260 gen 25 top level 5 path subvol1
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# echo "This is SubVol1" >  /mnt/subvol1/test1.txt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# cat  /mnt/subvol1/test1.txt
+This is SubVol1
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs subvolume snapshot /mnt/subvol1 /mnt/sub_snap
+Create a snapshot of '/mnt/subvol1' in '/mnt/sub_snap'
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# ls -l /mnt/sub_snap/
+total 4
+-rw-r--r--. 1 root root 16 Nov  3 12:44 test1.txt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# echo "This is SubVol1 Snapshot" >>  /mnt/sub_snap/test1.txt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# cat  /mnt/sub_snap/test1.txt
+This is SubVol1
+This is SubVol1 Snapshot
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# cat  /mnt/sub_snap/test1.txt[1P/test1.txt[1P/test1.txt[1P/test1.txt[1P/test1.txt[1P/test1.txtv/test1.txto/test1.txtl/test1.txt1/test1.txt
+This is SubVol1
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs subvolume list /mnt/
+ID 260 gen 26 top level 5 path subvol1
+ID 261 gen 27 top level 5 path sub_snap
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs subvolume delete /mnt/subvol1
+Delete subvolume (no-commit): '/mnt/subvol1'
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# ls -l /mnt/
+total 0
+drwxr-xr-x. 1 root root 18 Nov  3 12:44 [0m[38;5;27msub_snap[0m
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs subvolume snapshot /mnt/sub_snap /mnt/subvol1
+Create a snapshot of '/mnt/sub_snap' in '/mnt/subvol1'
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# echo "This is SubVol1 Again" >>  /mnt/subvol1/test1.txt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs subvolume delete /mnt/sub_snap
+Delete subvolume (no-commit): '/mnt/sub_snap'
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# btrfs subvolume list /mnt/
+ID 262 gen 30 top level 5 path subvol1
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# umount /mnt/
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# mount -o subvolid=262 /dev/sdb /mnt/
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# df -Th
+Filesystem                         Type      Size  Used Avail Use% Mounted on
+/dev/mapper/VolGroup00-LogVol00    xfs       8.0G  928M  7.1G  12% /
+devtmpfs                           devtmpfs  488M     0  488M   0% /dev
+tmpfs                              tmpfs     496M     0  496M   0% /dev/shm
+tmpfs                              tmpfs     496M  6.7M  490M   2% /run
+tmpfs                              tmpfs     496M     0  496M   0% /sys/fs/cgroup
+/dev/sda2                          xfs      1014M   61M  953M   7% /boot
+/dev/mapper/vg1-lv1_var            ext4      976M  165M  745M  19% /var
+/dev/mapper/VolGroup00-LogVol_home xfs       2.0G   33M  2.0G   2% /home
+/dev/sdb                           btrfs     5.9G   17M  5.0G   1% /mnt
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# cat  /mnt/test1.txt
+This is SubVol1
+This is SubVol1 Snapshot
+This is SubVol1 Again
+]0;root@boxlab3:/home/vagrant[root@boxlab3 vagrant]# exit
+
+Script done on Sat 03 Nov 2018 12:48:42 PM MSK
