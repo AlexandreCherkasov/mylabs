@@ -1,0 +1,166 @@
+Script started on Thu 08 Nov 2018 01:06:51 PM MSK
+]0;root@boxlab4:/home/vagrant[?1034h[root@boxlab4 vagrant]# lsblk 
+NAME                    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                       8:0    0   40G  0 disk 
+├─sda1                    8:1    0    1M  0 part 
+├─sda2                    8:2    0    1G  0 part /boot
+└─sda3                    8:3    0   39G  0 part 
+  ├─VolGroup00-LogVol00 253:0    0 37.5G  0 lvm  /
+  └─VolGroup00-LogVol01 253:1    0  1.5G  0 lvm  [SWAP]
+sdb                       8:16   0  500M  0 disk 
+]0;root@boxlab4:/home/vagrant[root@boxlab4 vagrant]# vgrename VolGroup00 lab4vg
+  Volume group "VolGroup00" successfully renamed to "lab4vg"
+]0;root@boxlab4:/home/vagrant[root@boxlab4 vagrant]# mount /dev/mapper/lab4vg-LogVol00 /mnt/
+]0;root@boxlab4:/home/vagrant[root@boxlab4 vagrant]# for d in /proc/ /dev/ /sys/ /run/ /boot/; do mount -o bind $d /mnt/$d; done
+]0;root@boxlab4:/home/vagrant[root@boxlab4 vagrant]# chroot /mnt
+]0;root@boxlab4:/[?1034h[root@boxlab4 /]# sed -i 's/VolGroup00/lab4vg/g' /etc/fstab
+]0;root@boxlab4:/[root@boxlab4 /]# sed -i 's/VolGroup00/lab4vg/g' /etc/default/grub
+]0;root@boxlab4:/[root@boxlab4 /]# grub2-mkconfig -o /boot/grub2/grub.cfg
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-3.10.0-862.2.3.el7.x86_64
+Found initrd image: /boot/initramfs-3.10.0-862.2.3.el7.x86_64.img
+done
+]0;root@boxlab4:/[root@boxlab4 /]# cd /boot/
+]0;root@boxlab4:/boot[root@boxlab4 boot]# for f in $(ls -1 initramfs-*img); do dracut -v $i $(echo $i | sed 's/initramfs-//g; s/.img//g') --force; done
+Executing: /sbin/dracut -v --force
+dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+*** Including module: bash ***
+*** Including module: nss-softokn ***
+*** Including module: i18n ***
+*** Including module: drm ***
+*** Including module: plymouth ***
+*** Including module: dm ***
+Skipping udev rule: 64-device-mapper.rules
+Skipping udev rule: 60-persistent-storage-dm.rules
+Skipping udev rule: 55-dm.rules
+*** Including module: kernel-modules ***
+Omitting driver floppy
+*** Including module: lvm ***
+Skipping udev rule: 64-device-mapper.rules
+Skipping udev rule: 56-lvm.rules
+Skipping udev rule: 60-persistent-storage-lvm.rules
+*** Including module: qemu ***
+*** Including module: resume ***
+*** Including module: rootfs-block ***
+*** Including module: terminfo ***
+*** Including module: udev-rules ***
+Skipping udev rule: 40-redhat-cpu-hotplug.rules
+Skipping udev rule: 91-permissions.rules
+*** Including module: biosdevname ***
+*** Including module: systemd ***
+*** Including module: usrmount ***
+*** Including module: base ***
+*** Including module: fs-lib ***
+*** Including module: shutdown ***
+*** Including modules done ***
+*** Installing kernel module dependencies and firmware ***
+*** Installing kernel module dependencies and firmware done ***
+*** Resolving executable dependencies ***
+*** Resolving executable dependencies done***
+*** Hardlinking files ***
+*** Hardlinking files done ***
+*** Stripping files ***
+*** Stripping files done ***
+*** Generating early-microcode cpio image contents ***
+*** No early-microcode cpio image needed ***
+*** Store current command line parameters ***
+*** Creating image file ***
+*** Creating image file done ***
+*** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done ***
+]0;root@boxlab4:/boot[root@boxlab4 boot]# exit
+exit
+]0;root@boxlab4:/home/vagrant[root@boxlab4 vagrant]# exit
+
+Script done on Thu 08 Nov 2018 01:09:28 PM MSK
+Script started on Thu 08 Nov 2018 01:18:58 PM MSK
+]0;root@boxlab4:/home/vagrant[?1034h[root@boxlab4 vagrant]# lsblk 
+NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                   8:0    0   40G  0 disk 
+├─sda1                8:1    0    1M  0 part 
+├─sda2                8:2    0    1G  0 part /boot
+└─sda3                8:3    0   39G  0 part 
+  ├─lab4vg-LogVol00 253:0    0 37.5G  0 lvm  /
+  └─lab4vg-LogVol01 253:1    0  1.5G  0 lvm  [SWAP]
+sdb                   8:16   0  500M  0 disk 
+]0;root@boxlab4:/home/vagrant[root@boxlab4 vagrant]# exit
+
+Script done on Thu 08 Nov 2018 01:19:07 PM MSK
+Script started on Thu 08 Nov 2018 04:59:08 PM MSK
+]0;root@boxlab4:/home/vagrant[?1034h[root@boxlab4 vagrant]# cp -r /vagrant/01logo /usr/lib/dracut/modules.d/
+]0;root@boxlab4:/home/vagrant[root@boxlab4 vagrant]# ll /usr/lib/dracut/modules.d/01logo/
+total 8
+-rwxr-xr-x. 1 root root 2087 Nov  8 16:59 [0m[38;5;34mdisplay-logo.sh[0m
+-rwxr-xr-x. 1 root root  135 Nov  8 16:59 [38;5;34mmodule-setup.sh[0m
+]0;root@boxlab4:/home/vagrant[root@boxlab4 vagrant]# cd /boot/
+]0;root@boxlab4:/boot[root@boxlab4 boot]# for f in $(ls -1 initramfs-*img); do dracut -v $i $(echo $i | sed 's/initramfs-//g; s/.img//g') --force; done
+Executing: /sbin/dracut -v --force
+dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+*** Including module: bash ***
+*** Including module: logo ***
+*** Including module: nss-softokn ***
+*** Including module: i18n ***
+*** Including module: drm ***
+*** Including module: plymouth ***
+*** Including module: dm ***
+Skipping udev rule: 64-device-mapper.rules
+Skipping udev rule: 60-persistent-storage-dm.rules
+Skipping udev rule: 55-dm.rules
+*** Including module: kernel-modules ***
+Omitting driver floppy
+*** Including module: lvm ***
+Skipping udev rule: 64-device-mapper.rules
+Skipping udev rule: 56-lvm.rules
+Skipping udev rule: 60-persistent-storage-lvm.rules
+*** Including module: qemu ***
+*** Including module: resume ***
+*** Including module: rootfs-block ***
+*** Including module: terminfo ***
+*** Including module: udev-rules ***
+Skipping udev rule: 40-redhat-cpu-hotplug.rules
+Skipping udev rule: 91-permissions.rules
+*** Including module: biosdevname ***
+*** Including module: systemd ***
+*** Including module: usrmount ***
+*** Including module: base ***
+*** Including module: fs-lib ***
+*** Including module: shutdown ***
+*** Including modules done ***
+*** Installing kernel module dependencies and firmware ***
+*** Installing kernel module dependencies and firmware done ***
+*** Resolving executable dependencies ***
+*** Resolving executable dependencies done***
+*** Hardlinking files ***
+*** Hardlinking files done ***
+*** Stripping files ***
+*** Stripping files done ***
+*** Generating early-microcode cpio image contents ***
+*** No early-microcode cpio image needed ***
+*** Store current command line parameters ***
+*** Creating image file ***
+*** Creating image file done ***
+*** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done ***
+]0;root@boxlab4:/boot[root@boxlab4 boot]# exit
+
+Script done on Thu 08 Nov 2018 05:00:27 PM MSK

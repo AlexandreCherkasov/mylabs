@@ -1,0 +1,2073 @@
+Nov  8 13:52:36 u1537 journal: Runtime journal is using 6.1M (max allowed 49.5M, trying to leave 74.3M free of 489.6M available → current limit 49.5M).
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys cpuset
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys cpu
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys cpuacct
+Nov  8 13:52:36 u1537 kernel: Linux version 3.10.0-862.2.3.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) ) #1 SMP Wed May 9 18:05:47 UTC 2018
+Nov  8 13:52:36 u1537 kernel: Command line: BOOT_IMAGE=/vmlinuz-3.10.0-862.2.3.el7.x86_64 root=/dev/mapper/VolGroup00-LogVol00 ro no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop crashkernel=auto rd.lvm.lv=VolGroup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet
+Nov  8 13:52:36 u1537 kernel: e820: BIOS-provided physical RAM map:
+Nov  8 13:52:36 u1537 kernel: BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
+Nov  8 13:52:36 u1537 kernel: BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
+Nov  8 13:52:36 u1537 kernel: BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
+Nov  8 13:52:36 u1537 kernel: BIOS-e820: [mem 0x0000000000100000-0x000000003ffeffff] usable
+Nov  8 13:52:36 u1537 kernel: BIOS-e820: [mem 0x000000003fff0000-0x000000003fffffff] ACPI data
+Nov  8 13:52:36 u1537 kernel: BIOS-e820: [mem 0x00000000fec00000-0x00000000fec00fff] reserved
+Nov  8 13:52:36 u1537 kernel: BIOS-e820: [mem 0x00000000fee00000-0x00000000fee00fff] reserved
+Nov  8 13:52:36 u1537 kernel: BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
+Nov  8 13:52:36 u1537 kernel: NX (Execute Disable) protection: active
+Nov  8 13:52:36 u1537 kernel: SMBIOS 2.5 present.
+Nov  8 13:52:36 u1537 kernel: Hypervisor detected: KVM
+Nov  8 13:52:36 u1537 kernel: e820: last_pfn = 0x3fff0 max_arch_pfn = 0x400000000
+Nov  8 13:52:36 u1537 kernel: PAT configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- UC  
+Nov  8 13:52:36 u1537 kernel: CPU MTRRs all blank - virtualized system.
+Nov  8 13:52:36 u1537 kernel: found SMP MP-table at [mem 0x0009fff0-0x0009ffff] mapped at [ffffffffff200ff0]
+Nov  8 13:52:36 u1537 kernel: RAMDISK: [mem 0x36074000-0x37031fff]
+Nov  8 13:52:36 u1537 kernel: Early table checksum verification disabled
+Nov  8 13:52:36 u1537 kernel: ACPI: RSDP 00000000000e0000 00024 (v02 VBOX  )
+Nov  8 13:52:36 u1537 kernel: ACPI: XSDT 000000003fff0030 0003C (v01 VBOX   VBOXXSDT 00000001 ASL  00000061)
+Nov  8 13:52:36 u1537 kernel: ACPI: FACP 000000003fff00f0 000F4 (v04 VBOX   VBOXFACP 00000001 ASL  00000061)
+Nov  8 13:52:36 u1537 kernel: ACPI: DSDT 000000003fff0470 021FF (v02 VBOX   VBOXBIOS 00000002 INTL 20160108)
+Nov  8 13:52:36 u1537 kernel: ACPI: FACS 000000003fff0200 00040
+Nov  8 13:52:36 u1537 kernel: ACPI: APIC 000000003fff0240 00054 (v02 VBOX   VBOXAPIC 00000001 ASL  00000061)
+Nov  8 13:52:36 u1537 kernel: ACPI: SSDT 000000003fff02a0 001CC (v01 VBOX   VBOXCPUT 00000002 INTL 20160108)
+Nov  8 13:52:36 u1537 kernel: No NUMA configuration found
+Nov  8 13:52:36 u1537 kernel: Faking a node at [mem 0x0000000000000000-0x000000003ffeffff]
+Nov  8 13:52:36 u1537 kernel: NODE_DATA(0) allocated [mem 0x3ffc9000-0x3ffeffff]
+Nov  8 13:52:36 u1537 kernel: crashkernel=auto resulted in zero bytes of reserved memory.
+Nov  8 13:52:36 u1537 kernel: kvm-clock: Using msrs 4b564d01 and 4b564d00
+Nov  8 13:52:36 u1537 kernel: kvm-clock: cpu 0, msr 0:3ff79001, primary cpu clock
+Nov  8 13:52:36 u1537 kernel: kvm-clock: using sched offset of 10440448141 cycles
+Nov  8 13:52:36 u1537 kernel: Zone ranges:
+Nov  8 13:52:36 u1537 kernel:  DMA      [mem 0x00001000-0x00ffffff]
+Nov  8 13:52:36 u1537 kernel:  DMA32    [mem 0x01000000-0xffffffff]
+Nov  8 13:52:36 u1537 kernel:  Normal   empty
+Nov  8 13:52:36 u1537 kernel: Movable zone start for each node
+Nov  8 13:52:36 u1537 kernel: Early memory node ranges
+Nov  8 13:52:36 u1537 kernel:  node   0: [mem 0x00001000-0x0009efff]
+Nov  8 13:52:36 u1537 kernel:  node   0: [mem 0x00100000-0x3ffeffff]
+Nov  8 13:52:36 u1537 kernel: Initmem setup node 0 [mem 0x00001000-0x3ffeffff]
+Nov  8 13:52:36 u1537 kernel: ACPI: PM-Timer IO Port: 0x4008
+Nov  8 13:52:36 u1537 kernel: ACPI: LAPIC (acpi_id[0x00] lapic_id[0x00] enabled)
+Nov  8 13:52:36 u1537 kernel: ACPI: IOAPIC (id[0x01] address[0xfec00000] gsi_base[0])
+Nov  8 13:52:36 u1537 kernel: IOAPIC[0]: apic_id 1, version 32, address 0xfec00000, GSI 0-23
+Nov  8 13:52:36 u1537 kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+Nov  8 13:52:36 u1537 kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 low level)
+Nov  8 13:52:36 u1537 kernel: Using ACPI (MADT) for SMP configuration information
+Nov  8 13:52:36 u1537 kernel: smpboot: Allowing 1 CPUs, 0 hotplug CPUs
+Nov  8 13:52:36 u1537 kernel: PM: Registered nosave memory: [mem 0x0009f000-0x0009ffff]
+Nov  8 13:52:36 u1537 kernel: PM: Registered nosave memory: [mem 0x000a0000-0x000effff]
+Nov  8 13:52:36 u1537 kernel: PM: Registered nosave memory: [mem 0x000f0000-0x000fffff]
+Nov  8 13:52:36 u1537 kernel: e820: [mem 0x40000000-0xfebfffff] available for PCI devices
+Nov  8 13:52:36 u1537 kernel: Booting paravirtualized kernel on KVM
+Nov  8 13:52:36 u1537 kernel: setup_percpu: NR_CPUS:5120 nr_cpumask_bits:1 nr_cpu_ids:1 nr_node_ids:1
+Nov  8 13:52:36 u1537 kernel: PERCPU: Embedded 35 pages/cpu @ffff9fedbfc00000 s104856 r8192 d30312 u2097152
+Nov  8 13:52:36 u1537 kernel: PV qspinlock hash table entries: 256 (order: 0, 4096 bytes)
+Nov  8 13:52:36 u1537 kernel: Built 1 zonelists in Node order, mobility grouping on.  Total pages: 257913
+Nov  8 13:52:36 u1537 kernel: Policy zone: DMA32
+Nov  8 13:52:36 u1537 kernel: Kernel command line: BOOT_IMAGE=/vmlinuz-3.10.0-862.2.3.el7.x86_64 root=/dev/mapper/VolGroup00-LogVol00 ro no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop crashkernel=auto rd.lvm.lv=VolGroup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet
+Nov  8 13:52:36 u1537 kernel: PID hash table entries: 4096 (order: 3, 32768 bytes)
+Nov  8 13:52:36 u1537 kernel: Memory: 995992k/1048512k available (7324k kernel code, 392k absent, 52128k reserved, 6305k data, 1832k init)
+Nov  8 13:52:36 u1537 kernel: SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Nov  8 13:52:36 u1537 kernel: x86/pti: Unmapping kernel while in userspace
+Nov  8 13:52:36 u1537 kernel: Hierarchical RCU implementation.
+Nov  8 13:52:36 u1537 kernel: #011RCU restricting CPUs from NR_CPUS=5120 to nr_cpu_ids=1.
+Nov  8 13:52:36 u1537 kernel: NR_IRQS:327936 nr_irqs:256 0
+Nov  8 13:52:36 u1537 kernel: Console: colour VGA+ 80x25
+Nov  8 13:52:36 u1537 kernel: console [tty0] enabled
+Nov  8 13:52:36 u1537 kernel: console [ttyS0] enabled
+Nov  8 13:52:36 u1537 kernel: allocated 4194304 bytes of page_cgroup
+Nov  8 13:52:36 u1537 kernel: please try 'cgroup_disable=memory' option if you don't want memory cgroups
+Nov  8 13:52:36 u1537 kernel: tsc: Detected 2800.404 MHz processor
+Nov  8 13:52:36 u1537 kernel: Calibrating delay loop (skipped) preset value.. 5600.80 BogoMIPS (lpj=2800404)
+Nov  8 13:52:36 u1537 kernel: pid_max: default: 32768 minimum: 301
+Nov  8 13:52:36 u1537 kernel: Security Framework initialized
+Nov  8 13:52:36 u1537 kernel: SELinux:  Initializing.
+Nov  8 13:52:36 u1537 kernel: Yama: becoming mindful.
+Nov  8 13:52:36 u1537 kernel: Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes)
+Nov  8 13:52:36 u1537 kernel: Inode-cache hash table entries: 65536 (order: 7, 524288 bytes)
+Nov  8 13:52:36 u1537 kernel: Mount-cache hash table entries: 2048 (order: 2, 16384 bytes)
+Nov  8 13:52:36 u1537 kernel: Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes)
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys memory
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys devices
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys freezer
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys net_cls
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys blkio
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys perf_event
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys hugetlb
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys pids
+Nov  8 13:52:36 u1537 kernel: Initializing cgroup subsys net_prio
+Nov  8 13:52:36 u1537 kernel: CPU: Physical Processor ID: 0
+Nov  8 13:52:36 u1537 kernel: mce: CPU supports 0 MCE banks
+Nov  8 13:52:36 u1537 kernel: Last level iTLB entries: 4KB 512, 2MB 7, 4MB 7
+Nov  8 13:52:36 u1537 kernel: Last level dTLB entries: 4KB 512, 2MB 32, 4MB 32
+Nov  8 13:52:36 u1537 kernel: tlb_flushall_shift: 6
+Nov  8 13:52:36 u1537 kernel: FEATURE SPEC_CTRL Not Present
+Nov  8 13:52:36 u1537 kernel: FEATURE IBPB_SUPPORT Not Present
+Nov  8 13:52:36 u1537 kernel: Spectre V2 : Vulnerable: Retpoline without IBPB
+Nov  8 13:52:36 u1537 kernel: Freeing SMP alternatives: 24k freed
+Nov  8 13:52:36 u1537 kernel: ACPI: Core revision 20130517
+Nov  8 13:52:36 u1537 kernel: ACPI: All ACPI Tables successfully acquired
+Nov  8 13:52:36 u1537 kernel: ftrace: allocating 28047 entries in 110 pages
+Nov  8 13:52:36 u1537 kernel: Enabling x2apic
+Nov  8 13:52:36 u1537 kernel: Enabled x2apic
+Nov  8 13:52:36 u1537 kernel: Switched APIC routing to physical x2apic.
+Nov  8 13:52:36 u1537 kernel: ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+Nov  8 13:52:36 u1537 kernel: smpboot: CPU0: Intel(R) Xeon(R) CPU           W3530  @ 2.80GHz (fam: 06, model: 1a, stepping: 05)
+Nov  8 13:52:36 u1537 kernel: APIC calibration not consistent with PM-Timer: 135ms instead of 100ms
+Nov  8 13:52:36 u1537 kernel: APIC delta adjusted to PM-Timer: 6323768 (8592421)
+Nov  8 13:52:36 u1537 kernel: Performance Events: unsupported p6 CPU model 26 no PMU driver, software events only.
+Nov  8 13:52:36 u1537 kernel: KVM setup paravirtual spinlock
+Nov  8 13:52:36 u1537 kernel: Brought up 1 CPUs
+Nov  8 13:52:36 u1537 kernel: smpboot: Max logical packages: 1
+Nov  8 13:52:36 u1537 kernel: smpboot: Total of 1 processors activated (5600.80 BogoMIPS)
+Nov  8 13:52:36 u1537 kernel: devtmpfs: initialized
+Nov  8 13:52:36 u1537 kernel: EVM: security.selinux
+Nov  8 13:52:36 u1537 kernel: EVM: security.ima
+Nov  8 13:52:36 u1537 kernel: EVM: security.capability
+Nov  8 13:52:36 u1537 kernel: atomic64 test passed for x86-64 platform with CX8 and with SSE
+Nov  8 13:52:36 u1537 kernel: pinctrl core: initialized pinctrl subsystem
+Nov  8 13:52:36 u1537 kernel: RTC time: 13:52:36, date: 11/08/18
+Nov  8 13:52:36 u1537 kernel: NET: Registered protocol family 16
+Nov  8 13:52:36 u1537 kernel: ACPI: bus type PCI registered
+Nov  8 13:52:36 u1537 kernel: acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+Nov  8 13:52:36 u1537 kernel: PCI: Using configuration type 1 for base access
+Nov  8 13:52:36 u1537 kernel: ACPI: Added _OSI(Module Device)
+Nov  8 13:52:36 u1537 kernel: ACPI: Added _OSI(Processor Device)
+Nov  8 13:52:36 u1537 kernel: ACPI: Added _OSI(3.0 _SCP Extensions)
+Nov  8 13:52:36 u1537 kernel: ACPI: Added _OSI(Processor Aggregator Device)
+Nov  8 13:52:36 u1537 kernel: ACPI: Executed 1 blocks of module-level executable AML code
+Nov  8 13:52:36 u1537 kernel: ACPI: Interpreter enabled
+Nov  8 13:52:36 u1537 kernel: ACPI: (supports S0 S5)
+Nov  8 13:52:36 u1537 kernel: ACPI: Using IOAPIC for interrupt routing
+Nov  8 13:52:36 u1537 kernel: PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+Nov  8 13:52:36 u1537 kernel: ACPI: Enabled 2 GPEs in block 00 to 07
+Nov  8 13:52:36 u1537 kernel: ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+Nov  8 13:52:36 u1537 kernel: acpi PNP0A03:00: _OSC: OS supports [ASPM ClockPM Segments MSI]
+Nov  8 13:52:36 u1537 kernel: acpi PNP0A03:00: _OSC: not requesting OS control; OS requires [ExtendedConfig ASPM ClockPM MSI]
+Nov  8 13:52:36 u1537 kernel: acpi PNP0A03:00: fail to add MMCONFIG information, can't access extended PCI configuration space under this bridge.
+Nov  8 13:52:36 u1537 kernel: PCI host bridge to bus 0000:00
+Nov  8 13:52:36 u1537 kernel: pci_bus 0000:00: root bus resource [bus 00-ff]
+Nov  8 13:52:36 u1537 kernel: pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+Nov  8 13:52:36 u1537 kernel: pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+Nov  8 13:52:36 u1537 kernel: pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+Nov  8 13:52:36 u1537 kernel: pci_bus 0000:00: root bus resource [mem 0x40000000-0xfdffffff window]
+Nov  8 13:52:36 u1537 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x10: [io  0x01f0-0x01f7]
+Nov  8 13:52:36 u1537 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x14: [io  0x03f6]
+Nov  8 13:52:36 u1537 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x18: [io  0x0170-0x0177]
+Nov  8 13:52:36 u1537 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x1c: [io  0x0376]
+Nov  8 13:52:36 u1537 kernel: pci 0000:00:07.0: quirk: [io  0x4000-0x403f] claimed by PIIX4 ACPI
+Nov  8 13:52:36 u1537 kernel: pci 0000:00:07.0: quirk: [io  0x4100-0x410f] claimed by PIIX4 SMB
+Nov  8 13:52:36 u1537 kernel: ACPI: PCI Interrupt Link [LNKA] (IRQs 5 9 10 *11)
+Nov  8 13:52:36 u1537 kernel: ACPI: PCI Interrupt Link [LNKB] (IRQs 5 9 *10 11)
+Nov  8 13:52:36 u1537 kernel: ACPI: PCI Interrupt Link [LNKC] (IRQs 5 *9 10 11)
+Nov  8 13:52:36 u1537 kernel: ACPI: PCI Interrupt Link [LNKD] (IRQs 5 9 10 *11)
+Nov  8 13:52:36 u1537 kernel: vgaarb: device added: PCI:0000:00:02.0,decodes=io+mem,owns=io+mem,locks=none
+Nov  8 13:52:36 u1537 kernel: vgaarb: loaded
+Nov  8 13:52:36 u1537 kernel: vgaarb: bridge control possible 0000:00:02.0
+Nov  8 13:52:36 u1537 kernel: SCSI subsystem initialized
+Nov  8 13:52:36 u1537 kernel: ACPI: bus type USB registered
+Nov  8 13:52:36 u1537 kernel: usbcore: registered new interface driver usbfs
+Nov  8 13:52:36 u1537 kernel: usbcore: registered new interface driver hub
+Nov  8 13:52:36 u1537 kernel: usbcore: registered new device driver usb
+Nov  8 13:52:36 u1537 kernel: EDAC MC: Ver: 3.0.0
+Nov  8 13:52:36 u1537 kernel: PCI: Using ACPI for IRQ routing
+Nov  8 13:52:36 u1537 kernel: NetLabel: Initializing
+Nov  8 13:52:36 u1537 kernel: NetLabel:  domain hash size = 128
+Nov  8 13:52:36 u1537 kernel: NetLabel:  protocols = UNLABELED CIPSOv4
+Nov  8 13:52:36 u1537 kernel: NetLabel:  unlabeled traffic allowed by default
+Nov  8 13:52:36 u1537 kernel: amd_nb: Cannot enumerate AMD northbridges
+Nov  8 13:52:36 u1537 kernel: Switched to clocksource kvm-clock
+Nov  8 13:52:36 u1537 kernel: pnp: PnP ACPI init
+Nov  8 13:52:36 u1537 kernel: ACPI: bus type PNP registered
+Nov  8 13:52:36 u1537 kernel: pnp: PnP ACPI: found 2 devices
+Nov  8 13:52:36 u1537 kernel: ACPI: bus type PNP unregistered
+Nov  8 13:52:36 u1537 kernel: NET: Registered protocol family 2
+Nov  8 13:52:36 u1537 kernel: TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+Nov  8 13:52:36 u1537 kernel: TCP bind hash table entries: 8192 (order: 5, 131072 bytes)
+Nov  8 13:52:36 u1537 kernel: TCP: Hash tables configured (established 8192 bind 8192)
+Nov  8 13:52:36 u1537 kernel: TCP: reno registered
+Nov  8 13:52:36 u1537 kernel: UDP hash table entries: 512 (order: 2, 16384 bytes)
+Nov  8 13:52:36 u1537 kernel: UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+Nov  8 13:52:36 u1537 kernel: NET: Registered protocol family 1
+Nov  8 13:52:36 u1537 kernel: pci 0000:00:00.0: Limiting direct PCI/PCI transfers
+Nov  8 13:52:36 u1537 kernel: pci 0000:00:01.0: Activating ISA DMA hang workarounds
+Nov  8 13:52:36 u1537 kernel: Unpacking initramfs...
+Nov  8 13:52:36 u1537 kernel: Freeing initrd memory: 16120k freed
+Nov  8 13:52:36 u1537 kernel: platform rtc_cmos: registered platform RTC device (no PNP device found)
+Nov  8 13:52:36 u1537 kernel: sha1_ssse3: Using SSSE3 optimized SHA-1 implementation
+Nov  8 13:52:36 u1537 kernel: sha256_ssse3: Using SSSE3 optimized SHA-256 implementation
+Nov  8 13:52:36 u1537 kernel: futex hash table entries: 256 (order: 2, 16384 bytes)
+Nov  8 13:52:36 u1537 kernel: Initialise system trusted keyring
+Nov  8 13:52:36 u1537 kernel: audit: initializing netlink socket (disabled)
+Nov  8 13:52:36 u1537 kernel: type=2000 audit(1541685168.298:1): initialized
+Nov  8 13:52:36 u1537 kernel: HugeTLB registered 2 MB page size, pre-allocated 0 pages
+Nov  8 13:52:36 u1537 kernel: zpool: loaded
+Nov  8 13:52:36 u1537 kernel: zbud: loaded
+Nov  8 13:52:36 u1537 kernel: VFS: Disk quotas dquot_6.5.2
+Nov  8 13:52:36 u1537 kernel: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+Nov  8 13:52:36 u1537 kernel: msgmni has been set to 1976
+Nov  8 13:52:36 u1537 kernel: Key type big_key registered
+Nov  8 13:52:36 u1537 kernel: NET: Registered protocol family 38
+Nov  8 13:52:36 u1537 kernel: Key type asymmetric registered
+Nov  8 13:52:36 u1537 kernel: Asymmetric key parser 'x509' registered
+Nov  8 13:52:36 u1537 kernel: Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+Nov  8 13:52:36 u1537 kernel: io scheduler noop registered (default)
+Nov  8 13:52:36 u1537 kernel: io scheduler deadline registered
+Nov  8 13:52:36 u1537 kernel: io scheduler cfq registered
+Nov  8 13:52:36 u1537 kernel: io scheduler mq-deadline registered
+Nov  8 13:52:36 u1537 kernel: io scheduler kyber registered
+Nov  8 13:52:36 u1537 kernel: pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+Nov  8 13:52:36 u1537 kernel: pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+Nov  8 13:52:36 u1537 kernel: ACPI: AC Adapter [AC] (on-line)
+Nov  8 13:52:36 u1537 kernel: input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+Nov  8 13:52:36 u1537 kernel: ACPI: Power Button [PWRF]
+Nov  8 13:52:36 u1537 kernel: input: Sleep Button as /devices/LNXSYSTM:00/LNXSLPBN:00/input/input1
+Nov  8 13:52:36 u1537 kernel: ACPI: Sleep Button [SLPF]
+Nov  8 13:52:36 u1537 kernel: GHES: HEST is not enabled!
+Nov  8 13:52:36 u1537 kernel: Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+Nov  8 13:52:36 u1537 kernel: Non-volatile memory driver v1.3
+Nov  8 13:52:36 u1537 kernel: Linux agpgart interface v0.103
+Nov  8 13:52:36 u1537 kernel: crash memory driver: version 1.1
+Nov  8 13:52:36 u1537 kernel: rdac: device handler registered
+Nov  8 13:52:36 u1537 kernel: hp_sw: device handler registered
+Nov  8 13:52:36 u1537 kernel: emc: device handler registered
+Nov  8 13:52:36 u1537 kernel: alua: device handler registered
+Nov  8 13:52:36 u1537 kernel: libphy: Fixed MDIO Bus: probed
+Nov  8 13:52:36 u1537 kernel: ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+Nov  8 13:52:36 u1537 kernel: ehci-pci: EHCI PCI platform driver
+Nov  8 13:52:36 u1537 kernel: ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Nov  8 13:52:36 u1537 kernel: ohci-pci: OHCI PCI platform driver
+Nov  8 13:52:36 u1537 kernel: uhci_hcd: USB Universal Host Controller Interface driver
+Nov  8 13:52:36 u1537 kernel: usbcore: registered new interface driver usbserial
+Nov  8 13:52:36 u1537 kernel: usbcore: registered new interface driver usbserial_generic
+Nov  8 13:52:36 u1537 kernel: usbserial: USB Serial support registered for generic
+Nov  8 13:52:36 u1537 kernel: i8042: PNP: PS/2 Controller [PNP0303:PS2K,PNP0f03:PS2M] at 0x60,0x64 irq 1,12
+Nov  8 13:52:36 u1537 kernel: serio: i8042 KBD port at 0x60,0x64 irq 1
+Nov  8 13:52:36 u1537 kernel: serio: i8042 AUX port at 0x60,0x64 irq 12
+Nov  8 13:52:36 u1537 kernel: mousedev: PS/2 mouse device common for all mice
+Nov  8 13:52:36 u1537 kernel: input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input2
+Nov  8 13:52:36 u1537 kernel: rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
+Nov  8 13:52:36 u1537 kernel: rtc_cmos rtc_cmos: alarms up to one day, 114 bytes nvram
+Nov  8 13:52:36 u1537 kernel: cpuidle: using governor menu
+Nov  8 13:52:36 u1537 kernel: hidraw: raw HID events driver (C) Jiri Kosina
+Nov  8 13:52:36 u1537 kernel: usbcore: registered new interface driver usbhid
+Nov  8 13:52:36 u1537 kernel: usbhid: USB HID core driver
+Nov  8 13:52:36 u1537 kernel: drop_monitor: Initializing network drop monitor service
+Nov  8 13:52:36 u1537 kernel: TCP: cubic registered
+Nov  8 13:52:36 u1537 kernel: Initializing XFRM netlink socket
+Nov  8 13:52:36 u1537 kernel: NET: Registered protocol family 10
+Nov  8 13:52:36 u1537 kernel: NET: Registered protocol family 17
+Nov  8 13:52:36 u1537 kernel: mpls_gso: MPLS GSO support
+Nov  8 13:52:36 u1537 kernel: microcode: CPU0 sig=0x106a5, pf=0x4, revision=0x616
+Nov  8 13:52:36 u1537 kernel: microcode: Microcode Update Driver: v2.01 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+Nov  8 13:52:36 u1537 kernel: Loading compiled-in X.509 certificates
+Nov  8 13:52:36 u1537 kernel: Loaded X.509 cert 'CentOS Linux kpatch signing key: ea0413152cde1d98ebdca3fe6f0230904c9ef717'
+Nov  8 13:52:36 u1537 kernel: Loaded X.509 cert 'CentOS Linux Driver update signing key: 7f421ee0ab69461574bb358861dbe77762a4201b'
+Nov  8 13:52:36 u1537 kernel: Loaded X.509 cert 'CentOS Linux kernel signing key: 666ef031933f5127062372832ce9ba8a49005c8f'
+Nov  8 13:52:36 u1537 kernel: registered taskstats version 1
+Nov  8 13:52:36 u1537 kernel: Key type trusted registered
+Nov  8 13:52:36 u1537 kernel: Key type encrypted registered
+Nov  8 13:52:36 u1537 kernel: IMA: No TPM chip found, activating TPM-bypass! (rc=-19)
+Nov  8 13:52:36 u1537 kernel:  Magic number: 10:349:887
+Nov  8 13:52:36 u1537 kernel: rtc_cmos rtc_cmos: setting system clock to 2018-11-08 13:52:36 UTC (1541685156)
+Nov  8 13:52:36 u1537 kernel: Freeing unused kernel memory: 1832k freed
+Nov  8 13:52:36 u1537 kernel: Write protecting the kernel read-only data: 12288k
+Nov  8 13:52:36 u1537 kernel: Freeing unused kernel memory: 856k freed
+Nov  8 13:52:36 u1537 kernel: Freeing unused kernel memory: 684k freed
+Nov  8 13:52:36 u1537 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 13:52:36 u1537 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 13:52:36 u1537 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 13:52:36 u1537 systemd[1]: systemd 219 running in system mode. (+PAM +AUDIT +SELINUX +IMA -APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 -SECCOMP +BLKID +ELFUTILS +KMOD +IDN)
+Nov  8 13:52:36 u1537 systemd[1]: Detected virtualization kvm.
+Nov  8 13:52:36 u1537 systemd[1]: Detected architecture x86-64.
+Nov  8 13:52:36 u1537 systemd[1]: Running in initial RAM disk.
+Nov  8 13:52:36 u1537 systemd[1]: Set hostname to <localhost.localdomain>.
+Nov  8 13:52:36 u1537 systemd[1]: Initializing machine ID from KVM UUID.
+Nov  8 13:52:36 u1537 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 13:52:36 u1537 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 13:52:36 u1537 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 13:52:36 u1537 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 13:52:36 u1537 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 13:52:36 u1537 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 13:52:36 u1537 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 13:52:36 u1537 systemd[1]: Reached target Local File Systems.
+Nov  8 13:52:36 u1537 systemd[1]: Starting Local File Systems.
+Nov  8 13:52:36 u1537 systemd[1]: Created slice Root Slice.
+Nov  8 13:52:36 u1537 systemd[1]: Starting Root Slice.
+Nov  8 13:52:36 u1537 systemd[1]: Listening on udev Control Socket.
+Nov  8 13:52:36 u1537 systemd[1]: Starting udev Control Socket.
+Nov  8 13:52:36 u1537 systemd[1]: Listening on udev Kernel Socket.
+Nov  8 13:52:36 u1537 systemd[1]: Starting udev Kernel Socket.
+Nov  8 13:52:36 u1537 systemd[1]: Listening on Journal Socket.
+Nov  8 13:52:36 u1537 systemd[1]: Starting Journal Socket.
+Nov  8 13:52:36 u1537 systemd[1]: Reached target Sockets.
+Nov  8 13:52:36 u1537 systemd[1]: Starting Sockets.
+Nov  8 13:52:36 u1537 systemd[1]: Created slice System Slice.
+Nov  8 13:52:36 u1537 systemd[1]: Starting System Slice.
+Nov  8 13:52:36 u1537 systemd[1]: Reached target Slices.
+Nov  8 13:52:36 u1537 systemd[1]: Starting Slices.
+Nov  8 13:52:36 u1537 systemd[1]: Starting Create list of required static device nodes for the current kernel...
+Nov  8 13:52:36 u1537 systemd[1]: Starting Setup Virtual Console...
+Nov  8 13:52:36 u1537 systemd[1]: Starting Apply Kernel Variables...
+Nov  8 13:52:36 u1537 systemd[1]: Starting dracut cmdline hook...
+Nov  8 13:52:36 u1537 systemd[1]: Reached target Timers.
+Nov  8 13:52:36 u1537 systemd[1]: Starting Timers.
+Nov  8 13:52:36 u1537 systemd[1]: Starting Journal Service...
+Nov  8 13:52:36 u1537 systemd[1]: Reached target Swap.
+Nov  8 13:52:36 u1537 systemd[1]: Starting Swap.
+Nov  8 13:52:36 u1537 systemd[1]: Started Create list of required static device nodes for the current kernel.
+Nov  8 13:52:36 u1537 systemd[1]: Started Apply Kernel Variables.
+Nov  8 13:52:36 u1537 systemd[1]: Starting Create Static Device Nodes in /dev...
+Nov  8 13:52:36 u1537 systemd[1]: Started Create Static Device Nodes in /dev.
+Nov  8 13:52:36 u1537 journal: Journal started
+Nov  8 13:52:36 u1537 systemd[1]: Started Journal Service.
+Nov  8 13:52:36 u1537 kernel: psmouse serio1: alps: Unknown ALPS touchpad: E7=10 00 64, EC=10 00 64
+Nov  8 13:52:36 u1537 kernel: input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input3
+Nov  8 13:52:36 u1537 systemd: Started Setup Virtual Console.
+Nov  8 13:52:36 u1537 systemd: Started dracut cmdline hook.
+Nov  8 13:52:36 u1537 systemd: Starting dracut pre-udev hook...
+Nov  8 13:52:36 u1537 kernel: device-mapper: uevent: version 1.0.3
+Nov  8 13:52:36 u1537 kernel: device-mapper: ioctl: 4.37.0-ioctl (2017-09-20) initialised: dm-devel@redhat.com
+Nov  8 13:52:36 u1537 systemd: Started dracut pre-udev hook.
+Nov  8 13:52:36 u1537 systemd: Starting udev Kernel Device Manager...
+Nov  8 13:52:36 u1537 systemd-udevd: starting version 219
+Nov  8 13:52:36 u1537 systemd-udevd: Network interface NamePolicy= disabled on kernel command line, ignoring.
+Nov  8 13:52:36 u1537 systemd: Started udev Kernel Device Manager.
+Nov  8 13:52:36 u1537 systemd: Starting udev Coldplug all Devices...
+Nov  8 13:52:36 u1537 systemd: Mounting Configuration File System...
+Nov  8 13:52:36 u1537 systemd: Mounted Configuration File System.
+Nov  8 13:52:37 u1537 systemd: Started udev Coldplug all Devices.
+Nov  8 13:52:37 u1537 systemd: Starting Show Plymouth Boot Screen...
+Nov  8 13:52:37 u1537 systemd: Starting dracut initqueue hook...
+Nov  8 13:52:37 u1537 systemd: Reached target System Initialization.
+Nov  8 13:52:37 u1537 systemd: Starting System Initialization.
+Nov  8 13:52:37 u1537 systemd: Started Show Plymouth Boot Screen.
+Nov  8 13:52:37 u1537 systemd: Started Forward Password Requests to Plymouth Directory Watch.
+Nov  8 13:52:37 u1537 systemd: Starting Forward Password Requests to Plymouth Directory Watch.
+Nov  8 13:52:37 u1537 systemd: Reached target Paths.
+Nov  8 13:52:37 u1537 systemd: Starting Paths.
+Nov  8 13:52:37 u1537 systemd: Reached target Basic System.
+Nov  8 13:52:37 u1537 systemd: Starting Basic System.
+Nov  8 13:52:37 u1537 kernel: scsi host0: ata_piix
+Nov  8 13:52:37 u1537 kernel: scsi host1: ata_piix
+Nov  8 13:52:37 u1537 kernel: ata1: PATA max UDMA/33 cmd 0x1f0 ctl 0x3f6 bmdma 0xd000 irq 14
+Nov  8 13:52:37 u1537 kernel: ata2: PATA max UDMA/33 cmd 0x170 ctl 0x376 bmdma 0xd008 irq 15
+Nov  8 13:52:37 u1537 kernel: ahci 0000:00:0d.0: SSS flag set, parallel bus scan disabled
+Nov  8 13:52:37 u1537 kernel: ahci 0000:00:0d.0: AHCI 0001.0100 32 slots 30 ports 3 Gbps 0x3fffffff impl SATA mode
+Nov  8 13:52:37 u1537 kernel: ahci 0000:00:0d.0: flags: 64bit ncq stag only ccc 
+Nov  8 13:52:37 u1537 kernel: scsi host2: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host3: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host4: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host5: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host6: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host7: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host8: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host9: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host10: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host11: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host12: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host13: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host14: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host15: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host16: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host17: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host18: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host19: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host20: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host21: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host22: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host23: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host24: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host25: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host26: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host27: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host28: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host29: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host30: ahci
+Nov  8 13:52:37 u1537 kernel: scsi host31: ahci
+Nov  8 13:52:37 u1537 kernel: ata3: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804100 irq 21
+Nov  8 13:52:37 u1537 kernel: ata4: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804180 irq 21
+Nov  8 13:52:37 u1537 kernel: ata5: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804200 irq 21
+Nov  8 13:52:37 u1537 kernel: ata6: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804280 irq 21
+Nov  8 13:52:37 u1537 kernel: ata7: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804300 irq 21
+Nov  8 13:52:37 u1537 kernel: ata8: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804380 irq 21
+Nov  8 13:52:37 u1537 kernel: ata9: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804400 irq 21
+Nov  8 13:52:37 u1537 kernel: ata10: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804480 irq 21
+Nov  8 13:52:37 u1537 kernel: ata11: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804500 irq 21
+Nov  8 13:52:37 u1537 kernel: ata12: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804580 irq 21
+Nov  8 13:52:37 u1537 kernel: ata13: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804600 irq 21
+Nov  8 13:52:37 u1537 kernel: ata14: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804680 irq 21
+Nov  8 13:52:37 u1537 kernel: ata15: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804700 irq 21
+Nov  8 13:52:37 u1537 kernel: ata16: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804780 irq 21
+Nov  8 13:52:37 u1537 kernel: ata17: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804800 irq 21
+Nov  8 13:52:37 u1537 kernel: ata18: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804880 irq 21
+Nov  8 13:52:37 u1537 kernel: ata19: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804900 irq 21
+Nov  8 13:52:37 u1537 kernel: ata20: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804980 irq 21
+Nov  8 13:52:37 u1537 kernel: ata21: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804a00 irq 21
+Nov  8 13:52:37 u1537 kernel: ata22: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804a80 irq 21
+Nov  8 13:52:37 u1537 kernel: ata23: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804b00 irq 21
+Nov  8 13:52:37 u1537 kernel: ata24: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804b80 irq 21
+Nov  8 13:52:37 u1537 kernel: ata25: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804c00 irq 21
+Nov  8 13:52:37 u1537 kernel: ata26: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804c80 irq 21
+Nov  8 13:52:37 u1537 kernel: ata27: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804d00 irq 21
+Nov  8 13:52:37 u1537 kernel: ata28: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804d80 irq 21
+Nov  8 13:52:37 u1537 kernel: ata29: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804e00 irq 21
+Nov  8 13:52:37 u1537 kernel: ata30: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804e80 irq 21
+Nov  8 13:52:37 u1537 kernel: ata31: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804f00 irq 21
+Nov  8 13:52:37 u1537 kernel: ata32: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804f80 irq 21
+Nov  8 13:52:37 u1537 kernel: ata1.00: ATA-6: VBOX HARDDISK, 1.0, max UDMA/133
+Nov  8 13:52:37 u1537 kernel: ata1.00: 83886080 sectors, multi 128: LBA 
+Nov  8 13:52:37 u1537 kernel: ata1.00: configured for UDMA/33
+Nov  8 13:52:37 u1537 kernel: scsi 0:0:0:0: Direct-Access     ATA      VBOX HARDDISK    1.0  PQ: 0 ANSI: 5
+Nov  8 13:52:37 u1537 kernel: tsc: Refined TSC clocksource calibration: 2799.261 MHz
+Nov  8 13:52:37 u1537 kernel: ata3: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:37 u1537 kernel: ata4: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+Nov  8 13:52:37 u1537 kernel: ata4.00: ATA-6: VBOX HARDDISK, 1.0, max UDMA/133
+Nov  8 13:52:37 u1537 kernel: ata4.00: 1024000 sectors, multi 128: LBA48 NCQ (depth 31/32)
+Nov  8 13:52:37 u1537 kernel: ata4.00: configured for UDMA/133
+Nov  8 13:52:37 u1537 kernel: scsi 3:0:0:0: Direct-Access     ATA      VBOX HARDDISK    1.0  PQ: 0 ANSI: 5
+Nov  8 13:52:38 u1537 kernel: ata5: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:38 u1537 kernel: ata6: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:38 u1537 kernel: ata7: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:39 u1537 kernel: ata8: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:39 u1537 kernel: ata9: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:39 u1537 kernel: ata10: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:40 u1537 kernel: ata11: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:40 u1537 kernel: ata12: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:40 u1537 kernel: ata13: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:40 u1537 kernel: ata14: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:41 u1537 kernel: ata15: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:41 u1537 kernel: ata16: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:41 u1537 kernel: ata17: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:42 u1537 systemd: Received SIGRTMIN+20 from PID 227 (plymouthd).
+Nov  8 13:52:42 u1537 kernel: ata18: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:42 u1537 kernel: ata19: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:42 u1537 kernel: ata20: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:43 u1537 kernel: ata21: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:43 u1537 kernel: ata22: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:43 u1537 kernel: ata23: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:44 u1537 kernel: ata24: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:44 u1537 kernel: ata25: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:44 u1537 kernel: ata26: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:44 u1537 kernel: ata27: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:45 u1537 kernel: ata28: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:45 u1537 kernel: ata29: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:45 u1537 kernel: ata30: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:46 u1537 kernel: ata31: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:46 u1537 kernel: ata32: SATA link down (SStatus 0 SControl 300)
+Nov  8 13:52:46 u1537 kernel: sd 0:0:0:0: [sda] 83886080 512-byte logical blocks: (42.9 GB/40.0 GiB)
+Nov  8 13:52:46 u1537 kernel: sd 0:0:0:0: [sda] Write Protect is off
+Nov  8 13:52:46 u1537 kernel: sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+Nov  8 13:52:46 u1537 kernel: sda: sda1 sda2 sda3
+Nov  8 13:52:46 u1537 kernel: sd 0:0:0:0: [sda] Attached SCSI disk
+Nov  8 13:52:46 u1537 kernel: sd 3:0:0:0: [sdb] 1024000 512-byte logical blocks: (524 MB/500 MiB)
+Nov  8 13:52:46 u1537 kernel: sd 3:0:0:0: [sdb] Write Protect is off
+Nov  8 13:52:46 u1537 kernel: sd 3:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+Nov  8 13:52:46 u1537 kernel: sd 3:0:0:0: [sdb] Attached SCSI disk
+Nov  8 13:52:46 u1537 kernel: random: fast init done
+Nov  8 13:52:46 u1537 systemd: Found device /dev/mapper/VolGroup00-LogVol00.
+Nov  8 13:52:46 u1537 systemd: Starting File System Check on /dev/mapper/VolGroup00-LogVol00...
+Nov  8 13:52:46 u1537 systemd-fsck: /sbin/fsck.xfs: XFS file system.
+Nov  8 13:52:46 u1537 systemd: Started File System Check on /dev/mapper/VolGroup00-LogVol00.
+Nov  8 13:52:46 u1537 systemd: Started dracut initqueue hook.
+Nov  8 13:52:46 u1537 systemd: Reached target Remote File Systems (Pre).
+Nov  8 13:52:46 u1537 systemd: Starting Remote File Systems (Pre).
+Nov  8 13:52:46 u1537 systemd: Reached target Remote File Systems.
+Nov  8 13:52:46 u1537 systemd: Starting Remote File Systems.
+Nov  8 13:52:46 u1537 systemd: Mounting /sysroot...
+Nov  8 13:52:46 u1537 kernel: SGI XFS with ACLs, security attributes, no debug enabled
+Nov  8 13:52:46 u1537 kernel: XFS (dm-0): Mounting V5 Filesystem
+Nov  8 13:52:46 u1537 kernel: XFS (dm-0): Ending clean mount
+Nov  8 13:52:46 u1537 systemd: Mounted /sysroot.
+Nov  8 13:52:46 u1537 systemd: Reached target Initrd Root File System.
+Nov  8 13:52:46 u1537 systemd: Starting Initrd Root File System.
+Nov  8 13:52:46 u1537 systemd: Starting Reload Configuration from the Real Root...
+Nov  8 13:52:46 u1537 systemd: Reloading.
+Nov  8 13:52:46 u1537 systemd: Started Reload Configuration from the Real Root.
+Nov  8 13:52:47 u1537 systemd: Reached target Initrd File Systems.
+Nov  8 13:52:47 u1537 systemd: Starting Initrd File Systems.
+Nov  8 13:52:47 u1537 systemd: Reached target Initrd Default Target.
+Nov  8 13:52:47 u1537 systemd: Starting Initrd Default Target.
+Nov  8 13:52:47 u1537 systemd: Starting dracut pre-pivot and cleanup hook...
+Nov  8 13:52:47 u1537 systemd: Started dracut pre-pivot and cleanup hook.
+Nov  8 13:52:47 u1537 systemd: Starting Cleaning Up and Shutting Down Daemons...
+Nov  8 13:52:47 u1537 systemd: Stopped target Timers.
+Nov  8 13:52:47 u1537 systemd: Stopping Timers.
+Nov  8 13:52:47 u1537 systemd: Starting Plymouth switch root service...
+Nov  8 13:52:47 u1537 systemd: Stopped Cleaning Up and Shutting Down Daemons.
+Nov  8 13:52:47 u1537 systemd: Stopped dracut pre-pivot and cleanup hook.
+Nov  8 13:52:47 u1537 systemd: Stopping dracut pre-pivot and cleanup hook...
+Nov  8 13:52:47 u1537 systemd: Stopped target Remote File Systems.
+Nov  8 13:52:47 u1537 systemd: Stopping Remote File Systems.
+Nov  8 13:52:47 u1537 systemd: Stopped target Remote File Systems (Pre).
+Nov  8 13:52:47 u1537 systemd: Stopping Remote File Systems (Pre).
+Nov  8 13:52:47 u1537 systemd: Stopped dracut initqueue hook.
+Nov  8 13:52:47 u1537 systemd: Stopping dracut initqueue hook...
+Nov  8 13:52:47 u1537 systemd: Stopped target Initrd Default Target.
+Nov  8 13:52:47 u1537 systemd: Stopping Initrd Default Target.
+Nov  8 13:52:47 u1537 systemd: Stopped target Basic System.
+Nov  8 13:52:47 u1537 systemd: Stopping Basic System.
+Nov  8 13:52:47 u1537 systemd: Stopped target Sockets.
+Nov  8 13:52:47 u1537 systemd: Stopping Sockets.
+Nov  8 13:52:47 u1537 systemd: Stopped target Paths.
+Nov  8 13:52:47 u1537 systemd: Stopping Paths.
+Nov  8 13:52:47 u1537 systemd: Stopped target System Initialization.
+Nov  8 13:52:47 u1537 systemd: Stopping System Initialization.
+Nov  8 13:52:47 u1537 systemd: Stopped target Swap.
+Nov  8 13:52:47 u1537 systemd: Stopping Swap.
+Nov  8 13:52:47 u1537 systemd: Stopping udev Kernel Device Manager...
+Nov  8 13:52:47 u1537 systemd: Stopped udev Coldplug all Devices.
+Nov  8 13:52:47 u1537 systemd: Stopping udev Coldplug all Devices...
+Nov  8 13:52:47 u1537 systemd: Stopped Apply Kernel Variables.
+Nov  8 13:52:47 u1537 systemd: Stopping Apply Kernel Variables...
+Nov  8 13:52:47 u1537 systemd: Stopped target Local File Systems.
+Nov  8 13:52:47 u1537 systemd: Stopping Local File Systems.
+Nov  8 13:52:47 u1537 systemd: Stopped target Slices.
+Nov  8 13:52:47 u1537 systemd: Stopping Slices.
+Nov  8 13:52:47 u1537 systemd: Stopped udev Kernel Device Manager.
+Nov  8 13:52:47 u1537 systemd: Stopped Create Static Device Nodes in /dev.
+Nov  8 13:52:47 u1537 systemd: Stopping Create Static Device Nodes in /dev...
+Nov  8 13:52:47 u1537 systemd: Stopped Create list of required static device nodes for the current kernel.
+Nov  8 13:52:47 u1537 systemd: Stopping Create list of required static device nodes for the current kernel...
+Nov  8 13:52:47 u1537 systemd: Stopped dracut pre-udev hook.
+Nov  8 13:52:47 u1537 systemd: Stopping dracut pre-udev hook...
+Nov  8 13:52:47 u1537 systemd: Stopped dracut cmdline hook.
+Nov  8 13:52:47 u1537 systemd: Stopping dracut cmdline hook...
+Nov  8 13:52:47 u1537 systemd: Closed udev Kernel Socket.
+Nov  8 13:52:47 u1537 systemd: Stopping udev Kernel Socket.
+Nov  8 13:52:47 u1537 systemd: Closed udev Control Socket.
+Nov  8 13:52:47 u1537 systemd: Stopping udev Control Socket.
+Nov  8 13:52:47 u1537 systemd: Starting Cleanup udevd DB...
+Nov  8 13:52:47 u1537 systemd: Started Plymouth switch root service.
+Nov  8 13:52:47 u1537 systemd: Started Cleanup udevd DB.
+Nov  8 13:52:47 u1537 systemd: Reached target Switch Root.
+Nov  8 13:52:47 u1537 systemd: Starting Switch Root.
+Nov  8 13:52:47 u1537 systemd: Starting Switch Root...
+Nov  8 13:52:47 u1537 systemd: Switching root.
+Nov  8 13:52:47 u1537 journal: Journal stopped
+Nov  8 13:52:47 u1537 journal: Runtime journal is using 6.1M (max allowed 49.5M, trying to leave 74.3M free of 489.6M available → current limit 49.5M).
+Nov  8 13:52:47 u1537 systemd-journald[88]: Received SIGTERM from PID 1 (systemd).
+Nov  8 13:52:47 u1537 kernel: type=1404 audit(1541685167.132:2): enforcing=1 old_enforcing=0 auid=4294967295 ses=4294967295
+Nov  8 13:52:47 u1537 kernel: type=1403 audit(1541685167.256:3): policy loaded auid=4294967295 ses=4294967295
+Nov  8 13:52:47 u1537 systemd[1]: Successfully loaded SELinux policy in 129.750ms.
+Nov  8 13:52:47 u1537 kernel: ip_tables: (C) 2000-2006 Netfilter Core Team
+Nov  8 13:52:47 u1537 systemd[1]: Inserted module 'ip_tables'
+Nov  8 13:52:47 u1537 systemd[1]: Relabelled /dev and /run in 25.129ms.
+Nov  8 13:52:47 u1537 journal: Journal started
+Nov  8 13:52:47 u1537 systemd: systemd 219 running in system mode. (+PAM +AUDIT +SELINUX +IMA -APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 -SECCOMP +BLKID +ELFUTILS +KMOD +IDN)
+Nov  8 13:52:47 u1537 systemd: Detected virtualization kvm.
+Nov  8 13:52:47 u1537 systemd: Detected architecture x86-64.
+Nov  8 13:52:47 u1537 systemd: Set hostname to <localhost.localdomain>.
+Nov  8 13:52:47 u1537 systemd: Initializing machine ID from KVM UUID.
+Nov  8 13:52:47 u1537 systemd: Installed transient /etc/machine-id file.
+Nov  8 13:52:47 u1537 systemd: Started Create list of required static device nodes for the current kernel.
+Nov  8 13:52:47 u1537 systemd: Started Read and set NIS domainname from /etc/sysconfig/network.
+Nov  8 13:52:47 u1537 systemd: Started Remount Root and Kernel File Systems.
+Nov  8 13:52:47 u1537 systemd: Started Apply Kernel Variables.
+Nov  8 13:52:47 u1537 systemd: Starting Configure read-only root support...
+Nov  8 13:52:47 u1537 systemd: Starting Rebuild Hardware Database...
+Nov  8 13:52:47 u1537 systemd: Starting Load/Save Random Seed...
+Nov  8 13:52:47 u1537 systemd: Starting Create Static Device Nodes in /dev...
+Nov  8 13:52:47 u1537 systemd: Starting Flush Journal to Persistent Storage...
+Nov  8 13:52:47 u1537 systemd: Started LVM2 metadata daemon.
+Nov  8 13:52:47 u1537 systemd: Starting LVM2 metadata daemon...
+Nov  8 13:52:47 u1537 systemd: Started Load/Save Random Seed.
+Nov  8 13:52:47 u1537 systemd: Started Flush Journal to Persistent Storage.
+Nov  8 13:52:47 u1537 systemd: Started Create Static Device Nodes in /dev.
+Nov  8 13:52:47 u1537 systemd: Starting udev Kernel Device Manager...
+Nov  8 13:52:47 u1537 kernel: random: crng init done
+Nov  8 13:52:47 u1537 systemd: Started Configure read-only root support.
+Nov  8 13:52:47 u1537 systemd-udevd: starting version 219
+Nov  8 13:52:47 u1537 systemd-udevd: Network interface NamePolicy= disabled on kernel command line, ignoring.
+Nov  8 13:52:47 u1537 systemd: Started udev Kernel Device Manager.
+Nov  8 13:52:48 u1537 systemd: Started Rebuild Hardware Database.
+Nov  8 13:52:48 u1537 systemd: Starting udev Coldplug all Devices...
+Nov  8 13:52:48 u1537 systemd-udevd: Network interface NamePolicy= disabled on kernel command line, ignoring.
+Nov  8 13:52:48 u1537 kernel: ACPI: Video Device [GFX0] (multi-head: yes  rom: no  post: no)
+Nov  8 13:52:48 u1537 kernel: input: Video Bus as /devices/LNXSYSTM:00/device:00/PNP0A03:00/LNXVIDEO:00/input/input4
+Nov  8 13:52:48 u1537 systemd: Started udev Coldplug all Devices.
+Nov  8 13:52:48 u1537 kernel: e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+Nov  8 13:52:48 u1537 kernel: e1000: Copyright (c) 1999-2006 Intel Corporation.
+Nov  8 13:52:48 u1537 kernel: sd 0:0:0:0: Attached scsi generic sg0 type 0
+Nov  8 13:52:48 u1537 kernel: sd 3:0:0:0: Attached scsi generic sg1 type 0
+Nov  8 13:52:48 u1537 kernel: piix4_smbus 0000:00:07.0: SMBus Host Controller at 0x4100, revision 0
+Nov  8 13:52:48 u1537 kernel: input: PC Speaker as /devices/platform/pcspkr/input/input5
+Nov  8 13:52:48 u1537 kernel: ppdev: user-space parallel port driver
+Nov  8 13:52:48 u1537 systemd: Created slice system-lvm2\x2dpvscan.slice.
+Nov  8 13:52:48 u1537 systemd: Starting system-lvm2\x2dpvscan.slice.
+Nov  8 13:52:48 u1537 systemd: Starting LVM2 PV scan on device 8:3...
+Nov  8 13:52:48 u1537 systemd: Found device VBOX_HARDDISK 2.
+Nov  8 13:52:48 u1537 lvm: 2 logical volume(s) in volume group "VolGroup00" monitored
+Nov  8 13:52:48 u1537 systemd: Started Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling.
+Nov  8 13:52:48 u1537 systemd: Reached target Local File Systems (Pre).
+Nov  8 13:52:48 u1537 systemd: Starting Local File Systems (Pre).
+Nov  8 13:52:48 u1537 systemd: Mounting /boot...
+Nov  8 13:52:48 u1537 systemd: Found device /dev/mapper/VolGroup00-LogVol01.
+Nov  8 13:52:48 u1537 systemd: Activating swap /dev/mapper/VolGroup00-LogVol01...
+Nov  8 13:52:48 u1537 kernel: XFS (sda2): Mounting V5 Filesystem
+Nov  8 13:52:48 u1537 kernel: Adding 1572860k swap on /dev/mapper/VolGroup00-LogVol01.  Priority:-1 extents:1 across:1572860k FS
+Nov  8 13:52:48 u1537 lvm: 2 logical volume(s) in volume group "VolGroup00" now active
+Nov  8 13:52:48 u1537 systemd: Activated swap /dev/mapper/VolGroup00-LogVol01.
+Nov  8 13:52:48 u1537 systemd: Reached target Swap.
+Nov  8 13:52:48 u1537 systemd: Starting Swap.
+Nov  8 13:52:48 u1537 systemd: Started LVM2 PV scan on device 8:3.
+Nov  8 13:52:48 u1537 kernel: XFS (sda2): Ending clean mount
+Nov  8 13:52:48 u1537 systemd: Mounted /boot.
+Nov  8 13:52:48 u1537 systemd: Reached target Local File Systems.
+Nov  8 13:52:48 u1537 systemd: Starting Local File Systems.
+Nov  8 13:52:48 u1537 systemd: Starting Commit a transient machine-id on disk...
+Nov  8 13:52:48 u1537 systemd: Starting Preprocess NFS configuration...
+Nov  8 13:52:48 u1537 systemd: Starting Rebuild Journal Catalog...
+Nov  8 13:52:48 u1537 systemd: Starting Migrate local SELinux policy changes from the old store structure to the new structure...
+Nov  8 13:52:48 u1537 systemd: Starting Tell Plymouth To Write Out Runtime Data...
+Nov  8 13:52:48 u1537 systemd: Failed at step STDIN spawning /usr/libexec/selinux/selinux-policy-migrate-local-changes.sh: Inappropriate ioctl for device
+Nov  8 13:52:48 u1537 systemd: Starting Create Volatile Files and Directories...
+Nov  8 13:52:49 u1537 systemd: Started Commit a transient machine-id on disk.
+Nov  8 13:52:49 u1537 systemd: Started Rebuild Journal Catalog.
+Nov  8 13:52:49 u1537 systemd: selinux-policy-migrate-local-changes@targeted.service: main process exited, code=exited, status=208/STDIN
+Nov  8 13:52:49 u1537 systemd: Failed to start Migrate local SELinux policy changes from the old store structure to the new structure.
+Nov  8 13:52:49 u1537 systemd: Unit selinux-policy-migrate-local-changes@targeted.service entered failed state.
+Nov  8 13:52:49 u1537 systemd: selinux-policy-migrate-local-changes@targeted.service failed.
+Nov  8 13:52:49 u1537 systemd: Started Preprocess NFS configuration.
+Nov  8 13:52:49 u1537 systemd: Started Tell Plymouth To Write Out Runtime Data.
+Nov  8 13:52:49 u1537 systemd: Starting Update is Completed...
+Nov  8 13:52:49 u1537 systemd: Started Update is Completed.
+Nov  8 13:52:49 u1537 systemd: Started Create Volatile Files and Directories.
+Nov  8 13:52:49 u1537 systemd: Mounting RPC Pipe File System...
+Nov  8 13:52:49 u1537 systemd: Starting Security Auditing Service...
+Nov  8 13:52:49 u1537 auditd[593]: Started dispatcher: /sbin/audispd pid: 595
+Nov  8 13:52:49 u1537 kernel: type=1305 audit(1541685169.227:4): audit_pid=593 old=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:auditd_t:s0 res=1
+Nov  8 13:52:49 u1537 audispd: No plugins found, exiting
+Nov  8 13:52:49 u1537 auditd[593]: dispatcher 595 reaped
+Nov  8 13:52:49 u1537 systemd: Mounted RPC Pipe File System.
+Nov  8 13:52:49 u1537 systemd: Reached target rpc_pipefs.target.
+Nov  8 13:52:49 u1537 systemd: Starting rpc_pipefs.target.
+Nov  8 13:52:49 u1537 kernel: RPC: Registered named UNIX socket transport module.
+Nov  8 13:52:49 u1537 kernel: RPC: Registered udp transport module.
+Nov  8 13:52:49 u1537 kernel: RPC: Registered tcp transport module.
+Nov  8 13:52:49 u1537 kernel: RPC: Registered tcp NFSv4.1 backchannel transport module.
+Nov  8 13:52:49 u1537 kernel: e1000 0000:00:03.0 eth0: (PCI:33MHz:32-bit) 52:54:00:c9:c7:04
+Nov  8 13:52:49 u1537 kernel: e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Nov  8 13:52:49 u1537 auditd[593]: Init complete, auditd 2.8.1 listening for events (startup state enable)
+Nov  8 13:52:49 u1537 systemd: Started Security Auditing Service.
+Nov  8 13:52:49 u1537 systemd: Starting Update UTMP about System Boot/Shutdown...
+Nov  8 13:52:49 u1537 systemd: Started Update UTMP about System Boot/Shutdown.
+Nov  8 13:52:49 u1537 systemd: Reached target System Initialization.
+Nov  8 13:52:49 u1537 systemd: Starting System Initialization.
+Nov  8 13:52:49 u1537 systemd: Started Daily Cleanup of Temporary Directories.
+Nov  8 13:52:49 u1537 systemd: Starting Daily Cleanup of Temporary Directories.
+Nov  8 13:52:49 u1537 systemd: Reached target Timers.
+Nov  8 13:52:49 u1537 systemd: Starting Timers.
+Nov  8 13:52:49 u1537 systemd: Listening on D-Bus System Message Bus Socket.
+Nov  8 13:52:49 u1537 systemd: Starting D-Bus System Message Bus Socket.
+Nov  8 13:52:49 u1537 systemd: Listening on RPCbind Server Activation Socket.
+Nov  8 13:52:49 u1537 systemd: Starting RPCbind Server Activation Socket.
+Nov  8 13:52:49 u1537 systemd: Starting RPC bind service...
+Nov  8 13:52:49 u1537 systemd: Reached target Sockets.
+Nov  8 13:52:49 u1537 systemd: Starting Sockets.
+Nov  8 13:52:49 u1537 systemd: Reached target Basic System.
+Nov  8 13:52:49 u1537 systemd: Starting Basic System.
+Nov  8 13:52:49 u1537 systemd: Starting OpenSSH Server Key Generation...
+Nov  8 13:52:49 u1537 systemd: Started D-Bus System Message Bus.
+Nov  8 13:52:49 u1537 systemd: Starting D-Bus System Message Bus...
+Nov  8 13:52:49 u1537 systemd: Starting GSSAPI Proxy Daemon...
+Nov  8 13:52:49 u1537 systemd: Starting Login Service...
+Nov  8 13:52:49 u1537 systemd: Starting Network Manager...
+Nov  8 13:52:49 u1537 systemd: Started irqbalance daemon.
+Nov  8 13:52:49 u1537 systemd: Starting irqbalance daemon...
+Nov  8 13:52:49 u1537 systemd: Starting Dump dmesg to /var/log/dmesg...
+Nov  8 13:52:49 u1537 systemd: Starting Authorization Manager...
+Nov  8 13:52:49 u1537 systemd: Starting NTP client/server...
+Nov  8 13:52:49 u1537 /usr/sbin/irqbalance: Balancing is ineffective on systems with a single cpu.  Shutting down
+Nov  8 13:52:49 u1537 systemd: Started RPC bind service.
+Nov  8 13:52:49 u1537 systemd: Started GSSAPI Proxy Daemon.
+Nov  8 13:52:49 u1537 systemd: Started Dump dmesg to /var/log/dmesg.
+Nov  8 13:52:49 u1537 chronyd[641]: chronyd version 3.2 starting (+CMDMON +NTP +REFCLOCK +RTC +PRIVDROP +SCFILTER +SECHASH +SIGND +ASYNCDNS +IPV6 +DEBUG)
+Nov  8 13:52:49 u1537 systemd-logind: Watching system buttons on /dev/input/event0 (Power Button)
+Nov  8 13:52:49 u1537 systemd-logind: Watching system buttons on /dev/input/event1 (Sleep Button)
+Nov  8 13:52:49 u1537 systemd-logind: Watching system buttons on /dev/input/event4 (Video Bus)
+Nov  8 13:52:49 u1537 systemd-logind: New seat seat0.
+Nov  8 13:52:49 u1537 systemd: Started Login Service.
+Nov  8 13:52:49 u1537 systemd: Reached target NFS client services.
+Nov  8 13:52:49 u1537 systemd: Starting NFS client services.
+Nov  8 13:52:49 u1537 systemd: Reached target Remote File Systems (Pre).
+Nov  8 13:52:49 u1537 polkitd[634]: Started polkitd version 0.112
+Nov  8 13:52:49 u1537 systemd: Starting Remote File Systems (Pre).
+Nov  8 13:52:49 u1537 systemd: Reached target Remote File Systems.
+Nov  8 13:52:49 u1537 systemd: Starting Remote File Systems.
+Nov  8 13:52:49 u1537 systemd: Starting Permit User Sessions...
+Nov  8 13:52:49 u1537 NetworkManager[631]: <info>  [1541685169.7908] NetworkManager (version 1.10.2-13.el7) is starting... (for the first time)
+Nov  8 13:52:49 u1537 NetworkManager[631]: <info>  [1541685169.7923] Read config: /etc/NetworkManager/NetworkManager.conf (lib: 10-slaves-order.conf)
+Nov  8 13:52:49 u1537 systemd: Started Permit User Sessions.
+Nov  8 13:52:49 u1537 systemd: Started Command Scheduler.
+Nov  8 13:52:49 u1537 systemd: Starting Command Scheduler...
+Nov  8 13:52:49 u1537 systemd: Starting Terminate Plymouth Boot Screen...
+Nov  8 13:52:49 u1537 systemd: Starting Wait for Plymouth Boot Screen to Quit...
+Nov  8 13:52:49 u1537 systemd: Received SIGRTMIN+21 from PID 227 (plymouthd).
+Nov  8 13:52:49 u1537 NetworkManager[631]: <info>  [1541685169.8827] manager[0x561eb30010e0]: monitoring kernel firmware directory '/lib/firmware'.
+Nov  8 13:52:49 u1537 dbus[622]: [system] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service'
+Nov  8 13:52:49 u1537 systemd: Started Terminate Plymouth Boot Screen.
+Nov  8 13:52:49 u1537 systemd: Started NTP client/server.
+Nov  8 13:52:49 u1537 systemd: Started Wait for Plymouth Boot Screen to Quit.
+Nov  8 13:52:49 u1537 systemd: Started Authorization Manager.
+Nov  8 13:52:49 u1537 systemd: Started Getty on tty1.
+Nov  8 13:52:49 u1537 systemd: Starting Getty on tty1...
+Nov  8 13:52:49 u1537 systemd: Reached target Login Prompts.
+Nov  8 13:52:49 u1537 systemd: Starting Login Prompts.
+Nov  8 13:52:49 u1537 systemd: Starting Hostname Service...
+Nov  8 13:52:50 u1537 dbus[622]: [system] Successfully activated service 'org.freedesktop.hostname1'
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.0733] hostname: hostname: using hostnamed
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.0735] hostname: hostname changed from (none) to "localhost.localdomain"
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.0741] dns-mgr[0x561eb3016950]: init: dns=default, rc-manager=file
+Nov  8 13:52:50 u1537 dbus[622]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service'
+Nov  8 13:52:50 u1537 systemd: Started Hostname Service.
+Nov  8 13:52:50 u1537 systemd: Started Network Manager.
+Nov  8 13:52:50 u1537 systemd: Starting Network Manager Script Dispatcher Service...
+Nov  8 13:52:50 u1537 systemd: Starting Network Manager Wait Online...
+Nov  8 13:52:50 u1537 dbus[622]: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+Nov  8 13:52:50 u1537 systemd: Started Network Manager Script Dispatcher Service.
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.2897] settings: loaded plugin ifcfg-rh: (c) 2007 - 2015 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list. (/usr/lib64/NetworkManager/libnm-settings-plugin-ifcfg-rh.so)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.2926] settings: loaded plugin iBFT: (c) 2014 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list. (/usr/lib64/NetworkManager/libnm-settings-plugin-ibft.so)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.2926] settings: loaded plugin keyfile: (c) 2007 - 2016 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list.
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.2941] ifcfg-rh: new connection /etc/sysconfig/network-scripts/ifcfg-eth0 (5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03,"System eth0")
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3307] manager: rfkill: WiFi enabled by radio killswitch; enabled by state file
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3311] manager: rfkill: WWAN enabled by radio killswitch; enabled by state file
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3315] manager: Networking is enabled by state file
+Nov  8 13:52:50 u1537 nm-dispatcher: req:1 'hostname': new request (3 scripts)
+Nov  8 13:52:50 u1537 nm-dispatcher: req:1 'hostname': start running ordered scripts...
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3342] dhcp-init: Using DHCP client 'dhclient'
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3348] Loaded device plugin: NMBondDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3349] Loaded device plugin: NMBridgeDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3349] Loaded device plugin: NMDummyDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3349] Loaded device plugin: NMEthernetDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3349] Loaded device plugin: NMInfinibandDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3350] Loaded device plugin: NMIPTunnelDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3350] Loaded device plugin: NMMacsecDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3350] Loaded device plugin: NMMacvlanDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3350] Loaded device plugin: NMPppDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3350] Loaded device plugin: NMTunDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3351] Loaded device plugin: NMVethDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3351] Loaded device plugin: NMVlanDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3351] Loaded device plugin: NMVxlanDeviceFactory (internal)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3488] Loaded device plugin: NMTeamFactory (/usr/lib64/NetworkManager/libnm-device-plugin-team.so)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3602] device (lo): carrier: link connected
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3651] manager: (lo): new Generic device (/org/freedesktop/NetworkManager/Devices/1)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3764] manager: (eth0): new Ethernet device (/org/freedesktop/NetworkManager/Devices/2)
+Nov  8 13:52:50 u1537 NetworkManager[631]: <info>  [1541685170.3848] device (eth0): state change: unmanaged -> unavailable (reason 'managed', sys-iface-state: 'external')
+Nov  8 13:52:50 u1537 kernel: IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Nov  8 13:52:50 u1537 kernel: IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Nov  8 13:52:50 u1537 sshd-keygen: Generating SSH2 RSA host key: [  OK  ]
+Nov  8 13:52:50 u1537 kernel: snd_intel8x0 0000:00:05.0: intel8x0_measure_ac97_clock: measured 52051 usecs (33600 samples)
+Nov  8 13:52:50 u1537 kernel: snd_intel8x0 0000:00:05.0: measured clock 645520 rejected
+Nov  8 13:52:50 u1537 sshd-keygen: Generating SSH2 ECDSA host key: [  OK  ]
+Nov  8 13:52:50 u1537 sshd-keygen: Generating SSH2 ED25519 host key: [  OK  ]
+Nov  8 13:52:50 u1537 systemd: Started OpenSSH Server Key Generation.
+Nov  8 13:52:50 u1537 kernel: snd_intel8x0 0000:00:05.0: intel8x0_measure_ac97_clock: measured 51585 usecs (33600 samples)
+Nov  8 13:52:50 u1537 kernel: snd_intel8x0 0000:00:05.0: measured clock 651352 rejected
+Nov  8 13:52:51 u1537 kernel: snd_intel8x0 0000:00:05.0: intel8x0_measure_ac97_clock: measured 51311 usecs (33600 samples)
+Nov  8 13:52:51 u1537 kernel: snd_intel8x0 0000:00:05.0: measured clock 654830 rejected
+Nov  8 13:52:51 u1537 kernel: snd_intel8x0 0000:00:05.0: clocking to 48000
+Nov  8 13:52:51 u1537 systemd: Reached target Sound Card.
+Nov  8 13:52:51 u1537 systemd: Starting Sound Card.
+Nov  8 13:52:52 u1537 kernel: e1000: eth0 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+Nov  8 13:52:52 u1537 kernel: IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4062] device (eth0): carrier: link connected
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4099] device (eth0): state change: unavailable -> disconnected (reason 'carrier-changed', sys-iface-state: 'managed')
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4149] policy: auto-activating connection 'System eth0'
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4180] device (eth0): Activation: starting connection 'System eth0' (5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03)
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4196] device (eth0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4210] manager: NetworkManager state is now CONNECTING
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4246] device (eth0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4274] device (eth0): state change: config -> ip-config (reason 'none', sys-iface-state: 'managed')
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4313] dhcp4 (eth0): activation: beginning transaction (timeout in 45 seconds)
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4372] dhcp4 (eth0): dhclient started with pid 719
+Nov  8 13:52:52 u1537 dhclient[719]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 8 (xid=0x46c8874f)
+Nov  8 13:52:52 u1537 dhclient[719]: DHCPREQUEST on eth0 to 255.255.255.255 port 67 (xid=0x46c8874f)
+Nov  8 13:52:52 u1537 dhclient[719]: DHCPOFFER from 10.0.2.2
+Nov  8 13:52:52 u1537 dhclient[719]: DHCPACK from 10.0.2.2 (xid=0x46c8874f)
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4986] dhcp4 (eth0):   address 10.0.2.15
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4986] dhcp4 (eth0):   plen 24 (255.255.255.0)
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4986] dhcp4 (eth0):   gateway 10.0.2.2
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4987] dhcp4 (eth0):   lease time 86400
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4987] dhcp4 (eth0):   nameserver '10.0.2.3'
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4987] dhcp4 (eth0):   domain name 'msk.ritek'
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.4987] dhcp4 (eth0): state changed unknown -> bound
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.5051] device (eth0): state change: ip-config -> ip-check (reason 'none', sys-iface-state: 'managed')
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.5110] device (eth0): state change: ip-check -> secondaries (reason 'none', sys-iface-state: 'managed')
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.5132] device (eth0): state change: secondaries -> activated (reason 'none', sys-iface-state: 'managed')
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.5147] manager: NetworkManager state is now CONNECTED_LOCAL
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.5163] manager: NetworkManager state is now CONNECTED_SITE
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.5172] policy: set 'System eth0' (eth0) as default for IPv4 routing and DNS
+Nov  8 13:52:52 u1537 dhclient[719]: bound to 10.0.2.15 -- renewal in 37221 seconds.
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.5233] device (eth0): Activation: successful, device activated.
+Nov  8 13:52:52 u1537 nm-dispatcher: req:2 'up' [eth0]: new request (3 scripts)
+Nov  8 13:52:52 u1537 nm-dispatcher: req:2 'up' [eth0]: start running ordered scripts...
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.5277] manager: startup complete
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.5418] manager: NetworkManager state is now CONNECTED_GLOBAL
+Nov  8 13:52:52 u1537 systemd: Started Network Manager Wait Online.
+Nov  8 13:52:52 u1537 NetworkManager[631]: <info>  [1541685172.5610] policy: set-hostname: set hostname to 'u1537.corp.lukoil.com' (from address lookup)
+Nov  8 13:52:52 u1537 systemd-hostnamed: Changed host name to 'u1537.corp.lukoil.com'
+Nov  8 13:52:52 u1537 nm-dispatcher: req:3 'connectivity-change': new request (3 scripts)
+Nov  8 13:52:52 u1537 nm-dispatcher: req:4 'hostname': new request (3 scripts)
+Nov  8 13:52:52 u1537 systemd: Starting LSB: Bring up/down networking...
+Nov  8 13:52:52 u1537 nm-dispatcher: req:3 'connectivity-change': start running ordered scripts...
+Nov  8 13:52:52 u1537 nm-dispatcher: req:4 'hostname': start running ordered scripts...
+Nov  8 13:52:53 u1537 network: Bringing up loopback interface:  [  OK  ]
+Nov  8 13:52:53 u1537 network: Bringing up interface eth0:  [  OK  ]
+Nov  8 13:52:53 u1537 systemd: Started LSB: Bring up/down networking.
+Nov  8 13:52:53 u1537 systemd: Reached target Network.
+Nov  8 13:52:53 u1537 systemd: Starting Network.
+Nov  8 13:52:53 u1537 systemd: Starting Postfix Mail Transport Agent...
+Nov  8 13:52:53 u1537 systemd: Starting OpenSSH server daemon...
+Nov  8 13:52:53 u1537 systemd: Starting Dynamic System Tuning Daemon...
+Nov  8 13:52:53 u1537 systemd: Reached target Network is Online.
+Nov  8 13:52:53 u1537 systemd: Starting Network is Online.
+Nov  8 13:52:53 u1537 systemd: Starting Notify NFS peers of a restart...
+Nov  8 13:52:53 u1537 systemd: Starting System Logging Service...
+Nov  8 13:52:53 u1537 sm-notify[932]: Version 1.3.0 starting
+Nov  8 13:52:53 u1537 systemd: Started Notify NFS peers of a restart.
+Nov  8 13:52:53 u1537 rsyslogd: [origin software="rsyslogd" swVersion="8.24.0" x-pid="934" x-info="http://www.rsyslog.com"] start
+Nov  8 13:52:53 u1537 systemd: Started System Logging Service.
+Nov  8 13:52:53 u1537 systemd: Started OpenSSH server daemon.
+Nov  8 13:52:54 u1537 systemd: Started Postfix Mail Transport Agent.
+Nov  8 13:52:54 u1537 systemd: Started Dynamic System Tuning Daemon.
+Nov  8 13:52:54 u1537 systemd: Reached target Multi-User System.
+Nov  8 13:52:54 u1537 systemd: Starting Multi-User System.
+Nov  8 13:52:54 u1537 systemd: Starting Update UTMP about System Runlevel Changes...
+Nov  8 13:52:54 u1537 systemd: Started Update UTMP about System Runlevel Changes.
+Nov  8 13:52:54 u1537 systemd: Startup finished in 348ms (kernel) + 10.622s (initrd) + 7.263s (userspace) = 18.235s.
+Nov  8 13:52:57 u1537 systemd: Created slice User Slice of vagrant.
+Nov  8 13:52:57 u1537 systemd: Starting User Slice of vagrant.
+Nov  8 13:52:57 u1537 systemd: Started Session 1 of user vagrant.
+Nov  8 13:52:57 u1537 systemd-logind: New session 1 of user vagrant.
+Nov  8 13:52:57 u1537 systemd: Starting Session 1 of user vagrant.
+Nov  8 13:52:59 u1537 chronyd[641]: Selected source 85.21.78.23
+Nov  8 13:52:59 u1537 chronyd[641]: System clock wrong by 1.561419 seconds, adjustment started
+Nov  8 13:52:59 u1537 chronyd[641]: System clock was stepped by 1.561419 seconds
+Nov  8 13:52:59 u1537 systemd: Time has been changed
+Nov  8 13:53:00 u1537 chronyd[641]: Selected source 87.255.0.139
+Nov  8 13:53:00 u1537 chronyd[641]: Source 78.140.251.2 replaced with 95.165.138.248
+Nov  8 13:53:04 u1537 systemd-logind: Removed session 1.
+Nov  8 13:53:04 u1537 systemd: Removed slice User Slice of vagrant.
+Nov  8 13:53:04 u1537 systemd: Stopping User Slice of vagrant.
+Nov  8 13:53:04 u1537 systemd: Created slice User Slice of vagrant.
+Nov  8 13:53:04 u1537 systemd: Starting User Slice of vagrant.
+Nov  8 13:53:04 u1537 systemd: Started Session 2 of user vagrant.
+Nov  8 13:53:04 u1537 systemd-logind: New session 2 of user vagrant.
+Nov  8 13:53:04 u1537 systemd: Starting Session 2 of user vagrant.
+Nov  8 13:53:28 u1537 yum[2472]: Installed: mpfr-3.1.1-4.el7.x86_64
+Nov  8 13:53:28 u1537 yum[2472]: Installed: libmpc-1.0.1-3.el7.x86_64
+Nov  8 13:53:28 u1537 yum[2472]: Installed: cpp-4.8.5-28.el7_5.1.x86_64
+Nov  8 13:53:28 u1537 yum[2472]: Installed: 1:perl-parent-0.225-244.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-HTTP-Tiny-0.033-3.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-podlators-2.5.1-3.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Pod-Perldoc-3.20-4.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Text-ParseWords-3.29-4.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: 1:perl-Pod-Escapes-1.04-292.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Encode-2.51-7.el7.x86_64
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Pod-Usage-1.63-3.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: 4:perl-macros-5.16.3-292.el7.x86_64
+Nov  8 13:53:29 u1537 yum[2472]: Installed: 4:perl-libs-5.16.3-292.el7.x86_64
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Exporter-5.68-3.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-constant-1.27-2.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Time-Local-1.2300-2.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Socket-2.010-4.el7.x86_64
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Carp-1.26-244.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: 4:perl-Time-HiRes-1.9725-3.el7.x86_64
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-PathTools-3.40-5.el7.x86_64
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Scalar-List-Utils-1.27-248.el7.x86_64
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Storable-2.45-3.el7.x86_64
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-File-Temp-0.23.01-3.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-File-Path-2.09-2.el7.noarch
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-threads-shared-1.43-6.el7.x86_64
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-threads-1.87-4.el7.x86_64
+Nov  8 13:53:29 u1537 yum[2472]: Installed: perl-Filter-1.49-3.el7.x86_64
+Nov  8 13:53:30 u1537 yum[2472]: Installed: 1:perl-Pod-Simple-3.28-4.el7.noarch
+Nov  8 13:53:30 u1537 yum[2472]: Installed: perl-Getopt-Long-2.40-3.el7.noarch
+Nov  8 13:53:32 u1537 yum[2472]: Installed: 4:perl-5.16.3-292.el7.x86_64
+Nov  8 13:53:33 u1537 yum[2472]: Updated: binutils-2.27-28.base.el7_5.1.x86_64
+Nov  8 13:53:33 u1537 yum[2472]: Installed: kernel-headers-3.10.0-862.14.4.el7.x86_64
+Nov  8 13:53:34 u1537 yum[2472]: Installed: glibc-headers-2.17-222.el7.x86_64
+Nov  8 13:53:34 u1537 yum[2472]: Installed: glibc-devel-2.17-222.el7.x86_64
+Nov  8 13:53:34 u1537 yum[2472]: Updated: libgcc-4.8.5-28.el7_5.1.x86_64
+Nov  8 13:53:34 u1537 yum[2472]: Updated: libgomp-4.8.5-28.el7_5.1.x86_64
+Nov  8 13:53:36 u1537 yum[2472]: Installed: gcc-4.8.5-28.el7_5.1.x86_64
+Nov  8 13:53:58 u1537 yum[2472]: Installed: kernel-devel-3.10.0-862.2.3.el7.x86_64
+Nov  8 13:54:20 u1537 yum[2472]: Installed: kernel-devel-3.10.0-862.14.4.el7.x86_64
+Nov  8 13:54:23 u1537 kernel: loop: module loaded
+Nov  8 13:55:30 u1537 dracut: dracut-033-535.el7
+Nov  8 13:55:30 u1537 dracut: Executing: /sbin/dracut -f --kver 3.10.0-862.2.3.el7.x86_64
+Nov  8 13:55:31 u1537 dracut: dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+Nov  8 13:55:31 u1537 dracut: dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+Nov  8 13:55:31 u1537 dracut: *** Including module: bash ***
+Nov  8 13:55:31 u1537 dracut: *** Including module: nss-softokn ***
+Nov  8 13:55:31 u1537 dracut: *** Including module: i18n ***
+Nov  8 13:55:32 u1537 dracut: *** Including module: drm ***
+Nov  8 13:55:33 u1537 dracut: *** Including module: plymouth ***
+Nov  8 13:55:34 u1537 dracut: *** Including module: dm ***
+Nov  8 13:55:34 u1537 dracut: Skipping udev rule: 64-device-mapper.rules
+Nov  8 13:55:34 u1537 dracut: Skipping udev rule: 60-persistent-storage-dm.rules
+Nov  8 13:55:34 u1537 dracut: Skipping udev rule: 55-dm.rules
+Nov  8 13:55:34 u1537 dracut: *** Including module: kernel-modules ***
+Nov  8 13:55:36 u1537 dracut: Omitting driver floppy
+Nov  8 13:55:45 u1537 dracut: *** Including module: lvm ***
+Nov  8 13:55:45 u1537 dracut: Skipping udev rule: 64-device-mapper.rules
+Nov  8 13:55:45 u1537 dracut: Skipping udev rule: 56-lvm.rules
+Nov  8 13:55:45 u1537 dracut: Skipping udev rule: 60-persistent-storage-lvm.rules
+Nov  8 13:55:45 u1537 dracut: *** Including module: qemu ***
+Nov  8 13:55:45 u1537 dracut: *** Including module: resume ***
+Nov  8 13:55:45 u1537 dracut: *** Including module: rootfs-block ***
+Nov  8 13:55:45 u1537 dracut: *** Including module: terminfo ***
+Nov  8 13:55:45 u1537 dracut: *** Including module: udev-rules ***
+Nov  8 13:55:45 u1537 dracut: Skipping udev rule: 40-redhat-cpu-hotplug.rules
+Nov  8 13:55:46 u1537 dracut: Skipping udev rule: 91-permissions.rules
+Nov  8 13:55:46 u1537 dracut: *** Including module: biosdevname ***
+Nov  8 13:55:46 u1537 dracut: *** Including module: systemd ***
+Nov  8 13:55:46 u1537 dracut: *** Including module: usrmount ***
+Nov  8 13:55:46 u1537 dracut: *** Including module: base ***
+Nov  8 13:55:46 u1537 dracut: *** Including module: fs-lib ***
+Nov  8 13:55:46 u1537 dracut: *** Including module: shutdown ***
+Nov  8 13:55:46 u1537 dracut: *** Including modules done ***
+Nov  8 13:55:46 u1537 dracut: *** Installing kernel module dependencies and firmware ***
+Nov  8 13:55:47 u1537 dracut: *** Installing kernel module dependencies and firmware done ***
+Nov  8 13:55:47 u1537 dracut: *** Resolving executable dependencies ***
+Nov  8 13:55:48 u1537 dracut: *** Resolving executable dependencies done***
+Nov  8 13:55:48 u1537 dracut: *** Hardlinking files ***
+Nov  8 13:55:48 u1537 dracut: *** Hardlinking files done ***
+Nov  8 13:55:48 u1537 dracut: *** Stripping files ***
+Nov  8 13:55:48 u1537 dracut: *** Stripping files done ***
+Nov  8 13:55:48 u1537 dracut: *** Generating early-microcode cpio image contents ***
+Nov  8 13:55:48 u1537 dracut: *** No early-microcode cpio image needed ***
+Nov  8 13:55:48 u1537 dracut: *** Store current command line parameters ***
+Nov  8 13:55:48 u1537 dracut: *** Creating image file ***
+Nov  8 13:55:54 u1537 dracut: *** Creating image file done ***
+Nov  8 13:56:01 u1537 dracut: *** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done ***
+Nov  8 13:56:05 u1537 kernel: vboxguest: loading out-of-tree module taints kernel.
+Nov  8 13:56:05 u1537 kernel: vboxguest: module verification failed: signature and/or required key missing - tainting kernel
+Nov  8 13:56:05 u1537 systemd-udevd: Network interface NamePolicy= disabled on kernel command line, ignoring.
+Nov  8 13:56:05 u1537 kernel: vgdrvHeartbeatInit: Setting up heartbeat to trigger every 2000 milliseconds
+Nov  8 13:56:05 u1537 kernel: input: Unspecified device as /devices/pci0000:00/0000:00:04.0/input/input6
+Nov  8 13:56:05 u1537 kernel: vboxguest: misc device minor 58, IRQ 20, I/O port d020, MMIO at 00000000f0400000 (size 0x400000)
+Nov  8 13:56:05 u1537 kernel: [drm] VRAM 01000000
+Nov  8 13:56:05 u1537 kernel: [TTM] Zone  kernel: Available graphics memory: 507754 kiB
+Nov  8 13:56:05 u1537 kernel: [TTM] Initializing pool allocator
+Nov  8 13:56:05 u1537 kernel: [TTM] Initializing DMA pool allocator
+Nov  8 13:56:05 u1537 kernel: fbcon: vboxdrmfb (fb0) is primary device
+Nov  8 13:56:05 u1537 kernel: Console: switching to colour frame buffer device 100x37
+Nov  8 13:56:05 u1537 kernel: vboxvideo 0000:00:02.0: fb0: vboxdrmfb frame buffer device
+Nov  8 13:56:05 u1537 kernel: [drm] Initialized vboxvideo 1.0.0 20130823 for 0000:00:02.0 on minor 0
+Nov  8 13:56:05 u1537 systemd: Reexecuting.
+Nov  8 13:56:05 u1537 systemd: systemd 219 running in system mode. (+PAM +AUDIT +SELINUX +IMA -APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 -SECCOMP +BLKID +ELFUTILS +KMOD +IDN)
+Nov  8 13:56:05 u1537 systemd: Detected virtualization kvm.
+Nov  8 13:56:05 u1537 systemd: Detected architecture x86-64.
+Nov  8 13:56:05 u1537 systemd: Reloading.
+Nov  8 13:56:06 u1537 systemd: Starting vboxadd.service...
+Nov  8 13:56:06 u1537 vboxadd: VirtualBox Guest Additions: Starting.
+Nov  8 13:56:06 u1537 systemd: Started vboxadd.service.
+Nov  8 13:56:06 u1537 systemd: Reexecuting.
+Nov  8 13:56:06 u1537 systemd: systemd 219 running in system mode. (+PAM +AUDIT +SELINUX +IMA -APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 -SECCOMP +BLKID +ELFUTILS +KMOD +IDN)
+Nov  8 13:56:06 u1537 systemd: Detected virtualization kvm.
+Nov  8 13:56:06 u1537 systemd: Detected architecture x86-64.
+Nov  8 13:56:06 u1537 systemd: Reloading.
+Nov  8 13:56:06 u1537 systemd: Starting vboxadd-service.service...
+Nov  8 13:56:06 u1537 vboxadd-service: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Nov  8 13:56:06 u1537 vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Nov  8 13:56:06 u1537 kernel: VBoxService 5.2.20 r125813 (verbosity: 0) linux.amd64 (Oct 15 2018 16:24:17) release log#01200:00:00.000233 main     Log opened 2018-11-08T13:56:06.979502000Z
+Nov  8 13:56:06 u1537 kernel: 00:00:00.000408 main     OS Product: Linux
+Nov  8 13:56:06 u1537 kernel: 00:00:00.000471 main     OS Release: 3.10.0-862.2.3.el7.x86_64
+Nov  8 13:56:06 u1537 kernel: 00:00:00.000532 main     OS Version: #1 SMP Wed May 9 18:05:47 UTC 2018
+Nov  8 13:56:06 u1537 kernel: 00:00:00.000576 main     Executable: /opt/VBoxGuestAdditions-5.2.20/sbin/VBoxService#01200:00:00.000578 main     Process ID: 6694#01200:00:00.000579 main     Package type: LINUX_64BITS_GENERIC
+Nov  8 13:56:06 u1537 kernel: 00:00:00.002455 main     5.2.20 r125813 started. Verbose level = 0
+Nov  8 13:56:06 u1537 vboxadd-service.sh: VirtualBox Guest Addition service started.
+Nov  8 13:56:06 u1537 systemd: Started vboxadd-service.service.
+Nov  8 13:56:10 u1537 dbus[622]: [system] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service'
+Nov  8 13:56:10 u1537 systemd: Starting Hostname Service...
+Nov  8 13:56:10 u1537 dbus[622]: [system] Successfully activated service 'org.freedesktop.hostname1'
+Nov  8 13:56:10 u1537 NetworkManager[631]: <info>  [1541685370.4575] hostname: hostname changed from "localhost.localdomain" to "boxlab4"
+Nov  8 13:56:10 u1537 dbus[622]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service'
+Nov  8 13:56:10 u1537 NetworkManager[631]: <info>  [1541685370.4644] policy: set-hostname: set hostname to 'boxlab4' (from system configuration)
+Nov  8 13:56:10 u1537 systemd-hostnamed: Changed host name to 'boxlab4'
+Nov  8 13:56:10 u1537 systemd: Started Hostname Service.
+Nov  8 13:56:10 u1537 systemd: Starting Network Manager Script Dispatcher Service...
+Nov  8 13:56:10 u1537 dbus[622]: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+Nov  8 13:56:10 u1537 systemd: Started Network Manager Script Dispatcher Service.
+Nov  8 13:56:10 u1537 nm-dispatcher: req:1 'hostname': new request (3 scripts)
+Nov  8 13:56:10 u1537 nm-dispatcher: req:1 'hostname': start running ordered scripts...
+Nov  8 13:56:10 u1537 nm-dispatcher: req:2 'hostname': new request (3 scripts)
+Nov  8 13:56:10 u1537 nm-dispatcher: req:2 'hostname': start running ordered scripts...
+Nov  8 13:56:11 u1537 systemd: Stopping Network Manager Wait Online...
+Nov  8 13:56:11 u1537 systemd: Stopping Network Manager...
+Nov  8 13:56:11 u1537 NetworkManager[631]: <info>  [1541685371.1675] caught SIGTERM, shutting down normally.
+Nov  8 13:56:11 u1537 NetworkManager[631]: <info>  [1541685371.1733] exiting (success)
+Nov  8 13:56:11 u1537 systemd: Starting Network Manager...
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2188] NetworkManager (version 1.10.2-13.el7) is starting... (after a restart)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2190] Read config: /etc/NetworkManager/NetworkManager.conf (lib: 10-slaves-order.conf)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2286] manager[0x56103ad9d070]: monitoring kernel firmware directory '/lib/firmware'.
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2316] hostname: hostname: using hostnamed
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2316] hostname: hostname changed from (none) to "boxlab4"
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2319] dns-mgr[0x56103adba940]: init: dns=default, rc-manager=file
+Nov  8 13:56:11 u1537 systemd: Started Network Manager.
+Nov  8 13:56:11 u1537 systemd: Starting Network Manager Wait Online...
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2478] settings: loaded plugin ifcfg-rh: (c) 2007 - 2015 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list. (/usr/lib64/NetworkManager/libnm-settings-plugin-ifcfg-rh.so)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2510] settings: loaded plugin iBFT: (c) 2014 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list. (/usr/lib64/NetworkManager/libnm-settings-plugin-ibft.so)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2511] settings: loaded plugin keyfile: (c) 2007 - 2016 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list.
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2527] ifcfg-rh: new connection /etc/sysconfig/network-scripts/ifcfg-eth0 (5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03,"System eth0")
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2660] manager: rfkill: WiFi enabled by radio killswitch; enabled by state file
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2661] manager: rfkill: WWAN enabled by radio killswitch; enabled by state file
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2663] manager: Networking is enabled by state file
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2666] dhcp-init: Using DHCP client 'dhclient'
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2666] Loaded device plugin: NMBondDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2667] Loaded device plugin: NMBridgeDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2667] Loaded device plugin: NMDummyDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2667] Loaded device plugin: NMEthernetDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2667] Loaded device plugin: NMInfinibandDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2668] Loaded device plugin: NMIPTunnelDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2668] Loaded device plugin: NMMacsecDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2668] Loaded device plugin: NMMacvlanDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2668] Loaded device plugin: NMPppDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2669] Loaded device plugin: NMTunDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2669] Loaded device plugin: NMVethDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2669] Loaded device plugin: NMVlanDeviceFactory (internal)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2669] Loaded device plugin: NMVxlanDeviceFactory (internal)
+Nov  8 13:56:11 u1537 nm-dispatcher: req:3 'hostname': new request (3 scripts)
+Nov  8 13:56:11 u1537 nm-dispatcher: req:3 'hostname': start running ordered scripts...
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2758] Loaded device plugin: NMTeamFactory (/usr/lib64/NetworkManager/libnm-device-plugin-team.so)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2770] device (lo): carrier: link connected
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2777] manager: (lo): new Generic device (/org/freedesktop/NetworkManager/Devices/1)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2784] device (eth0): carrier: link connected
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2792] manager: (eth0): new Ethernet device (/org/freedesktop/NetworkManager/Devices/2)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2872] manager: (eth0): assume: will attempt to assume matching connection 'System eth0' (5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03) (indicated)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2874] device (eth0): state change: unmanaged -> unavailable (reason 'connection-assumed', sys-iface-state: 'assume')
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2880] device (eth0): state change: unavailable -> disconnected (reason 'connection-assumed', sys-iface-state: 'assume')
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2891] device (eth0): Activation: starting connection 'System eth0' (5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2916] device (eth0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'assume')
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.2922] device (eth0): state change: prepare -> config (reason 'none', sys-iface-state: 'assume')
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.3068] device (eth0): state change: config -> ip-config (reason 'none', sys-iface-state: 'assume')
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.3080] dhcp4 (eth0): activation: beginning transaction (timeout in 45 seconds)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.3384] dhcp4 (eth0): dhclient started with pid 7477
+Nov  8 13:56:11 u1537 dhclient[7477]: DHCPREQUEST on eth0 to 255.255.255.255 port 67 (xid=0x63847364)
+Nov  8 13:56:11 u1537 dhclient[7477]: DHCPACK from 10.0.2.2 (xid=0x63847364)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4199] dhcp4 (eth0):   address 10.0.2.15
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4199] dhcp4 (eth0):   plen 24 (255.255.255.0)
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4200] dhcp4 (eth0):   gateway 10.0.2.2
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4200] dhcp4 (eth0):   lease time 86400
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4200] dhcp4 (eth0):   nameserver '10.0.2.3'
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4200] dhcp4 (eth0):   domain name 'msk.ritek'
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4200] dhcp4 (eth0): state changed unknown -> bound
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4207] device (eth0): state change: ip-config -> ip-check (reason 'none', sys-iface-state: 'assume')
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4212] device (eth0): state change: ip-check -> secondaries (reason 'none', sys-iface-state: 'assume')
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4214] device (eth0): state change: secondaries -> activated (reason 'none', sys-iface-state: 'assume')
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4215] manager: NetworkManager state is now CONNECTED_LOCAL
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4295] manager: NetworkManager state is now CONNECTED_SITE
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4296] policy: set 'System eth0' (eth0) as default for IPv4 routing and DNS
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4318] device (eth0): Activation: successful, device activated.
+Nov  8 13:56:11 u1537 systemd: Started Network Manager Wait Online.
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4322] manager: startup complete
+Nov  8 13:56:11 u1537 NetworkManager[7466]: <info>  [1541685371.4325] manager: NetworkManager state is now CONNECTED_GLOBAL
+Nov  8 13:56:11 u1537 nm-dispatcher: req:4 'up' [eth0]: new request (3 scripts)
+Nov  8 13:56:11 u1537 nm-dispatcher: req:5 'connectivity-change': new request (3 scripts)
+Nov  8 13:56:11 u1537 dhclient[7477]: bound to 10.0.2.15 -- renewal in 32875 seconds.
+Nov  8 13:56:11 u1537 nm-dispatcher: req:4 'up' [eth0]: start running ordered scripts...
+Nov  8 13:56:11 u1537 nm-dispatcher: req:5 'connectivity-change': start running ordered scripts...
+Nov  8 13:56:13 u1537 systemd: Started Session 3 of user vagrant.
+Nov  8 13:56:13 u1537 systemd-logind: New session 3 of user vagrant.
+Nov  8 13:56:13 u1537 systemd: Starting Session 3 of user vagrant.
+Nov  8 13:56:13 u1537 systemd-logind: Removed session 3.
+Nov  8 13:56:15 u1537 dbus[622]: [system] Activating via systemd: service name='org.freedesktop.timedate1' unit='dbus-org.freedesktop.timedate1.service'
+Nov  8 13:56:15 u1537 systemd: Starting Time & Date Service...
+Nov  8 13:56:15 u1537 dbus[622]: [system] Successfully activated service 'org.freedesktop.timedate1'
+Nov  8 13:56:15 u1537 systemd: Started Time & Date Service.
+Nov  8 13:56:15 u1537 systemd-timedated: Changed time zone to 'Europe/Moscow'.
+Nov  8 13:56:17 u1537 yum[8050]: Installed: gpm-libs-1.20.7-5.el7.x86_64
+Nov  8 13:56:17 u1537 yum[8050]: Installed: 2:vim-filesystem-7.4.160-4.el7.x86_64
+Nov  8 13:56:19 u1537 yum[8050]: Installed: 2:vim-common-7.4.160-4.el7.x86_64
+Nov  8 13:56:19 u1537 yum[8050]: Installed: 2:vim-enhanced-7.4.160-4.el7.x86_64
+Nov  8 13:56:19 u1537 systemd-logind: Removed session 2.
+Nov  8 13:56:19 u1537 systemd: Removed slice User Slice of vagrant.
+Nov  8 13:56:19 u1537 systemd: Stopping User Slice of vagrant.
+Nov  8 13:56:37 u1537 systemd: Created slice User Slice of vagrant.
+Nov  8 13:56:37 u1537 systemd: Starting User Slice of vagrant.
+Nov  8 13:56:37 u1537 systemd: Started Session 4 of user vagrant.
+Nov  8 13:56:37 u1537 systemd-logind: New session 4 of user vagrant.
+Nov  8 13:56:37 u1537 systemd: Starting Session 4 of user vagrant.
+Nov  8 13:57:39 u1537 su: (to root) vagrant on pts/0
+Nov  8 13:59:43 u1537 dracut: dracut-033-535.el7
+Nov  8 13:59:43 u1537 dracut: Executing: /sbin/dracut -v --force
+Nov  8 13:59:43 u1537 dracut: dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+Nov  8 13:59:43 u1537 dracut: dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+Nov  8 13:59:43 u1537 dracut: dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+Nov  8 13:59:43 u1537 dracut: dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+Nov  8 13:59:44 u1537 dracut: dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+Nov  8 13:59:44 u1537 dracut: dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+Nov  8 13:59:44 u1537 dracut: dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+Nov  8 13:59:44 u1537 dracut: dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+Nov  8 13:59:44 u1537 dracut: dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+Nov  8 13:59:44 u1537 dracut: dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+Nov  8 13:59:44 u1537 dracut: dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+Nov  8 13:59:44 u1537 dracut: dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+Nov  8 13:59:44 u1537 dracut: *** Including module: bash ***
+Nov  8 13:59:44 u1537 dracut: *** Including module: logo ***
+Nov  8 13:59:44 u1537 dracut: *** Including module: nss-softokn ***
+Nov  8 13:59:44 u1537 dracut: *** Including module: i18n ***
+Nov  8 13:59:44 u1537 dracut: *** Including module: drm ***
+Nov  8 13:59:46 u1537 dracut: *** Including module: plymouth ***
+Nov  8 13:59:46 u1537 dracut: *** Including module: dm ***
+Nov  8 13:59:46 u1537 dracut: Skipping udev rule: 64-device-mapper.rules
+Nov  8 13:59:46 u1537 dracut: Skipping udev rule: 60-persistent-storage-dm.rules
+Nov  8 13:59:46 u1537 dracut: Skipping udev rule: 55-dm.rules
+Nov  8 13:59:47 u1537 dracut: *** Including module: kernel-modules ***
+Nov  8 13:59:48 u1537 dracut: Omitting driver floppy
+Nov  8 13:59:57 u1537 dracut: *** Including module: lvm ***
+Nov  8 13:59:58 u1537 dracut: Skipping udev rule: 64-device-mapper.rules
+Nov  8 13:59:58 u1537 dracut: Skipping udev rule: 56-lvm.rules
+Nov  8 13:59:58 u1537 dracut: Skipping udev rule: 60-persistent-storage-lvm.rules
+Nov  8 13:59:58 u1537 dracut: *** Including module: qemu ***
+Nov  8 13:59:58 u1537 dracut: *** Including module: resume ***
+Nov  8 13:59:58 u1537 dracut: *** Including module: rootfs-block ***
+Nov  8 13:59:58 u1537 dracut: *** Including module: terminfo ***
+Nov  8 13:59:58 u1537 dracut: *** Including module: udev-rules ***
+Nov  8 13:59:58 u1537 dracut: Skipping udev rule: 40-redhat-cpu-hotplug.rules
+Nov  8 13:59:58 u1537 dracut: Skipping udev rule: 91-permissions.rules
+Nov  8 13:59:58 u1537 dracut: *** Including module: biosdevname ***
+Nov  8 13:59:58 u1537 dracut: *** Including module: systemd ***
+Nov  8 13:59:59 u1537 dracut: *** Including module: usrmount ***
+Nov  8 13:59:59 u1537 dracut: *** Including module: base ***
+Nov  8 13:59:59 u1537 dracut: *** Including module: fs-lib ***
+Nov  8 13:59:59 u1537 dracut: *** Including module: shutdown ***
+Nov  8 13:59:59 u1537 dracut: *** Including modules done ***
+Nov  8 13:59:59 u1537 dracut: *** Installing kernel module dependencies and firmware ***
+Nov  8 13:59:59 u1537 dracut: *** Installing kernel module dependencies and firmware done ***
+Nov  8 13:59:59 u1537 dracut: *** Resolving executable dependencies ***
+Nov  8 14:00:00 u1537 dracut: *** Resolving executable dependencies done***
+Nov  8 14:00:00 u1537 dracut: *** Hardlinking files ***
+Nov  8 14:00:00 u1537 dracut: *** Hardlinking files done ***
+Nov  8 14:00:00 u1537 dracut: *** Stripping files ***
+Nov  8 14:00:01 u1537 dracut: *** Stripping files done ***
+Nov  8 14:00:01 u1537 dracut: *** Generating early-microcode cpio image contents ***
+Nov  8 14:00:01 u1537 dracut: *** No early-microcode cpio image needed ***
+Nov  8 14:00:01 u1537 dracut: *** Store current command line parameters ***
+Nov  8 14:00:01 u1537 dracut: *** Creating image file ***
+Nov  8 14:00:07 u1537 dracut: *** Creating image file done ***
+Nov  8 14:00:07 u1537 journal: Suppressed 306 messages from /user.slice/user-1000.slice
+Nov  8 14:00:14 u1537 dracut: *** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done ***
+Nov  8 14:01:01 u1537 systemd: Created slice User Slice of root.
+Nov  8 14:01:01 u1537 systemd: Starting User Slice of root.
+Nov  8 14:01:01 u1537 systemd: Started Session 5 of user root.
+Nov  8 14:01:01 u1537 systemd: Starting Session 5 of user root.
+Nov  8 14:01:14 u1537 systemd: Started Session 6 of user vagrant.
+Nov  8 14:01:14 u1537 systemd-logind: New session 6 of user vagrant.
+Nov  8 14:01:14 u1537 systemd: Starting Session 6 of user vagrant.
+Nov  8 14:01:14 u1537 systemd-logind: Removed session 6.
+Nov  8 14:01:36 u1537 systemd: Stopping Session 5 of user root.
+Nov  8 14:01:36 u1537 systemd: Stopped target rpc_pipefs.target.
+Nov  8 14:01:36 u1537 chronyd[641]: chronyd exiting
+Nov  8 14:01:36 u1537 systemd: Stopping rpc_pipefs.target.
+Nov  8 14:01:36 u1537 systemd: Stopped Dump dmesg to /var/log/dmesg.
+Nov  8 14:01:36 u1537 systemd: Stopping Dump dmesg to /var/log/dmesg...
+Nov  8 14:01:36 u1537 systemd: Stopped target Sound Card.
+Nov  8 14:01:36 u1537 systemd: Stopping Sound Card.
+Nov  8 14:01:36 u1537 systemd: Stopped target Timers.
+Nov  8 14:01:36 u1537 systemd: Stopping Timers.
+Nov  8 14:01:36 u1537 systemd: Unmounting RPC Pipe File System...
+Nov  8 14:01:36 u1537 systemd: Stopping LVM2 PV scan on device 8:3...
+Nov  8 14:01:36 u1537 systemd: Stopping Session 4 of user vagrant.
+Nov  8 14:01:36 u1537 systemd: Removed slice system-selinux\x2dpolicy\x2dmigrate\x2dlocal\x2dchanges.slice.
+Nov  8 14:01:36 u1537 systemd: Stopping system-selinux\x2dpolicy\x2dmigrate\x2dlocal\x2dchanges.slice.
+Nov  8 14:01:36 u1537 systemd: Stopping Authorization Manager...
+Nov  8 14:01:36 u1537 systemd: Stopped target Multi-User System.
+Nov  8 14:01:36 u1537 systemd: Stopping Multi-User System.
+Nov  8 14:01:36 u1537 systemd: Stopping Command Scheduler...
+Nov  8 14:01:36 u1537 systemd: Stopping Dynamic System Tuning Daemon...
+Nov  8 14:01:36 u1537 systemd: Stopping OpenSSH server daemon...
+Nov  8 14:01:36 u1537 systemd: Stopping NTP client/server...
+Nov  8 14:01:36 u1537 systemd: Stopping vboxadd-service.service...
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys cpuset
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys cpu
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys cpuacct
+Nov  8 17:01:49 boxlab4 kernel: Linux version 3.10.0-862.2.3.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) ) #1 SMP Wed May 9 18:05:47 UTC 2018
+Nov  8 17:01:49 boxlab4 kernel: Command line: BOOT_IMAGE=/vmlinuz-3.10.0-862.2.3.el7.x86_64 root=/dev/mapper/VolGroup00-LogVol00 ro no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop crashkernel=auto rd.lvm.lv=VolGroup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet
+Nov  8 17:01:49 boxlab4 kernel: e820: BIOS-provided physical RAM map:
+Nov  8 17:01:49 boxlab4 kernel: BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
+Nov  8 17:01:49 boxlab4 kernel: BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
+Nov  8 17:01:49 boxlab4 kernel: BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
+Nov  8 17:01:49 boxlab4 kernel: BIOS-e820: [mem 0x0000000000100000-0x000000003ffeffff] usable
+Nov  8 17:01:49 boxlab4 kernel: BIOS-e820: [mem 0x000000003fff0000-0x000000003fffffff] ACPI data
+Nov  8 17:01:49 boxlab4 kernel: BIOS-e820: [mem 0x00000000fec00000-0x00000000fec00fff] reserved
+Nov  8 17:01:49 boxlab4 kernel: BIOS-e820: [mem 0x00000000fee00000-0x00000000fee00fff] reserved
+Nov  8 17:01:49 boxlab4 kernel: BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
+Nov  8 17:01:49 boxlab4 kernel: NX (Execute Disable) protection: active
+Nov  8 17:01:49 boxlab4 kernel: SMBIOS 2.5 present.
+Nov  8 17:01:49 boxlab4 kernel: Hypervisor detected: KVM
+Nov  8 17:01:49 boxlab4 kernel: e820: last_pfn = 0x3fff0 max_arch_pfn = 0x400000000
+Nov  8 17:01:49 boxlab4 kernel: PAT configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- UC  
+Nov  8 17:01:49 boxlab4 kernel: CPU MTRRs all blank - virtualized system.
+Nov  8 17:01:49 boxlab4 kernel: found SMP MP-table at [mem 0x0009fff0-0x0009ffff] mapped at [ffffffffff200ff0]
+Nov  8 17:01:49 boxlab4 kernel: RAMDISK: [mem 0x36376000-0x371b2fff]
+Nov  8 17:01:49 boxlab4 kernel: Early table checksum verification disabled
+Nov  8 17:01:49 boxlab4 kernel: ACPI: RSDP 00000000000e0000 00024 (v02 VBOX  )
+Nov  8 17:01:49 boxlab4 kernel: ACPI: XSDT 000000003fff0030 0003C (v01 VBOX   VBOXXSDT 00000001 ASL  00000061)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: FACP 000000003fff00f0 000F4 (v04 VBOX   VBOXFACP 00000001 ASL  00000061)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: DSDT 000000003fff0470 021FF (v02 VBOX   VBOXBIOS 00000002 INTL 20160108)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: FACS 000000003fff0200 00040
+Nov  8 17:01:49 boxlab4 kernel: ACPI: APIC 000000003fff0240 00054 (v02 VBOX   VBOXAPIC 00000001 ASL  00000061)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: SSDT 000000003fff02a0 001CC (v01 VBOX   VBOXCPUT 00000002 INTL 20160108)
+Nov  8 17:01:49 boxlab4 kernel: No NUMA configuration found
+Nov  8 17:01:49 boxlab4 kernel: Faking a node at [mem 0x0000000000000000-0x000000003ffeffff]
+Nov  8 17:01:49 boxlab4 kernel: NODE_DATA(0) allocated [mem 0x3ffc9000-0x3ffeffff]
+Nov  8 17:01:49 boxlab4 kernel: crashkernel=auto resulted in zero bytes of reserved memory.
+Nov  8 17:01:49 boxlab4 kernel: kvm-clock: Using msrs 4b564d01 and 4b564d00
+Nov  8 17:01:49 boxlab4 kernel: kvm-clock: cpu 0, msr 0:3ff79001, primary cpu clock
+Nov  8 17:01:49 boxlab4 kernel: kvm-clock: using sched offset of 563387012374 cycles
+Nov  8 17:01:49 boxlab4 kernel: Zone ranges:
+Nov  8 17:01:49 boxlab4 kernel:  DMA      [mem 0x00001000-0x00ffffff]
+Nov  8 17:01:49 boxlab4 kernel:  DMA32    [mem 0x01000000-0xffffffff]
+Nov  8 17:01:49 boxlab4 kernel:  Normal   empty
+Nov  8 17:01:49 boxlab4 kernel: Movable zone start for each node
+Nov  8 17:01:49 boxlab4 kernel: Early memory node ranges
+Nov  8 17:01:49 boxlab4 kernel:  node   0: [mem 0x00001000-0x0009efff]
+Nov  8 17:01:49 boxlab4 kernel:  node   0: [mem 0x00100000-0x3ffeffff]
+Nov  8 17:01:49 boxlab4 kernel: Initmem setup node 0 [mem 0x00001000-0x3ffeffff]
+Nov  8 17:01:49 boxlab4 kernel: ACPI: PM-Timer IO Port: 0x4008
+Nov  8 17:01:49 boxlab4 kernel: ACPI: LAPIC (acpi_id[0x00] lapic_id[0x00] enabled)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: IOAPIC (id[0x01] address[0xfec00000] gsi_base[0])
+Nov  8 17:01:49 boxlab4 kernel: IOAPIC[0]: apic_id 1, version 32, address 0xfec00000, GSI 0-23
+Nov  8 17:01:49 boxlab4 kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 low level)
+Nov  8 17:01:49 boxlab4 kernel: Using ACPI (MADT) for SMP configuration information
+Nov  8 17:01:49 boxlab4 kernel: smpboot: Allowing 1 CPUs, 0 hotplug CPUs
+Nov  8 17:01:49 boxlab4 kernel: PM: Registered nosave memory: [mem 0x0009f000-0x0009ffff]
+Nov  8 17:01:49 boxlab4 kernel: PM: Registered nosave memory: [mem 0x000a0000-0x000effff]
+Nov  8 17:01:49 boxlab4 kernel: PM: Registered nosave memory: [mem 0x000f0000-0x000fffff]
+Nov  8 17:01:49 boxlab4 kernel: e820: [mem 0x40000000-0xfebfffff] available for PCI devices
+Nov  8 17:01:49 boxlab4 kernel: Booting paravirtualized kernel on KVM
+Nov  8 17:01:49 boxlab4 kernel: setup_percpu: NR_CPUS:5120 nr_cpumask_bits:1 nr_cpu_ids:1 nr_node_ids:1
+Nov  8 17:01:49 boxlab4 kernel: PERCPU: Embedded 35 pages/cpu @ffff96183fc00000 s104856 r8192 d30312 u2097152
+Nov  8 17:01:49 boxlab4 kernel: PV qspinlock hash table entries: 256 (order: 0, 4096 bytes)
+Nov  8 17:01:49 boxlab4 kernel: Built 1 zonelists in Node order, mobility grouping on.  Total pages: 257913
+Nov  8 17:01:49 boxlab4 kernel: Policy zone: DMA32
+Nov  8 17:01:49 boxlab4 kernel: Kernel command line: BOOT_IMAGE=/vmlinuz-3.10.0-862.2.3.el7.x86_64 root=/dev/mapper/VolGroup00-LogVol00 ro no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop crashkernel=auto rd.lvm.lv=VolGroup00/LogVol00 rd.lvm.lv=VolGroup00/LogVol01 rhgb quiet
+Nov  8 17:01:49 boxlab4 kernel: PID hash table entries: 4096 (order: 3, 32768 bytes)
+Nov  8 17:01:49 boxlab4 kernel: Memory: 997532k/1048512k available (7324k kernel code, 392k absent, 50588k reserved, 6305k data, 1832k init)
+Nov  8 17:01:49 boxlab4 kernel: SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Nov  8 17:01:49 boxlab4 kernel: x86/pti: Unmapping kernel while in userspace
+Nov  8 17:01:49 boxlab4 kernel: Hierarchical RCU implementation.
+Nov  8 17:01:49 boxlab4 kernel: #011RCU restricting CPUs from NR_CPUS=5120 to nr_cpu_ids=1.
+Nov  8 17:01:49 boxlab4 kernel: NR_IRQS:327936 nr_irqs:256 0
+Nov  8 17:01:49 boxlab4 kernel: Console: colour VGA+ 80x25
+Nov  8 17:01:49 boxlab4 kernel: console [tty0] enabled
+Nov  8 17:01:49 boxlab4 kernel: console [ttyS0] enabled
+Nov  8 17:01:49 boxlab4 kernel: allocated 4194304 bytes of page_cgroup
+Nov  8 17:01:49 boxlab4 kernel: please try 'cgroup_disable=memory' option if you don't want memory cgroups
+Nov  8 17:01:49 boxlab4 kernel: tsc: Detected 2800.404 MHz processor
+Nov  8 17:01:49 boxlab4 kernel: Calibrating delay loop (skipped) preset value.. 5600.80 BogoMIPS (lpj=2800404)
+Nov  8 17:01:49 boxlab4 kernel: pid_max: default: 32768 minimum: 301
+Nov  8 17:01:49 boxlab4 kernel: Security Framework initialized
+Nov  8 17:01:49 boxlab4 kernel: SELinux:  Initializing.
+Nov  8 17:01:49 boxlab4 kernel: Yama: becoming mindful.
+Nov  8 17:01:49 boxlab4 kernel: Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes)
+Nov  8 17:01:49 boxlab4 kernel: Inode-cache hash table entries: 65536 (order: 7, 524288 bytes)
+Nov  8 17:01:49 boxlab4 kernel: Mount-cache hash table entries: 2048 (order: 2, 16384 bytes)
+Nov  8 17:01:49 boxlab4 kernel: Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes)
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys memory
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys devices
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys freezer
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys net_cls
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys blkio
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys perf_event
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys hugetlb
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys pids
+Nov  8 17:01:49 boxlab4 kernel: Initializing cgroup subsys net_prio
+Nov  8 17:01:49 boxlab4 kernel: CPU: Physical Processor ID: 0
+Nov  8 17:01:49 boxlab4 kernel: mce: CPU supports 0 MCE banks
+Nov  8 17:01:49 boxlab4 kernel: Last level iTLB entries: 4KB 512, 2MB 7, 4MB 7
+Nov  8 17:01:49 boxlab4 kernel: Last level dTLB entries: 4KB 512, 2MB 32, 4MB 32
+Nov  8 17:01:49 boxlab4 kernel: tlb_flushall_shift: 6
+Nov  8 17:01:49 boxlab4 kernel: FEATURE SPEC_CTRL Not Present
+Nov  8 17:01:49 boxlab4 kernel: FEATURE IBPB_SUPPORT Not Present
+Nov  8 17:01:49 boxlab4 kernel: Spectre V2 : Vulnerable: Retpoline without IBPB
+Nov  8 17:01:49 boxlab4 kernel: Freeing SMP alternatives: 24k freed
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Core revision 20130517
+Nov  8 17:01:49 boxlab4 kernel: ACPI: All ACPI Tables successfully acquired
+Nov  8 17:01:49 boxlab4 kernel: ftrace: allocating 28047 entries in 110 pages
+Nov  8 17:01:49 boxlab4 kernel: Enabling x2apic
+Nov  8 17:01:49 boxlab4 kernel: Enabled x2apic
+Nov  8 17:01:49 boxlab4 kernel: Switched APIC routing to physical x2apic.
+Nov  8 17:01:49 boxlab4 kernel: ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+Nov  8 17:01:49 boxlab4 kernel: smpboot: CPU0: Intel(R) Xeon(R) CPU           W3530  @ 2.80GHz (fam: 06, model: 1a, stepping: 05)
+Nov  8 17:01:49 boxlab4 kernel: APIC calibration not consistent with PM-Timer: 118ms instead of 100ms
+Nov  8 17:01:49 boxlab4 kernel: APIC delta adjusted to PM-Timer: 6339862 (7535045)
+Nov  8 17:01:49 boxlab4 kernel: Performance Events: unsupported p6 CPU model 26 no PMU driver, software events only.
+Nov  8 17:01:49 boxlab4 kernel: KVM setup paravirtual spinlock
+Nov  8 17:01:49 boxlab4 kernel: Brought up 1 CPUs
+Nov  8 17:01:49 boxlab4 kernel: smpboot: Max logical packages: 1
+Nov  8 17:01:49 boxlab4 kernel: smpboot: Total of 1 processors activated (5600.80 BogoMIPS)
+Nov  8 17:01:49 boxlab4 kernel: devtmpfs: initialized
+Nov  8 17:01:49 boxlab4 kernel: EVM: security.selinux
+Nov  8 17:01:49 boxlab4 kernel: EVM: security.ima
+Nov  8 17:01:49 boxlab4 kernel: EVM: security.capability
+Nov  8 17:01:49 boxlab4 kernel: atomic64 test passed for x86-64 platform with CX8 and with SSE
+Nov  8 17:01:49 boxlab4 kernel: pinctrl core: initialized pinctrl subsystem
+Nov  8 17:01:49 boxlab4 kernel: RTC time: 14:01:49, date: 11/08/18
+Nov  8 17:01:49 boxlab4 kernel: NET: Registered protocol family 16
+Nov  8 17:01:49 boxlab4 kernel: ACPI: bus type PCI registered
+Nov  8 17:01:49 boxlab4 kernel: acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+Nov  8 17:01:49 boxlab4 kernel: PCI: Using configuration type 1 for base access
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Added _OSI(Module Device)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Added _OSI(Processor Device)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Added _OSI(3.0 _SCP Extensions)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Added _OSI(Processor Aggregator Device)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Executed 1 blocks of module-level executable AML code
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Interpreter enabled
+Nov  8 17:01:49 boxlab4 kernel: ACPI: (supports S0 S5)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Using IOAPIC for interrupt routing
+Nov  8 17:01:49 boxlab4 kernel: PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Enabled 2 GPEs in block 00 to 07
+Nov  8 17:01:49 boxlab4 kernel: ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+Nov  8 17:01:49 boxlab4 kernel: acpi PNP0A03:00: _OSC: OS supports [ASPM ClockPM Segments MSI]
+Nov  8 17:01:49 boxlab4 kernel: acpi PNP0A03:00: _OSC: not requesting OS control; OS requires [ExtendedConfig ASPM ClockPM MSI]
+Nov  8 17:01:49 boxlab4 kernel: acpi PNP0A03:00: fail to add MMCONFIG information, can't access extended PCI configuration space under this bridge.
+Nov  8 17:01:49 boxlab4 kernel: PCI host bridge to bus 0000:00
+Nov  8 17:01:49 boxlab4 kernel: pci_bus 0000:00: root bus resource [bus 00-ff]
+Nov  8 17:01:49 boxlab4 kernel: pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+Nov  8 17:01:49 boxlab4 kernel: pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+Nov  8 17:01:49 boxlab4 kernel: pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+Nov  8 17:01:49 boxlab4 kernel: pci_bus 0000:00: root bus resource [mem 0x40000000-0xfdffffff window]
+Nov  8 17:01:49 boxlab4 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x10: [io  0x01f0-0x01f7]
+Nov  8 17:01:49 boxlab4 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x14: [io  0x03f6]
+Nov  8 17:01:49 boxlab4 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x18: [io  0x0170-0x0177]
+Nov  8 17:01:49 boxlab4 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x1c: [io  0x0376]
+Nov  8 17:01:49 boxlab4 kernel: pci 0000:00:07.0: quirk: [io  0x4000-0x403f] claimed by PIIX4 ACPI
+Nov  8 17:01:49 boxlab4 kernel: pci 0000:00:07.0: quirk: [io  0x4100-0x410f] claimed by PIIX4 SMB
+Nov  8 17:01:49 boxlab4 kernel: ACPI: PCI Interrupt Link [LNKA] (IRQs 5 9 10 *11)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: PCI Interrupt Link [LNKB] (IRQs 5 9 *10 11)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: PCI Interrupt Link [LNKC] (IRQs 5 *9 10 11)
+Nov  8 17:01:49 boxlab4 kernel: ACPI: PCI Interrupt Link [LNKD] (IRQs 5 9 10 *11)
+Nov  8 17:01:49 boxlab4 kernel: vgaarb: device added: PCI:0000:00:02.0,decodes=io+mem,owns=io+mem,locks=none
+Nov  8 17:01:49 boxlab4 kernel: vgaarb: loaded
+Nov  8 17:01:49 boxlab4 kernel: vgaarb: bridge control possible 0000:00:02.0
+Nov  8 17:01:49 boxlab4 kernel: SCSI subsystem initialized
+Nov  8 17:01:49 boxlab4 kernel: ACPI: bus type USB registered
+Nov  8 17:01:49 boxlab4 kernel: usbcore: registered new interface driver usbfs
+Nov  8 17:01:49 boxlab4 kernel: usbcore: registered new interface driver hub
+Nov  8 17:01:49 boxlab4 kernel: usbcore: registered new device driver usb
+Nov  8 17:01:49 boxlab4 kernel: EDAC MC: Ver: 3.0.0
+Nov  8 17:01:49 boxlab4 kernel: PCI: Using ACPI for IRQ routing
+Nov  8 17:01:49 boxlab4 kernel: NetLabel: Initializing
+Nov  8 17:01:49 boxlab4 kernel: NetLabel:  domain hash size = 128
+Nov  8 17:01:49 boxlab4 kernel: NetLabel:  protocols = UNLABELED CIPSOv4
+Nov  8 17:01:49 boxlab4 kernel: NetLabel:  unlabeled traffic allowed by default
+Nov  8 17:01:49 boxlab4 kernel: amd_nb: Cannot enumerate AMD northbridges
+Nov  8 17:01:49 boxlab4 kernel: Switched to clocksource kvm-clock
+Nov  8 17:01:49 boxlab4 kernel: pnp: PnP ACPI init
+Nov  8 17:01:49 boxlab4 kernel: ACPI: bus type PNP registered
+Nov  8 17:01:49 boxlab4 kernel: pnp: PnP ACPI: found 2 devices
+Nov  8 17:01:49 boxlab4 kernel: ACPI: bus type PNP unregistered
+Nov  8 17:01:49 boxlab4 kernel: NET: Registered protocol family 2
+Nov  8 17:01:49 boxlab4 kernel: TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+Nov  8 17:01:49 boxlab4 kernel: TCP bind hash table entries: 8192 (order: 5, 131072 bytes)
+Nov  8 17:01:49 boxlab4 kernel: TCP: Hash tables configured (established 8192 bind 8192)
+Nov  8 17:01:49 boxlab4 kernel: TCP: reno registered
+Nov  8 17:01:49 boxlab4 kernel: UDP hash table entries: 512 (order: 2, 16384 bytes)
+Nov  8 17:01:49 boxlab4 kernel: UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+Nov  8 17:01:49 boxlab4 kernel: NET: Registered protocol family 1
+Nov  8 17:01:49 boxlab4 kernel: pci 0000:00:00.0: Limiting direct PCI/PCI transfers
+Nov  8 17:01:49 boxlab4 kernel: pci 0000:00:01.0: Activating ISA DMA hang workarounds
+Nov  8 17:01:49 boxlab4 kernel: Unpacking initramfs...
+Nov  8 17:01:49 boxlab4 kernel: Freeing initrd memory: 14580k freed
+Nov  8 17:01:49 boxlab4 kernel: platform rtc_cmos: registered platform RTC device (no PNP device found)
+Nov  8 17:01:49 boxlab4 kernel: sha1_ssse3: Using SSSE3 optimized SHA-1 implementation
+Nov  8 17:01:49 boxlab4 kernel: sha256_ssse3: Using SSSE3 optimized SHA-256 implementation
+Nov  8 17:01:49 boxlab4 kernel: futex hash table entries: 256 (order: 2, 16384 bytes)
+Nov  8 17:01:49 boxlab4 kernel: Initialise system trusted keyring
+Nov  8 17:01:49 boxlab4 kernel: audit: initializing netlink socket (disabled)
+Nov  8 17:01:49 boxlab4 kernel: type=2000 audit(1541686274.172:1): initialized
+Nov  8 17:01:49 boxlab4 kernel: HugeTLB registered 2 MB page size, pre-allocated 0 pages
+Nov  8 17:01:49 boxlab4 kernel: zpool: loaded
+Nov  8 17:01:49 boxlab4 kernel: zbud: loaded
+Nov  8 17:01:49 boxlab4 kernel: VFS: Disk quotas dquot_6.5.2
+Nov  8 17:01:49 boxlab4 kernel: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+Nov  8 17:01:49 boxlab4 kernel: msgmni has been set to 1976
+Nov  8 17:01:49 boxlab4 kernel: Key type big_key registered
+Nov  8 17:01:49 boxlab4 kernel: NET: Registered protocol family 38
+Nov  8 17:01:49 boxlab4 kernel: Key type asymmetric registered
+Nov  8 17:01:49 boxlab4 kernel: Asymmetric key parser 'x509' registered
+Nov  8 17:01:49 boxlab4 kernel: Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+Nov  8 17:01:49 boxlab4 kernel: io scheduler noop registered (default)
+Nov  8 17:01:49 boxlab4 kernel: io scheduler deadline registered
+Nov  8 17:01:49 boxlab4 kernel: io scheduler cfq registered
+Nov  8 17:01:49 boxlab4 kernel: io scheduler mq-deadline registered
+Nov  8 17:01:49 boxlab4 kernel: io scheduler kyber registered
+Nov  8 17:01:49 boxlab4 kernel: pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+Nov  8 17:01:49 boxlab4 kernel: pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+Nov  8 17:01:49 boxlab4 kernel: ACPI: AC Adapter [AC] (on-line)
+Nov  8 17:01:49 boxlab4 kernel: input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Power Button [PWRF]
+Nov  8 17:01:49 boxlab4 kernel: input: Sleep Button as /devices/LNXSYSTM:00/LNXSLPBN:00/input/input1
+Nov  8 17:01:49 boxlab4 kernel: ACPI: Sleep Button [SLPF]
+Nov  8 17:01:49 boxlab4 kernel: GHES: HEST is not enabled!
+Nov  8 17:01:49 boxlab4 kernel: Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+Nov  8 17:01:49 boxlab4 kernel: Non-volatile memory driver v1.3
+Nov  8 17:01:49 boxlab4 kernel: Linux agpgart interface v0.103
+Nov  8 17:01:49 boxlab4 kernel: crash memory driver: version 1.1
+Nov  8 17:01:49 boxlab4 kernel: rdac: device handler registered
+Nov  8 17:01:49 boxlab4 kernel: hp_sw: device handler registered
+Nov  8 17:01:49 boxlab4 kernel: emc: device handler registered
+Nov  8 17:01:49 boxlab4 kernel: alua: device handler registered
+Nov  8 17:01:49 boxlab4 kernel: libphy: Fixed MDIO Bus: probed
+Nov  8 17:01:49 boxlab4 kernel: ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+Nov  8 17:01:49 boxlab4 kernel: ehci-pci: EHCI PCI platform driver
+Nov  8 17:01:49 boxlab4 kernel: ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Nov  8 17:01:49 boxlab4 kernel: ohci-pci: OHCI PCI platform driver
+Nov  8 17:01:49 boxlab4 kernel: uhci_hcd: USB Universal Host Controller Interface driver
+Nov  8 17:01:49 boxlab4 kernel: usbcore: registered new interface driver usbserial
+Nov  8 17:01:49 boxlab4 kernel: usbcore: registered new interface driver usbserial_generic
+Nov  8 17:01:49 boxlab4 kernel: usbserial: USB Serial support registered for generic
+Nov  8 17:01:49 boxlab4 kernel: i8042: PNP: PS/2 Controller [PNP0303:PS2K,PNP0f03:PS2M] at 0x60,0x64 irq 1,12
+Nov  8 17:01:49 boxlab4 kernel: serio: i8042 KBD port at 0x60,0x64 irq 1
+Nov  8 17:01:49 boxlab4 kernel: serio: i8042 AUX port at 0x60,0x64 irq 12
+Nov  8 17:01:49 boxlab4 kernel: mousedev: PS/2 mouse device common for all mice
+Nov  8 17:01:49 boxlab4 kernel: input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input2
+Nov  8 17:01:49 boxlab4 kernel: rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
+Nov  8 17:01:49 boxlab4 kernel: rtc_cmos rtc_cmos: alarms up to one day, 114 bytes nvram
+Nov  8 17:01:49 boxlab4 kernel: cpuidle: using governor menu
+Nov  8 17:01:49 boxlab4 kernel: hidraw: raw HID events driver (C) Jiri Kosina
+Nov  8 17:01:49 boxlab4 kernel: usbcore: registered new interface driver usbhid
+Nov  8 17:01:49 boxlab4 kernel: usbhid: USB HID core driver
+Nov  8 17:01:49 boxlab4 kernel: drop_monitor: Initializing network drop monitor service
+Nov  8 17:01:49 boxlab4 kernel: TCP: cubic registered
+Nov  8 17:01:49 boxlab4 kernel: Initializing XFRM netlink socket
+Nov  8 17:01:49 boxlab4 kernel: NET: Registered protocol family 10
+Nov  8 17:01:49 boxlab4 kernel: NET: Registered protocol family 17
+Nov  8 17:01:49 boxlab4 kernel: mpls_gso: MPLS GSO support
+Nov  8 17:01:49 boxlab4 kernel: microcode: CPU0 sig=0x106a5, pf=0x4, revision=0x616
+Nov  8 17:01:49 boxlab4 kernel: microcode: Microcode Update Driver: v2.01 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+Nov  8 17:01:49 boxlab4 kernel: Loading compiled-in X.509 certificates
+Nov  8 17:01:49 boxlab4 kernel: Loaded X.509 cert 'CentOS Linux kpatch signing key: ea0413152cde1d98ebdca3fe6f0230904c9ef717'
+Nov  8 17:01:49 boxlab4 kernel: Loaded X.509 cert 'CentOS Linux Driver update signing key: 7f421ee0ab69461574bb358861dbe77762a4201b'
+Nov  8 17:01:49 boxlab4 kernel: Loaded X.509 cert 'CentOS Linux kernel signing key: 666ef031933f5127062372832ce9ba8a49005c8f'
+Nov  8 17:01:49 boxlab4 kernel: registered taskstats version 1
+Nov  8 17:01:49 boxlab4 kernel: Key type trusted registered
+Nov  8 17:01:49 boxlab4 kernel: Key type encrypted registered
+Nov  8 17:01:49 boxlab4 kernel: IMA: No TPM chip found, activating TPM-bypass! (rc=-19)
+Nov  8 17:01:49 boxlab4 kernel:  Magic number: 10:78:30
+Nov  8 17:01:49 boxlab4 kernel: rtc_cmos rtc_cmos: setting system clock to 2018-11-08 14:01:49 UTC (1541685709)
+Nov  8 17:01:49 boxlab4 kernel: Freeing unused kernel memory: 1832k freed
+Nov  8 17:01:49 boxlab4 kernel: Write protecting the kernel read-only data: 12288k
+Nov  8 17:01:49 boxlab4 kernel: Freeing unused kernel memory: 856k freed
+Nov  8 17:01:49 boxlab4 kernel: Freeing unused kernel memory: 684k freed
+Nov  8 17:01:49 boxlab4 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 17:01:49 boxlab4 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 17:01:49 boxlab4 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 17:01:49 boxlab4 systemd[1]: systemd 219 running in system mode. (+PAM +AUDIT +SELINUX +IMA -APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 -SECCOMP +BLKID +ELFUTILS +KMOD +IDN)
+Nov  8 17:01:49 boxlab4 systemd[1]: Detected virtualization kvm.
+Nov  8 17:01:49 boxlab4 systemd[1]: Detected architecture x86-64.
+Nov  8 17:01:49 boxlab4 systemd[1]: Running in initial RAM disk.
+Nov  8 17:01:49 boxlab4 systemd[1]: Set hostname to <boxlab4>.
+Nov  8 17:01:49 boxlab4 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 17:01:49 boxlab4 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 17:01:49 boxlab4 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 17:01:49 boxlab4 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 17:01:49 boxlab4 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 17:01:49 boxlab4 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 17:01:49 boxlab4 kernel: random: systemd: uninitialized urandom read (16 bytes read)
+Nov  8 17:01:49 boxlab4 systemd[1]: Created slice Root Slice.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Root Slice.
+Nov  8 17:01:49 boxlab4 systemd[1]: Reached target Swap.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Swap.
+Nov  8 17:01:49 boxlab4 systemd[1]: Reached target Timers.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Timers.
+Nov  8 17:01:49 boxlab4 systemd[1]: Reached target Local File Systems.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Local File Systems.
+Nov  8 17:01:49 boxlab4 systemd[1]: Listening on udev Kernel Socket.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting udev Kernel Socket.
+Nov  8 17:01:49 boxlab4 systemd[1]: Listening on Journal Socket.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Journal Socket.
+Nov  8 17:01:49 boxlab4 systemd[1]: Listening on udev Control Socket.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting udev Control Socket.
+Nov  8 17:01:49 boxlab4 systemd[1]: Reached target Sockets.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Sockets.
+Nov  8 17:01:49 boxlab4 systemd[1]: Created slice System Slice.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting System Slice.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Setup Virtual Console...
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Create list of required static device nodes for the current kernel...
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Journal Service...
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting dracut cmdline hook...
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Apply Kernel Variables...
+Nov  8 17:01:49 boxlab4 systemd[1]: Reached target Slices.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Slices.
+Nov  8 17:01:49 boxlab4 systemd[1]: Started Create list of required static device nodes for the current kernel.
+Nov  8 17:01:49 boxlab4 systemd[1]: Started Apply Kernel Variables.
+Nov  8 17:01:49 boxlab4 systemd[1]: Starting Create Static Device Nodes in /dev...
+Nov  8 17:01:49 boxlab4 systemd[1]: Started Create Static Device Nodes in /dev.
+Nov  8 17:01:49 boxlab4 journal: Journal started
+Nov  8 17:01:49 boxlab4 systemd[1]: Started Journal Service.
+Nov  8 17:01:49 boxlab4 kernel: psmouse serio1: alps: Unknown ALPS touchpad: E7=10 00 64, EC=10 00 64
+Nov  8 17:01:49 boxlab4 kernel: input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input3
+Nov  8 17:01:49 boxlab4 systemd: Started Setup Virtual Console.
+Nov  8 17:01:49 boxlab4 systemd: Started dracut cmdline hook.
+Nov  8 17:01:49 boxlab4 systemd: Starting dracut pre-udev hook...
+Nov  8 17:01:49 boxlab4 kernel: device-mapper: uevent: version 1.0.3
+Nov  8 17:01:49 boxlab4 kernel: device-mapper: ioctl: 4.37.0-ioctl (2017-09-20) initialised: dm-devel@redhat.com
+Nov  8 17:01:49 boxlab4 systemd: Started dracut pre-udev hook.
+Nov  8 17:01:49 boxlab4 systemd: Starting udev Kernel Device Manager...
+Nov  8 17:01:49 boxlab4 systemd-udevd: starting version 219
+Nov  8 17:01:49 boxlab4 systemd-udevd: Network interface NamePolicy= disabled on kernel command line, ignoring.
+Nov  8 17:01:49 boxlab4 systemd: Started udev Kernel Device Manager.
+Nov  8 17:01:49 boxlab4 systemd: Starting udev Coldplug all Devices...
+Nov  8 17:01:49 boxlab4 systemd: Mounting Configuration File System...
+Nov  8 17:01:49 boxlab4 systemd: Mounted Configuration File System.
+Nov  8 17:01:50 boxlab4 systemd: Started udev Coldplug all Devices.
+Nov  8 17:01:50 boxlab4 systemd: Starting Show Plymouth Boot Screen...
+Nov  8 17:01:50 boxlab4 systemd: Starting dracut initqueue hook...
+Nov  8 17:01:50 boxlab4 systemd: Reached target System Initialization.
+Nov  8 17:01:50 boxlab4 systemd: Starting System Initialization.
+Nov  8 17:01:50 boxlab4 systemd: Started Show Plymouth Boot Screen.
+Nov  8 17:01:50 boxlab4 systemd: Reached target Paths.
+Nov  8 17:01:50 boxlab4 systemd: Starting Paths.
+Nov  8 17:01:50 boxlab4 systemd: Started Forward Password Requests to Plymouth Directory Watch.
+Nov  8 17:01:50 boxlab4 systemd: Starting Forward Password Requests to Plymouth Directory Watch.
+Nov  8 17:01:50 boxlab4 systemd: Reached target Basic System.
+Nov  8 17:01:50 boxlab4 systemd: Starting Basic System.
+Nov  8 17:01:50 boxlab4 kernel: scsi host0: ata_piix
+Nov  8 17:01:50 boxlab4 kernel: scsi host1: ata_piix
+Nov  8 17:01:50 boxlab4 kernel: ata1: PATA max UDMA/33 cmd 0x1f0 ctl 0x3f6 bmdma 0xd000 irq 14
+Nov  8 17:01:50 boxlab4 kernel: ata2: PATA max UDMA/33 cmd 0x170 ctl 0x376 bmdma 0xd008 irq 15
+Nov  8 17:01:50 boxlab4 kernel: ahci 0000:00:0d.0: SSS flag set, parallel bus scan disabled
+Nov  8 17:01:50 boxlab4 kernel: ahci 0000:00:0d.0: AHCI 0001.0100 32 slots 30 ports 3 Gbps 0x3fffffff impl SATA mode
+Nov  8 17:01:50 boxlab4 kernel: ahci 0000:00:0d.0: flags: 64bit ncq stag only ccc 
+Nov  8 17:01:50 boxlab4 kernel: scsi host2: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host3: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host4: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host5: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host6: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host7: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host8: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host9: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host10: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host11: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host12: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host13: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host14: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host15: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host16: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host17: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host18: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host19: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host20: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host21: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host22: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host23: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host24: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host25: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host26: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host27: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host28: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host29: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host30: ahci
+Nov  8 17:01:50 boxlab4 kernel: scsi host31: ahci
+Nov  8 17:01:50 boxlab4 kernel: ata3: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804100 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata4: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804180 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata5: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804200 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata6: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804280 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata7: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804300 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata8: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804380 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata9: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804400 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata10: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804480 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata11: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804500 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata12: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804580 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata13: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804600 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata14: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804680 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata15: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804700 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata16: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804780 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata17: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804800 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata18: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804880 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata19: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804900 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata20: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804980 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata21: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804a00 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata22: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804a80 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata23: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804b00 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata24: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804b80 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata25: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804c00 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata26: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804c80 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata27: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804d00 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata28: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804d80 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata29: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804e00 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata30: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804e80 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata31: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804f00 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata32: SATA max UDMA/133 abar m8192@0xf0804000 port 0xf0804f80 irq 21
+Nov  8 17:01:50 boxlab4 kernel: ata1.00: ATA-6: VBOX HARDDISK, 1.0, max UDMA/133
+Nov  8 17:01:50 boxlab4 kernel: ata1.00: 83886080 sectors, multi 128: LBA 
+Nov  8 17:01:50 boxlab4 kernel: ata1.00: configured for UDMA/33
+Nov  8 17:01:50 boxlab4 kernel: scsi 0:0:0:0: Direct-Access     ATA      VBOX HARDDISK    1.0  PQ: 0 ANSI: 5
+Nov  8 17:01:50 boxlab4 kernel: tsc: Refined TSC clocksource calibration: 2799.413 MHz
+Nov  8 17:01:50 boxlab4 kernel: ata3: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:50 boxlab4 kernel: ata4: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+Nov  8 17:01:50 boxlab4 kernel: ata4.00: ATA-6: VBOX HARDDISK, 1.0, max UDMA/133
+Nov  8 17:01:50 boxlab4 kernel: ata4.00: 1024000 sectors, multi 128: LBA48 NCQ (depth 31/32)
+Nov  8 17:01:50 boxlab4 kernel: ata4.00: configured for UDMA/133
+Nov  8 17:01:50 boxlab4 kernel: scsi 3:0:0:0: Direct-Access     ATA      VBOX HARDDISK    1.0  PQ: 0 ANSI: 5
+Nov  8 17:01:51 boxlab4 kernel: ata5: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:51 boxlab4 kernel: ata6: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:51 boxlab4 kernel: ata7: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:52 boxlab4 kernel: ata8: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:52 boxlab4 kernel: ata9: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:52 boxlab4 kernel: ata10: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:53 boxlab4 kernel: ata11: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:53 boxlab4 kernel: ata12: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:53 boxlab4 kernel: ata13: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:53 boxlab4 kernel: ata14: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:54 boxlab4 kernel: ata15: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:54 boxlab4 kernel: ata16: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:54 boxlab4 kernel: ata17: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:55 boxlab4 systemd: Received SIGRTMIN+20 from PID 224 (plymouthd).
+Nov  8 17:01:55 boxlab4 kernel: ata18: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:55 boxlab4 kernel: ata19: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:55 boxlab4 kernel: ata20: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:56 boxlab4 kernel: ata21: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:56 boxlab4 kernel: ata22: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:56 boxlab4 kernel: ata23: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:57 boxlab4 kernel: ata24: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:57 boxlab4 kernel: ata25: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:57 boxlab4 kernel: ata26: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:57 boxlab4 kernel: ata27: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:58 boxlab4 kernel: ata28: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:58 boxlab4 kernel: ata29: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:58 boxlab4 kernel: ata30: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:59 boxlab4 kernel: ata31: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:59 boxlab4 kernel: ata32: SATA link down (SStatus 0 SControl 300)
+Nov  8 17:01:59 boxlab4 kernel: sd 0:0:0:0: [sda] 83886080 512-byte logical blocks: (42.9 GB/40.0 GiB)
+Nov  8 17:01:59 boxlab4 kernel: sd 0:0:0:0: [sda] Write Protect is off
+Nov  8 17:01:59 boxlab4 kernel: sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+Nov  8 17:01:59 boxlab4 kernel: sda: sda1 sda2 sda3
+Nov  8 17:01:59 boxlab4 kernel: sd 0:0:0:0: [sda] Attached SCSI disk
+Nov  8 17:01:59 boxlab4 kernel: sd 3:0:0:0: [sdb] 1024000 512-byte logical blocks: (524 MB/500 MiB)
+Nov  8 17:01:59 boxlab4 kernel: sd 3:0:0:0: [sdb] Write Protect is off
+Nov  8 17:01:59 boxlab4 kernel: sd 3:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+Nov  8 17:01:59 boxlab4 kernel: sd 3:0:0:0: [sdb] Attached SCSI disk
+Nov  8 17:01:59 boxlab4 kernel: random: fast init done
+Nov  8 17:01:59 boxlab4 systemd: Found device /dev/mapper/VolGroup00-LogVol00.
+Nov  8 17:01:59 boxlab4 systemd: Starting File System Check on /dev/mapper/VolGroup00-LogVol00...
+Nov  8 17:01:59 boxlab4 systemd-fsck: /sbin/fsck.xfs: XFS file system.
+Nov  8 17:01:59 boxlab4 systemd: Started File System Check on /dev/mapper/VolGroup00-LogVol00.
+Nov  8 17:01:59 boxlab4 systemd: Started dracut initqueue hook.
+Nov  8 17:01:59 boxlab4 systemd: Mounting /sysroot...
+Nov  8 17:01:59 boxlab4 systemd: Reached target Remote File Systems (Pre).
+Nov  8 17:01:59 boxlab4 systemd: Starting Remote File Systems (Pre).
+Nov  8 17:01:59 boxlab4 systemd: Reached target Remote File Systems.
+Nov  8 17:01:59 boxlab4 systemd: Starting Remote File Systems.
+Nov  8 17:01:59 boxlab4 kernel: SGI XFS with ACLs, security attributes, no debug enabled
+Nov  8 17:01:59 boxlab4 kernel: XFS (dm-0): Mounting V5 Filesystem
+Nov  8 17:01:59 boxlab4 kernel: XFS (dm-0): Ending clean mount
+Nov  8 17:01:59 boxlab4 systemd: Mounted /sysroot.
+Nov  8 17:01:59 boxlab4 systemd: Reached target Initrd Root File System.
+Nov  8 17:01:59 boxlab4 systemd: Starting Initrd Root File System.
+Nov  8 17:01:59 boxlab4 systemd: Starting Reload Configuration from the Real Root...
+Nov  8 17:01:59 boxlab4 systemd: Reloading.
+Nov  8 17:01:59 boxlab4 systemd: Started Reload Configuration from the Real Root.
+Nov  8 17:01:59 boxlab4 systemd: Reached target Initrd File Systems.
+Nov  8 17:01:59 boxlab4 systemd: Starting Initrd File Systems.
+Nov  8 17:01:59 boxlab4 systemd: Reached target Initrd Default Target.
+Nov  8 17:01:59 boxlab4 systemd: Starting Initrd Default Target.
+Nov  8 17:01:59 boxlab4 systemd: Starting dracut pre-pivot and cleanup hook...
+Nov  8 17:01:59 boxlab4 dracut-pre-pivot: ..                  ..
+Nov  8 17:01:59 boxlab4 dracut-pre-pivot: :_.              ._-
+Nov  8 17:01:59 boxlab4 dracut-pre-pivot: ....            -:=;__......_.===-     ...          ._         ._..
+Nov  8 17:01:59 boxlab4 dracut-pre-pivot: _;==+=+=.           -========+===-       .=:          ==       _====+=;
+Nov  8 17:01:59 boxlab4 dracut-pre-pivot: .===--. -===            --==+===--         .+:          :=.     :==-  -:==
+Nov  8 17:01:59 boxlab4 dracut-pre-pivot: .==-       -==.              ==             .=:          ==.    .+;      --.
+Nov  8 17:01:59 boxlab4 dracut-pre-pivot: ==`          +=              ==             .+:          :=.    ==
+Nov  8 17:01:59 boxlab4 dracut-pre-pivot: ==:           :=:             ==             .=:          ==.    ==
+Nov  8 17:01:59 boxlab4 dracut-pre-pivot: ==             ==       .=:   ==   =;        .+:          :=.    ==
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: :+:             :=:       -    ==   -`        .=:          ==.    :=:
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: ==.              +;            ==             .+:          :=.     ==_
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: ==               +=            =;             .=:          ==.      =+=;.
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: ==              .==            =`             .+:          :=.       -:+==_
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: ==               +=            :              .=:          ==.          -=+=.
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: ==.             .==                           .+:          :=.            -==
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: :=:             :=:                           .=;          ==              :=;
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: +=             ==                             +;          ==               +;
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: ==.           :=;                             +=         .==              .=;
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: ==.         .==                              :+:        :=`      .       .+:
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: -==_       _=+                                +=.      :==      ==.     .==`
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: +==_..._===                                 -==_....;==       :==_..._==-
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: -===+===-            ....    ....           -:++===+=         -=======`
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: -----              =:::    =:.=              ----              ---
+Nov  8 17:02:00 boxlab4 dracut-pre-pivot: .        -
+Nov  8 17:02:00 boxlab4 systemd: Started dracut pre-pivot and cleanup hook.
+Nov  8 17:02:00 boxlab4 systemd: Starting Cleaning Up and Shutting Down Daemons...
+Nov  8 17:02:00 boxlab4 systemd: Starting Plymouth switch root service...
+Nov  8 17:02:00 boxlab4 systemd: Stopped target Timers.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Timers.
+Nov  8 17:02:00 boxlab4 systemd: Stopped Cleaning Up and Shutting Down Daemons.
+Nov  8 17:02:00 boxlab4 systemd: Stopped dracut pre-pivot and cleanup hook.
+Nov  8 17:02:00 boxlab4 systemd: Stopping dracut pre-pivot and cleanup hook...
+Nov  8 17:02:00 boxlab4 systemd: Stopped target Remote File Systems.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Remote File Systems.
+Nov  8 17:02:00 boxlab4 systemd: Stopped target Remote File Systems (Pre).
+Nov  8 17:02:00 boxlab4 systemd: Stopping Remote File Systems (Pre).
+Nov  8 17:02:00 boxlab4 systemd: Stopped dracut initqueue hook.
+Nov  8 17:02:00 boxlab4 systemd: Stopping dracut initqueue hook...
+Nov  8 17:02:00 boxlab4 systemd: Stopped target Initrd Default Target.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Initrd Default Target.
+Nov  8 17:02:00 boxlab4 systemd: Stopped target Basic System.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Basic System.
+Nov  8 17:02:00 boxlab4 systemd: Stopped target Slices.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Slices.
+Nov  8 17:02:00 boxlab4 systemd: Stopped target System Initialization.
+Nov  8 17:02:00 boxlab4 systemd: Stopping System Initialization.
+Nov  8 17:02:00 boxlab4 systemd: Stopped target Local File Systems.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Local File Systems.
+Nov  8 17:02:00 boxlab4 systemd: Stopping udev Kernel Device Manager...
+Nov  8 17:02:00 boxlab4 systemd: Stopped udev Coldplug all Devices.
+Nov  8 17:02:00 boxlab4 systemd: Stopping udev Coldplug all Devices...
+Nov  8 17:02:00 boxlab4 systemd: Stopped target Swap.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Swap.
+Nov  8 17:02:00 boxlab4 systemd: Stopped Apply Kernel Variables.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Apply Kernel Variables...
+Nov  8 17:02:00 boxlab4 systemd: Stopped target Sockets.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Sockets.
+Nov  8 17:02:00 boxlab4 systemd: Stopped target Paths.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Paths.
+Nov  8 17:02:00 boxlab4 systemd: Stopped udev Kernel Device Manager.
+Nov  8 17:02:00 boxlab4 systemd: Stopped dracut pre-udev hook.
+Nov  8 17:02:00 boxlab4 systemd: Stopping dracut pre-udev hook...
+Nov  8 17:02:00 boxlab4 systemd: Stopped dracut cmdline hook.
+Nov  8 17:02:00 boxlab4 systemd: Stopping dracut cmdline hook...
+Nov  8 17:02:00 boxlab4 systemd: Stopped Create Static Device Nodes in /dev.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Create Static Device Nodes in /dev...
+Nov  8 17:02:00 boxlab4 systemd: Stopped Create list of required static device nodes for the current kernel.
+Nov  8 17:02:00 boxlab4 systemd: Stopping Create list of required static device nodes for the current kernel...
+Nov  8 17:02:00 boxlab4 systemd: Closed udev Kernel Socket.
+Nov  8 17:02:00 boxlab4 systemd: Stopping udev Kernel Socket.
+Nov  8 17:02:00 boxlab4 systemd: Closed udev Control Socket.
+Nov  8 17:02:00 boxlab4 systemd: Stopping udev Control Socket.
+Nov  8 17:02:00 boxlab4 systemd: Starting Cleanup udevd DB...
+Nov  8 17:02:00 boxlab4 systemd: Started Plymouth switch root service.
+Nov  8 17:02:00 boxlab4 systemd: Started Cleanup udevd DB.
+Nov  8 17:02:00 boxlab4 systemd: Reached target Switch Root.
+Nov  8 17:02:00 boxlab4 systemd: Starting Switch Root.
+Nov  8 17:02:00 boxlab4 systemd: Starting Switch Root...
+Nov  8 17:02:00 boxlab4 systemd: Switching root.
+Nov  8 17:02:00 boxlab4 journal: Journal stopped
+Nov  8 17:02:00 boxlab4 journal: Runtime journal is using 6.1M (max allowed 49.5M, trying to leave 74.3M free of 489.6M available → current limit 49.5M).
+Nov  8 17:02:00 boxlab4 systemd-journald[86]: Received SIGTERM from PID 1 (systemd).
+Nov  8 17:02:00 boxlab4 kernel: type=1404 audit(1541685720.120:2): enforcing=1 old_enforcing=0 auid=4294967295 ses=4294967295
+Nov  8 17:02:00 boxlab4 kernel: type=1403 audit(1541685720.234:3): policy loaded auid=4294967295 ses=4294967295
+Nov  8 17:02:00 boxlab4 systemd[1]: Successfully loaded SELinux policy in 123.977ms.
+Nov  8 17:02:00 boxlab4 kernel: ip_tables: (C) 2000-2006 Netfilter Core Team
+Nov  8 17:02:00 boxlab4 systemd[1]: Inserted module 'ip_tables'
+Nov  8 17:02:00 boxlab4 systemd[1]: Relabelled /dev and /run in 21.958ms.
+Nov  8 17:02:00 boxlab4 journal: Journal started
+Nov  8 17:02:00 boxlab4 systemd: systemd 219 running in system mode. (+PAM +AUDIT +SELINUX +IMA -APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 -SECCOMP +BLKID +ELFUTILS +KMOD +IDN)
+Nov  8 17:02:00 boxlab4 systemd: Detected virtualization kvm.
+Nov  8 17:02:00 boxlab4 systemd: Detected architecture x86-64.
+Nov  8 17:02:00 boxlab4 systemd: Set hostname to <boxlab4>.
+Nov  8 17:02:00 boxlab4 systemd: Started Remount Root and Kernel File Systems.
+Nov  8 17:02:00 boxlab4 systemd: Started Read and set NIS domainname from /etc/sysconfig/network.
+Nov  8 17:02:00 boxlab4 systemd: Started Create list of required static device nodes for the current kernel.
+Nov  8 17:02:00 boxlab4 systemd: Started Apply Kernel Variables.
+Nov  8 17:02:00 boxlab4 systemd: Started LVM2 metadata daemon.
+Nov  8 17:02:00 boxlab4 systemd: Starting LVM2 metadata daemon...
+Nov  8 17:02:00 boxlab4 systemd: Starting Create Static Device Nodes in /dev...
+Nov  8 17:02:00 boxlab4 systemd: Starting Load/Save Random Seed...
+Nov  8 17:02:00 boxlab4 systemd: Starting Configure read-only root support...
+Nov  8 17:02:00 boxlab4 systemd: Starting udev Coldplug all Devices...
+Nov  8 17:02:00 boxlab4 systemd: Starting Flush Journal to Persistent Storage...
+Nov  8 17:02:00 boxlab4 systemd: Started Load/Save Random Seed.
+Nov  8 17:02:00 boxlab4 systemd: Started Flush Journal to Persistent Storage.
+Nov  8 17:02:00 boxlab4 systemd: Started Create Static Device Nodes in /dev.
+Nov  8 17:02:00 boxlab4 systemd: Starting udev Kernel Device Manager...
+Nov  8 17:02:00 boxlab4 systemd: Started Configure read-only root support.
+Nov  8 17:02:00 boxlab4 systemd-udevd: starting version 219
+Nov  8 17:02:00 boxlab4 kernel: random: crng init done
+Nov  8 17:02:00 boxlab4 systemd-udevd: Network interface NamePolicy= disabled on kernel command line, ignoring.
+Nov  8 17:02:00 boxlab4 systemd: Started udev Coldplug all Devices.
+Nov  8 17:02:00 boxlab4 systemd: Started udev Kernel Device Manager.
+Nov  8 17:02:00 boxlab4 kernel: ACPI: Video Device [GFX0] (multi-head: yes  rom: no  post: no)
+Nov  8 17:02:00 boxlab4 kernel: input: Video Bus as /devices/LNXSYSTM:00/device:00/PNP0A03:00/LNXVIDEO:00/input/input4
+Nov  8 17:02:00 boxlab4 kernel: vboxguest: loading out-of-tree module taints kernel.
+Nov  8 17:02:00 boxlab4 kernel: piix4_smbus 0000:00:07.0: SMBus Host Controller at 0x4100, revision 0
+Nov  8 17:02:00 boxlab4 kernel: vboxguest: module verification failed: signature and/or required key missing - tainting kernel
+Nov  8 17:02:00 boxlab4 kernel: e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+Nov  8 17:02:00 boxlab4 kernel: e1000: Copyright (c) 1999-2006 Intel Corporation.
+Nov  8 17:02:00 boxlab4 kernel: sd 0:0:0:0: Attached scsi generic sg0 type 0
+Nov  8 17:02:00 boxlab4 kernel: sd 3:0:0:0: Attached scsi generic sg1 type 0
+Nov  8 17:02:01 boxlab4 kernel: input: PC Speaker as /devices/platform/pcspkr/input/input5
+Nov  8 17:02:01 boxlab4 systemd: Created slice system-lvm2\x2dpvscan.slice.
+Nov  8 17:02:01 boxlab4 systemd: Starting system-lvm2\x2dpvscan.slice.
+Nov  8 17:02:01 boxlab4 systemd: Starting LVM2 PV scan on device 8:3...
+Nov  8 17:02:01 boxlab4 systemd: Found device VBOX_HARDDISK 2.
+Nov  8 17:02:01 boxlab4 lvm: 2 logical volume(s) in volume group "VolGroup00" monitored
+Nov  8 17:02:01 boxlab4 systemd: Started Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling.
+Nov  8 17:02:01 boxlab4 systemd: Reached target Local File Systems (Pre).
+Nov  8 17:02:01 boxlab4 systemd: Starting Local File Systems (Pre).
+Nov  8 17:02:01 boxlab4 systemd: Mounting /boot...
+Nov  8 17:02:01 boxlab4 systemd: Found device /dev/mapper/VolGroup00-LogVol01.
+Nov  8 17:02:01 boxlab4 systemd: Activating swap /dev/mapper/VolGroup00-LogVol01...
+Nov  8 17:02:01 boxlab4 kernel: ppdev: user-space parallel port driver
+Nov  8 17:02:01 boxlab4 kernel: XFS (sda2): Mounting V5 Filesystem
+Nov  8 17:02:01 boxlab4 lvm: 2 logical volume(s) in volume group "VolGroup00" now active
+Nov  8 17:02:01 boxlab4 kernel: Adding 1572860k swap on /dev/mapper/VolGroup00-LogVol01.  Priority:-1 extents:1 across:1572860k FS
+Nov  8 17:02:01 boxlab4 kernel: XFS (sda2): Ending clean mount
+Nov  8 17:02:01 boxlab4 systemd: Activated swap /dev/mapper/VolGroup00-LogVol01.
+Nov  8 17:02:01 boxlab4 systemd: Mounted /boot.
+Nov  8 17:02:01 boxlab4 systemd: Started LVM2 PV scan on device 8:3.
+Nov  8 17:02:01 boxlab4 systemd: Reached target Local File Systems.
+Nov  8 17:02:01 boxlab4 systemd: Starting Local File Systems.
+Nov  8 17:02:01 boxlab4 systemd: Starting Tell Plymouth To Write Out Runtime Data...
+Nov  8 17:02:01 boxlab4 systemd: Starting Preprocess NFS configuration...
+Nov  8 17:02:01 boxlab4 systemd: Starting Create Volatile Files and Directories...
+Nov  8 17:02:01 boxlab4 systemd: Starting Migrate local SELinux policy changes from the old store structure to the new structure...
+Nov  8 17:02:01 boxlab4 systemd: Failed at step STDIN spawning /usr/libexec/selinux/selinux-policy-migrate-local-changes.sh: Inappropriate ioctl for device
+Nov  8 17:02:01 boxlab4 systemd: Reached target Swap.
+Nov  8 17:02:01 boxlab4 systemd: Starting Swap.
+Nov  8 17:02:01 boxlab4 systemd: Started Tell Plymouth To Write Out Runtime Data.
+Nov  8 17:02:01 boxlab4 systemd: selinux-policy-migrate-local-changes@targeted.service: main process exited, code=exited, status=208/STDIN
+Nov  8 17:02:01 boxlab4 systemd: Failed to start Migrate local SELinux policy changes from the old store structure to the new structure.
+Nov  8 17:02:01 boxlab4 systemd: Unit selinux-policy-migrate-local-changes@targeted.service entered failed state.
+Nov  8 17:02:01 boxlab4 systemd: selinux-policy-migrate-local-changes@targeted.service failed.
+Nov  8 17:02:01 boxlab4 systemd: Started Preprocess NFS configuration.
+Nov  8 17:02:01 boxlab4 systemd: Started Create Volatile Files and Directories.
+Nov  8 17:02:01 boxlab4 systemd: Starting Security Auditing Service...
+Nov  8 17:02:01 boxlab4 systemd: Mounting RPC Pipe File System...
+Nov  8 17:02:01 boxlab4 auditd[588]: Started dispatcher: /sbin/audispd pid: 590
+Nov  8 17:02:01 boxlab4 kernel: type=1305 audit(1541685721.761:4): audit_pid=588 old=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:auditd_t:s0 res=1
+Nov  8 17:02:01 boxlab4 audispd: No plugins found, exiting
+Nov  8 17:02:01 boxlab4 auditd[588]: dispatcher 590 reaped
+Nov  8 17:02:01 boxlab4 kernel: RPC: Registered named UNIX socket transport module.
+Nov  8 17:02:01 boxlab4 kernel: RPC: Registered udp transport module.
+Nov  8 17:02:01 boxlab4 kernel: RPC: Registered tcp transport module.
+Nov  8 17:02:01 boxlab4 kernel: RPC: Registered tcp NFSv4.1 backchannel transport module.
+Nov  8 17:02:01 boxlab4 systemd: Mounted RPC Pipe File System.
+Nov  8 17:02:01 boxlab4 systemd: Reached target rpc_pipefs.target.
+Nov  8 17:02:01 boxlab4 systemd: Starting rpc_pipefs.target.
+Nov  8 17:02:01 boxlab4 auditd[588]: Init complete, auditd 2.8.1 listening for events (startup state enable)
+Nov  8 17:02:01 boxlab4 augenrules: /sbin/augenrules: No change
+Nov  8 17:02:01 boxlab4 systemd: Started Security Auditing Service.
+Nov  8 17:02:01 boxlab4 systemd: Starting Update UTMP about System Boot/Shutdown...
+Nov  8 17:02:01 boxlab4 systemd: Started Update UTMP about System Boot/Shutdown.
+Nov  8 17:02:01 boxlab4 systemd: Reached target System Initialization.
+Nov  8 17:02:01 boxlab4 systemd: Starting System Initialization.
+Nov  8 17:02:01 boxlab4 systemd: Listening on RPCbind Server Activation Socket.
+Nov  8 17:02:01 boxlab4 systemd: Starting RPCbind Server Activation Socket.
+Nov  8 17:02:01 boxlab4 systemd: Starting RPC bind service...
+Nov  8 17:02:01 boxlab4 systemd: Started Daily Cleanup of Temporary Directories.
+Nov  8 17:02:01 boxlab4 systemd: Starting Daily Cleanup of Temporary Directories.
+Nov  8 17:02:01 boxlab4 systemd: Reached target Timers.
+Nov  8 17:02:01 boxlab4 systemd: Starting Timers.
+Nov  8 17:02:01 boxlab4 systemd: Listening on D-Bus System Message Bus Socket.
+Nov  8 17:02:02 boxlab4 systemd: Starting D-Bus System Message Bus Socket.
+Nov  8 17:02:02 boxlab4 systemd: Reached target Sockets.
+Nov  8 17:02:02 boxlab4 systemd: Starting Sockets.
+Nov  8 17:02:02 boxlab4 systemd: Reached target Basic System.
+Nov  8 17:02:02 boxlab4 systemd: Starting Basic System.
+Nov  8 17:02:02 boxlab4 systemd: Starting Authorization Manager...
+Nov  8 17:02:02 boxlab4 systemd: Starting Login Service...
+Nov  8 17:02:02 boxlab4 kernel: e1000 0000:00:03.0 eth0: (PCI:33MHz:32-bit) 52:54:00:c9:c7:04
+Nov  8 17:02:02 boxlab4 kernel: e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+Nov  8 17:02:02 boxlab4 kernel: vgdrvHeartbeatInit: Setting up heartbeat to trigger every 2000 milliseconds
+Nov  8 17:02:02 boxlab4 kernel: input: Unspecified device as /devices/pci0000:00/0000:00:04.0/input/input6
+Nov  8 17:02:02 boxlab4 kernel: vboxguest: misc device minor 58, IRQ 20, I/O port d020, MMIO at 00000000f0400000 (size 0x400000)
+Nov  8 17:02:02 boxlab4 systemd: Started irqbalance daemon.
+Nov  8 17:02:02 boxlab4 systemd: Starting irqbalance daemon...
+Nov  8 17:02:02 boxlab4 systemd: Started D-Bus System Message Bus.
+Nov  8 17:02:02 boxlab4 /usr/sbin/irqbalance: Balancing is ineffective on systems with a single cpu.  Shutting down
+Nov  8 17:02:02 boxlab4 polkitd[610]: Started polkitd version 0.112
+Nov  8 17:02:02 boxlab4 systemd: Starting D-Bus System Message Bus...
+Nov  8 17:02:02 boxlab4 systemd: Starting GSSAPI Proxy Daemon...
+Nov  8 17:02:02 boxlab4 systemd: Starting vboxadd.service...
+Nov  8 17:02:02 boxlab4 systemd: Starting Network Manager...
+Nov  8 17:02:02 boxlab4 systemd: Starting Dump dmesg to /var/log/dmesg...
+Nov  8 17:02:02 boxlab4 systemd: Starting NTP client/server...
+Nov  8 17:02:02 boxlab4 systemd: Started RPC bind service.
+Nov  8 17:02:02 boxlab4 systemd-logind: Watching system buttons on /dev/input/event0 (Power Button)
+Nov  8 17:02:02 boxlab4 systemd-logind: Watching system buttons on /dev/input/event1 (Sleep Button)
+Nov  8 17:02:02 boxlab4 systemd-logind: Watching system buttons on /dev/input/event4 (Video Bus)
+Nov  8 17:02:02 boxlab4 systemd-logind: New seat seat0.
+Nov  8 17:02:02 boxlab4 systemd: Started Authorization Manager.
+Nov  8 17:02:02 boxlab4 systemd: Started Login Service.
+Nov  8 17:02:02 boxlab4 systemd: Started Dump dmesg to /var/log/dmesg.
+Nov  8 17:02:02 boxlab4 chronyd[637]: chronyd version 3.2 starting (+CMDMON +NTP +REFCLOCK +RTC +PRIVDROP +SCFILTER +SECHASH +SIGND +ASYNCDNS +IPV6 +DEBUG)
+Nov  8 17:02:02 boxlab4 systemd: Started GSSAPI Proxy Daemon.
+Nov  8 17:02:02 boxlab4 chronyd[637]: Frequency -93.202 +/- 47.969 ppm read from /var/lib/chrony/drift
+Nov  8 17:02:02 boxlab4 systemd: Reached target NFS client services.
+Nov  8 17:02:02 boxlab4 systemd: Starting NFS client services.
+Nov  8 17:02:02 boxlab4 systemd: Reached target Remote File Systems (Pre).
+Nov  8 17:02:02 boxlab4 systemd: Starting Remote File Systems (Pre).
+Nov  8 17:02:02 boxlab4 systemd: Reached target Remote File Systems.
+Nov  8 17:02:02 boxlab4 systemd: Starting Remote File Systems.
+Nov  8 17:02:02 boxlab4 systemd: Starting Permit User Sessions...
+Nov  8 17:02:02 boxlab4 NetworkManager[623]: <info>  [1541685722.4154] NetworkManager (version 1.10.2-13.el7) is starting... (for the first time)
+Nov  8 17:02:02 boxlab4 systemd: Started NTP client/server.
+Nov  8 17:02:02 boxlab4 NetworkManager[623]: <info>  [1541685722.4208] Read config: /etc/NetworkManager/NetworkManager.conf (lib: 10-slaves-order.conf)
+Nov  8 17:02:02 boxlab4 systemd: Started Permit User Sessions.
+Nov  8 17:02:02 boxlab4 systemd: Started Command Scheduler.
+Nov  8 17:02:02 boxlab4 systemd: Starting Command Scheduler...
+Nov  8 17:02:02 boxlab4 systemd: Starting Terminate Plymouth Boot Screen...
+Nov  8 17:02:02 boxlab4 systemd: Starting Wait for Plymouth Boot Screen to Quit...
+Nov  8 17:02:02 boxlab4 systemd: Received SIGRTMIN+21 from PID 224 (plymouthd).
+Nov  8 17:02:02 boxlab4 systemd: Started Terminate Plymouth Boot Screen.
+Nov  8 17:02:02 boxlab4 systemd: Started Wait for Plymouth Boot Screen to Quit.
+Nov  8 17:02:02 boxlab4 NetworkManager[623]: <info>  [1541685722.4896] manager[0x562d38e38080]: monitoring kernel firmware directory '/lib/firmware'.
+Nov  8 17:02:02 boxlab4 dbus[614]: [system] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service'
+Nov  8 17:02:02 boxlab4 systemd: Starting Hostname Service...
+Nov  8 17:02:02 boxlab4 systemd: Started Getty on tty1.
+Nov  8 17:02:02 boxlab4 systemd: Starting Getty on tty1...
+Nov  8 17:02:02 boxlab4 systemd: Reached target Login Prompts.
+Nov  8 17:02:02 boxlab4 systemd: Starting Login Prompts.
+Nov  8 17:02:02 boxlab4 dbus[614]: [system] Successfully activated service 'org.freedesktop.hostname1'
+Nov  8 17:02:02 boxlab4 NetworkManager[623]: <info>  [1541685722.6956] hostname: hostname: using hostnamed
+Nov  8 17:02:02 boxlab4 NetworkManager[623]: <info>  [1541685722.6959] hostname: hostname changed from (none) to "boxlab4"
+Nov  8 17:02:02 boxlab4 NetworkManager[623]: <info>  [1541685722.6966] dns-mgr[0x562d38e4e950]: init: dns=default, rc-manager=file
+Nov  8 17:02:02 boxlab4 dbus[614]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service'
+Nov  8 17:02:02 boxlab4 systemd: Started Hostname Service.
+Nov  8 17:02:02 boxlab4 systemd: Started Network Manager.
+Nov  8 17:02:02 boxlab4 systemd: Starting Network Manager Script Dispatcher Service...
+Nov  8 17:02:02 boxlab4 systemd: Starting Network Manager Wait Online...
+Nov  8 17:02:02 boxlab4 dbus[614]: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+Nov  8 17:02:02 boxlab4 systemd: Started Network Manager Script Dispatcher Service.
+Nov  8 17:02:02 boxlab4 NetworkManager[623]: <info>  [1541685722.9951] settings: loaded plugin ifcfg-rh: (c) 2007 - 2015 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list. (/usr/lib64/NetworkManager/libnm-settings-plugin-ifcfg-rh.so)
+Nov  8 17:02:02 boxlab4 NetworkManager[623]: <info>  [1541685722.9970] settings: loaded plugin iBFT: (c) 2014 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list. (/usr/lib64/NetworkManager/libnm-settings-plugin-ibft.so)
+Nov  8 17:02:02 boxlab4 NetworkManager[623]: <info>  [1541685722.9971] settings: loaded plugin keyfile: (c) 2007 - 2016 Red Hat, Inc.  To report bugs please use the NetworkManager mailing list.
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685722.9986] ifcfg-rh: new connection /etc/sysconfig/network-scripts/ifcfg-eth0 (5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03,"System eth0")
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0162] manager: rfkill: WiFi enabled by radio killswitch; enabled by state file
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0166] manager: rfkill: WWAN enabled by radio killswitch; enabled by state file
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0170] manager: Networking is enabled by state file
+Nov  8 17:02:03 boxlab4 nm-dispatcher: req:1 'hostname': new request (3 scripts)
+Nov  8 17:02:03 boxlab4 nm-dispatcher: req:1 'hostname': start running ordered scripts...
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0197] dhcp-init: Using DHCP client 'dhclient'
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0203] Loaded device plugin: NMBondDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0203] Loaded device plugin: NMBridgeDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0203] Loaded device plugin: NMDummyDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0204] Loaded device plugin: NMEthernetDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0204] Loaded device plugin: NMInfinibandDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0204] Loaded device plugin: NMIPTunnelDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0204] Loaded device plugin: NMMacsecDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0205] Loaded device plugin: NMMacvlanDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0205] Loaded device plugin: NMPppDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0205] Loaded device plugin: NMTunDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0205] Loaded device plugin: NMVethDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0206] Loaded device plugin: NMVlanDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0206] Loaded device plugin: NMVxlanDeviceFactory (internal)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0287] Loaded device plugin: NMTeamFactory (/usr/lib64/NetworkManager/libnm-device-plugin-team.so)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0532] device (lo): carrier: link connected
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0666] manager: (lo): new Generic device (/org/freedesktop/NetworkManager/Devices/1)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.0751] manager: (eth0): new Ethernet device (/org/freedesktop/NetworkManager/Devices/2)
+Nov  8 17:02:03 boxlab4 NetworkManager[623]: <info>  [1541685723.1016] device (eth0): state change: unmanaged -> unavailable (reason 'managed', sys-iface-state: 'external')
+Nov  8 17:02:03 boxlab4 kernel: IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Nov  8 17:02:03 boxlab4 kernel: IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Nov  8 17:02:03 boxlab4 kernel: snd_intel8x0 0000:00:05.0: intel8x0_measure_ac97_clock: measured 50369 usecs (33600 samples)
+Nov  8 17:02:03 boxlab4 kernel: snd_intel8x0 0000:00:05.0: measured clock 667076 rejected
+Nov  8 17:02:03 boxlab4 vboxadd: VirtualBox Guest Additions: Starting.
+Nov  8 17:02:03 boxlab4 kernel: snd_intel8x0 0000:00:05.0: intel8x0_measure_ac97_clock: measured 51111 usecs (33600 samples)
+Nov  8 17:02:03 boxlab4 kernel: snd_intel8x0 0000:00:05.0: measured clock 657392 rejected
+Nov  8 17:02:04 boxlab4 kernel: snd_intel8x0 0000:00:05.0: intel8x0_measure_ac97_clock: measured 51433 usecs (33600 samples)
+Nov  8 17:02:04 boxlab4 kernel: snd_intel8x0 0000:00:05.0: measured clock 653277 rejected
+Nov  8 17:02:04 boxlab4 kernel: snd_intel8x0 0000:00:05.0: clocking to 48000
+Nov  8 17:02:04 boxlab4 kernel: [drm] VRAM 01000000
+Nov  8 17:02:04 boxlab4 systemd: Reached target Sound Card.
+Nov  8 17:02:04 boxlab4 systemd: Starting Sound Card.
+Nov  8 17:02:04 boxlab4 kernel: [TTM] Zone  kernel: Available graphics memory: 507754 kiB
+Nov  8 17:02:04 boxlab4 kernel: [TTM] Initializing pool allocator
+Nov  8 17:02:04 boxlab4 kernel: [TTM] Initializing DMA pool allocator
+Nov  8 17:02:04 boxlab4 kernel: fbcon: vboxdrmfb (fb0) is primary device
+Nov  8 17:02:04 boxlab4 kernel: Console: switching to colour frame buffer device 100x37
+Nov  8 17:02:04 boxlab4 kernel: vboxvideo 0000:00:02.0: fb0: vboxdrmfb frame buffer device
+Nov  8 17:02:04 boxlab4 kernel: [drm] Initialized vboxvideo 1.0.0 20130823 for 0000:00:02.0 on minor 0
+Nov  8 17:02:04 boxlab4 systemd: Started vboxadd.service.
+Nov  8 17:02:04 boxlab4 systemd: Starting vboxadd-service.service...
+Nov  8 17:02:04 boxlab4 vboxadd-service: vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Nov  8 17:02:04 boxlab4 vboxadd-service.sh: Starting VirtualBox Guest Addition service.
+Nov  8 17:02:04 boxlab4 kernel: VBoxService 5.2.20 r125813 (verbosity: 0) linux.amd64 (Oct 15 2018 16:24:17) release log#01200:00:00.000257 main     Log opened 2018-11-08T14:02:04.715440000Z
+Nov  8 17:02:04 boxlab4 kernel: 00:00:00.000388 main     OS Product: Linux
+Nov  8 17:02:04 boxlab4 kernel: 00:00:00.000436 main     OS Release: 3.10.0-862.2.3.el7.x86_64
+Nov  8 17:02:04 boxlab4 kernel: 00:00:00.000487 main     OS Version: #1 SMP Wed May 9 18:05:47 UTC 2018
+Nov  8 17:02:04 boxlab4 kernel: 00:00:00.000525 main     Executable: /opt/VBoxGuestAdditions-5.2.20/sbin/VBoxService#01200:00:00.000527 main     Process ID: 755#01200:00:00.000528 main     Package type: LINUX_64BITS_GENERIC
+Nov  8 17:02:04 boxlab4 vboxadd-service.sh: VirtualBox Guest Addition service started.
+Nov  8 17:02:04 boxlab4 kernel: 00:00:00.002445 main     5.2.20 r125813 started. Verbose level = 0
+Nov  8 17:02:04 boxlab4 systemd: Started vboxadd-service.service.
+Nov  8 17:02:05 boxlab4 kernel: e1000: eth0 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+Nov  8 17:02:05 boxlab4 kernel: IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1212] device (eth0): carrier: link connected
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1250] device (eth0): state change: unavailable -> disconnected (reason 'carrier-changed', sys-iface-state: 'managed')
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1300] policy: auto-activating connection 'System eth0'
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1324] device (eth0): Activation: starting connection 'System eth0' (5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03)
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1335] device (eth0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1344] manager: NetworkManager state is now CONNECTING
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1367] device (eth0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1387] device (eth0): state change: config -> ip-config (reason 'none', sys-iface-state: 'managed')
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1413] dhcp4 (eth0): activation: beginning transaction (timeout in 45 seconds)
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1470] dhcp4 (eth0): dhclient started with pid 768
+Nov  8 17:02:05 boxlab4 dhclient[768]: DHCPREQUEST on eth0 to 255.255.255.255 port 67 (xid=0x23d07663)
+Nov  8 17:02:05 boxlab4 dhclient[768]: DHCPACK from 10.0.2.2 (xid=0x23d07663)
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1974] dhcp4 (eth0):   address 10.0.2.15
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1974] dhcp4 (eth0):   plen 24 (255.255.255.0)
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1974] dhcp4 (eth0):   gateway 10.0.2.2
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1974] dhcp4 (eth0):   lease time 86400
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1975] dhcp4 (eth0):   nameserver '10.0.2.3'
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1975] dhcp4 (eth0):   domain name 'msk.ritek'
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1975] dhcp4 (eth0): state changed unknown -> bound
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1984] device (eth0): state change: ip-config -> ip-check (reason 'none', sys-iface-state: 'managed')
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1991] device (eth0): state change: ip-check -> secondaries (reason 'none', sys-iface-state: 'managed')
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1993] device (eth0): state change: secondaries -> activated (reason 'none', sys-iface-state: 'managed')
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.1995] manager: NetworkManager state is now CONNECTED_LOCAL
+Nov  8 17:02:05 boxlab4 dhclient[768]: bound to 10.0.2.15 -- renewal in 39826 seconds.
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.2111] manager: NetworkManager state is now CONNECTED_SITE
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.2112] policy: set 'System eth0' (eth0) as default for IPv4 routing and DNS
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.2134] device (eth0): Activation: successful, device activated.
+Nov  8 17:02:05 boxlab4 nm-dispatcher: req:2 'up' [eth0]: new request (3 scripts)
+Nov  8 17:02:05 boxlab4 nm-dispatcher: req:2 'up' [eth0]: start running ordered scripts...
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.2163] manager: startup complete
+Nov  8 17:02:05 boxlab4 NetworkManager[623]: <info>  [1541685725.2242] manager: NetworkManager state is now CONNECTED_GLOBAL
+Nov  8 17:02:05 boxlab4 systemd: Started Network Manager Wait Online.
+Nov  8 17:02:05 boxlab4 systemd: Starting LSB: Bring up/down networking...
+Nov  8 17:02:05 boxlab4 nm-dispatcher: req:3 'connectivity-change': new request (3 scripts)
+Nov  8 17:02:05 boxlab4 nm-dispatcher: req:3 'connectivity-change': start running ordered scripts...
+Nov  8 17:02:05 boxlab4 network: Bringing up loopback interface:  [  OK  ]
+Nov  8 17:02:05 boxlab4 network: Bringing up interface eth0:  [  OK  ]
+Nov  8 17:02:05 boxlab4 systemd: Started LSB: Bring up/down networking.
+Nov  8 17:02:05 boxlab4 systemd: Reached target Network.
+Nov  8 17:02:05 boxlab4 systemd: Starting Network.
+Nov  8 17:02:05 boxlab4 systemd: Starting Postfix Mail Transport Agent...
+Nov  8 17:02:05 boxlab4 systemd: Starting OpenSSH server daemon...
+Nov  8 17:02:05 boxlab4 systemd: Starting Dynamic System Tuning Daemon...
+Nov  8 17:02:05 boxlab4 systemd: Reached target Network is Online.
+Nov  8 17:02:05 boxlab4 systemd: Starting Network is Online.
+Nov  8 17:02:05 boxlab4 systemd: Starting Notify NFS peers of a restart...
+Nov  8 17:02:05 boxlab4 systemd: Starting System Logging Service...
+Nov  8 17:02:05 boxlab4 sm-notify[963]: Version 1.3.0 starting
+Nov  8 17:02:05 boxlab4 systemd: Started Notify NFS peers of a restart.
+Nov  8 17:02:05 boxlab4 rsyslogd: [origin software="rsyslogd" swVersion="8.24.0" x-pid="964" x-info="http://www.rsyslog.com"] start
+Nov  8 17:02:05 boxlab4 systemd: Started System Logging Service.
+Nov  8 17:02:05 boxlab4 systemd: Started OpenSSH server daemon.
+Nov  8 17:02:06 boxlab4 systemd: Started Postfix Mail Transport Agent.
+Nov  8 17:02:06 boxlab4 systemd: Started Dynamic System Tuning Daemon.
+Nov  8 17:02:06 boxlab4 systemd: Reached target Multi-User System.
+Nov  8 17:02:06 boxlab4 systemd: Starting Multi-User System.
+Nov  8 17:02:06 boxlab4 systemd: Starting Update UTMP about System Runlevel Changes...
+Nov  8 17:02:06 boxlab4 systemd: Started Update UTMP about System Runlevel Changes.
+Nov  8 17:02:06 boxlab4 systemd: Startup finished in 332ms (kernel) + 10.610s (initrd) + 6.795s (userspace) = 17.738s.
+Nov  8 17:02:12 boxlab4 chronyd[637]: Selected source 87.255.0.139
+Nov  8 17:02:12 boxlab4 chronyd[637]: System clock wrong by 1.490938 seconds, adjustment started
+Nov  8 17:02:12 boxlab4 chronyd[637]: System clock was stepped by 1.490938 seconds
+Nov  8 17:02:12 boxlab4 systemd: Time has been changed
+Nov  8 17:02:13 boxlab4 chronyd[637]: Selected source 62.33.136.11
+Nov  8 17:03:18 boxlab4 chronyd[637]: Source 94.100.192.29 replaced with 80.93.50.95
+Nov  8 17:03:47 boxlab4 systemd: Created slice User Slice of vagrant.
+Nov  8 17:03:47 boxlab4 systemd: Starting User Slice of vagrant.
+Nov  8 17:03:47 boxlab4 systemd: Started Session 1 of user vagrant.
+Nov  8 17:03:47 boxlab4 systemd-logind: New session 1 of user vagrant.
+Nov  8 17:03:47 boxlab4 systemd: Starting Session 1 of user vagrant.
+Nov  8 17:05:16 boxlab4 systemd: Started Session 2 of user vagrant.
+Nov  8 17:05:16 boxlab4 systemd-logind: New session 2 of user vagrant.
+Nov  8 17:05:16 boxlab4 systemd: Starting Session 2 of user vagrant.
+Nov  8 17:05:16 boxlab4 systemd-logind: Removed session 2.
