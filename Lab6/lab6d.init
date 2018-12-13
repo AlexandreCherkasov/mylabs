@@ -1,0 +1,72 @@
+#!/bin/bash
+#
+# lab6d		This shell script takes care of starting and stopping lab6.
+#
+# chkconfig: - 90 10
+# description: lab6d daemon. Lab6 is used to parse log file 
+#
+
+### BEGIN INIT INFO
+# Provides: lab6d
+# Required-Start: $local_fs $remote_fs $syslog
+# Required-Stop: $local_fs $remote_fs $syslog
+# Default-Start:      2 3 4 5
+# Default-Stop:       0 1 6
+# Short-Description: start and stop lab6d
+# Description: Lab6 is used to parse log file 
+### END INIT INFO
+
+# Source function library.
+. /etc/init.d/functions
+
+PROG=lab6
+PROGPATH=/usr/bin
+PROGLOCK=/var/lock/subsys/$PROG
+PROGPID=/var/run/$PROG\.pid
+
+start() {
+    [ -x $PROGPATH/$PROG ] || exit 5
+    [ -f /etc/sysconfig/$PROG ] || exit 6
+    . /etc/sysconfig/$PROG
+
+    # Start daemons.
+    echo -n $"Starting $PROG ..."
+    daemon $PROG $FINDWORD $LOGFILE
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $PROGLOCK
+    if [ -f $PROGLOCK ]; then
+       pid=`ps -o comm= -o pid= --ppid=1 | awk "/^$PROG / {print \\$2}" 2>/dev/null`;
+       [ -z "$pid" ] || echo $pid > $PROGPID
+    fi
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Shutting down $PROG: "
+    killproc $PROG
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $PROGLOCK
+    return $RETVAL
+}
+
+# See how we were called.
+case "$1" in
+   start)
+      start
+	  ;;
+   stop)
+      stop
+      ;;
+   status)
+      status $PROG
+      ;;
+   restart)
+      stop
+      start
+      ;;
+   *)
+      echo $"Usage: $0 {start|stop|status|restart}"
+      exit 0
+esac

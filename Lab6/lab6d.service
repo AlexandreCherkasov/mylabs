@@ -1,0 +1,16 @@
+[Unit]
+Description=Lab6 is used to parse log file
+After=syslog.target
+
+[Service]
+Type=simple
+User=vagrant
+Group=vagrant
+PIDFile=/var/run/lab6.pid
+EnvironmentFile=/etc/sysconfig/lab6
+ExecStart=/usr/bin/lab6 $FINDWORD $LOGFILE
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

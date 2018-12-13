@@ -1,0 +1,2 @@
+FINDWORD=webadmin
+LOGFILE=/vagrant/error.log

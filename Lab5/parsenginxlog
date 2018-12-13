@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PARSESCRIPT=/vagrant/lab5.sh
+REPORT_EMAIL=vagrant
+OUTFILE=/vagrant/lab5_$(date +%Y%m%d-%k%M).log
+
+if [ -x "$PARSESCRIPT" ]; then
+   $PARSESCRIPT > $OUTFILE
+else
+   echo "Parsing Script not found! " > $OUTFILE
+fi
+
+if [ -s "$OUTFILE" ]; then
+   (
+     echo "Subject: [Parsing Nginx Log] $(hostname) - report"
+     echo "To: $REPORT_EMAIL"
+     echo ""
+     cat $OUTFILE
+   ) | /usr/sbin/sendmail $REPORT_EMAIL
+fi
+#rm -f $OUTFILE

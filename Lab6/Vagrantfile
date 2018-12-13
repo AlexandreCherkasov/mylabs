@@ -5,12 +5,12 @@ home = ENV["HOME"]
 ENV["LC_ALL"] = "en_US.UTF-8"
 
 MACHINES = {
-  :boxlab4 => {
+  :boxlab6 => {
     :box_name => "centos/7",
     :box_version => "1804.02",
     :disks => {
       :sata1 => {
-        :dfile => File.join(home, "VirtualMachine/box-lab4/lab4disk1.vdi"),
+        :dfile => File.join(home, "VirtualMachine/box-labi6/lab6disk1.vdi"),
         :size => 100,
         :port => 1
       }
@@ -29,9 +29,8 @@ Vagrant.configure("2") do |config|
       box.vm.host_name = boxname.to_s
 
       box.vm.provider :virtualbox do |vb|
-        vb.name = "box-lab4"
+        vb.name = "box-lab6"
         vb.customize ["modifyvm", :id, "--memory", "1024"]
-        #vb.customize ["storageattach", :id, "--storagectl", "IDE", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", File.join(home, "VirtualMachine/CentOS-7-x86_64-Minimal-1804.iso") ]
         needsController = false
         boxconfig[:disks].each do |dname, dconf|
           unless File.exist?(dconf[:dfile])
@@ -50,7 +49,19 @@ Vagrant.configure("2") do |config|
       box.vm.provision "shell", inline: <<-SHELL
         sudo timedatectl set-timezone Europe/Moscow
         sudo yum install vim-enhanced -y
-  	  SHELL
+        echo "Install and Start lab6d daemon - Init version"
+        sudo cp /vagrant/lab6.init /usr/bin/lab6 && sudo cp /vagrant/lab6.sysconfig /etc/sysconfig/lab6 && sudo cp /vagrant/lab6d.init /etc/init.d/lab6d
+        [ -x /etc/init.d/lab6d ] && sudo /etc/init.d/lab6d start
+        sleep 120
+        echo "Stop and Remove lab6d - Init version"
+        sudo /etc/init.d/lab6d stop
+        sudo /bin/rm -f /etc/init.d/lab6d
+        sudo /bin/rm -f /usr/bin/lab6
+        sudo /bin/rm -f /vagrant/lab6line
+        echo "Install and Start lab6d daemon - Systemd version"
+        sudo cp /vagrant/lab6.systemd /usr/bin/lab6 && sudo cp /vagrant/lab6d.service /etc/systemd/system/lab6d.service
+        [ -f /etc/systemd/system/lab6d.service ] && sudo systemctl daemon-reload && sudo systemctl enable lab6d && sudo systemctl start lab6d
+      SHELL
 
     end
   end

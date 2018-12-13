@@ -1,0 +1,53 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+   exit 1
+fi
+
+FINDWORD=$1
+LOGFILE=$2
+WD=/vagrant
+LINELOG=$WD/lab6line
+LOGTEMP=`mktemp` || exit 1
+
+exec >> $WD/lab6-systemd.log
+exec 2> /dev/null
+
+trap 'rm -f "$LOGTEMP"' INT TERM EXIT
+
+   # current line in log
+   LINECURR=0
+   # last line in log
+   LINEEND=`wc -l $LOGFILE | awk '{print $1}'`
+
+   if [ -f $LINELOG ]; then
+      # get saved string number
+      LINECURR=`cat $LINELOG`
+   fi 
+
+   # check log modify
+   if [ $LINECURR -ne $LINEEND ]; then
+      # copy log part in temp file, from current to last lines
+      FILEPART=$(($LINECURR+1))","$LINEEND"p"
+      sed -n $FILEPART $LOGFILE > "$LOGTEMP"
+      if [ $? -eq 0 ]; then
+         FINDRESULT=`grep -i "$FINDWORD" "$LOGTEMP"`
+         if [ $? -eq 0 ]; then
+            echo "####### START #########################################"
+            echo "Log File Range Processed from string: $(($LINECURR+1))"
+            echo "                           to string: $LINEEND"
+            echo
+            echo "$FINDRESULT"
+            echo
+            echo "####### FINISH ########################################"
+         fi
+         # Save last processed line
+         if [ -f $LINELOG ]; then
+            cat /dev/null > "$LINELOG"
+         fi
+         echo $LINEEND >> "$LINELOG"
+      fi
+   fi
+
+rm -f "$LOGTEMP"
+trap - INT TERM EXIT
